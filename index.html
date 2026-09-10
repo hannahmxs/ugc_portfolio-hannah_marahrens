@@ -37,13 +37,14 @@
       color: var(--ink);
       background: var(--paper);
       line-height: 1.6;
+      letter-spacing: 0.03em; /* Minimal erweitertes Letter Spacing */
     }
     .section {
       max-width: 1100px;
       margin: 0 auto;
       padding: 6rem 1.5rem;
     }
-    h1, h2, h3 { margin: 0; font-weight: 600; }
+    h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: 0.04em; }
     a { color: var(--ink); text-decoration: none; }
     
     .icon-inline {
@@ -56,14 +57,13 @@
       object-fit: contain;
     }
 
-    /* Spezial-Filter für die Footer-Icons, damit sie auf dem Gelb schwarz werden */
     .footer-icon {
       filter: brightness(0);
     }
 
     .eyebrow {
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       font-size: 1.35rem;
       font-weight: 600;
     }
@@ -102,9 +102,9 @@
       font-size: 1.8rem;
     }
     .hero-top h1 {
-      font-size: 100px;
-      line-height: 1.02;
-      letter-spacing: 0.01em;
+      font-size: 60px; /* Um 40 Punkt verkleinert (von 100px auf 60px) */
+      line-height: 1.08;
+      letter-spacing: 0.03em;
       font-weight: 600; 
       text-transform: uppercase;
     }
@@ -147,18 +147,18 @@
       position: relative;
     }
     
-    /* FIX: Erzwingt, dass die Bilder nach rechts geschoben werden */
+    /* URSPRÜNGLICHER ZUSTAND WIEDERHERGESTELLT (Kein Abschneiden, kein Transform) */
     .media-img-format {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: translateX(12%); /* Schiebt das Bild Stück für Stück nach rechts */
+      object-position: center;
+      display: block;
     }
 
     @media (max-width: 800px) {
       .intro { grid-template-columns: 1fr; }
       .fullscreen-slide { height: auto; min-height: auto; padding: 4rem 0; }
-      .media-img-format { transform: none; }
     }
 
     /* ---------- PHONE MOCKUP ---------- */
@@ -358,7 +358,7 @@
     .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; background: #ddd; display: block; }
     @media (max-width: 768px) { .trio-portrait { grid-template-columns: 1fr; gap: 1rem; } .trio-portrait img { height: auto; aspect-ratio: 9 / 16; } }
 
-    /* ---------- ABSCHLUSS & NEUER FOOTER ---------- */
+    /* ---------- ABSCHLUSS & FOOTER ---------- */
     .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
     .closing-img {
       position: relative;
@@ -384,10 +384,9 @@
       font-weight: 600;
       font-size: 48px;
       line-height: 1.15;
-      padding: 0 5rem 9rem 5rem;
+      padding: 0 5rem 5rem 5rem; /* Noch ein gutes Stück weiter nach unten gesetzt */
     }
     
-    /* Schlanker gelber Streifen */
     .closing-bar {
       background: var(--lime);
       display: flex;
@@ -404,7 +403,6 @@
       align-items: center;
     }
 
-    /* Neuer separat farbiger Latz (Lila) für Rechtliches & Footnote */
     .footer-bottom-bar {
       background: var(--lavender);
       display: flex;
@@ -436,7 +434,7 @@
       margin: 0;
     }
 
-    /* Modals */
+    /* Modals (bleiben dank JS-Befehl an aktueller Position beim Schließen) */
     .modal {
       display: none;
       position: fixed;
@@ -469,25 +467,29 @@
       cursor: pointer;
     }
 
-    /* SCROLL TO TOP */
+    /* SCROLL TO TOP (Transparenter & erst ab Folie 2 sichtbar durch JS-Steuerung) */
     .scroll-top-btn {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
       width: 48px;
       height: 48px;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.2); /* Sehr dezent / transparent */
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 50%;
-      display: flex;
+      display: none; /* Standardmäßig auf Hero ausgeblendet */
       align-items: center;
       justify-content: center;
       color: var(--ink);
       font-size: 22px;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
       z-index: 999;
+      transition: background 0.3s;
+    }
+    .scroll-top-btn:hover {
+      background: rgba(255, 255, 255, 0.5);
     }
   </style>
 </head>
@@ -816,13 +818,11 @@
     <div class="closing-text-box">Lust auf eine<br>Zusammenarbeit?</div>
   </div>
   
-  <!-- Schlanker gelber Streifen mit Kontaktdaten & Icons -->
   <div class="closing-bar">
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline footer-icon" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
     <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline footer-icon" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
   </div>
 
-  <!-- Neuer separater lila Bereich für Impressum, Datenschutz & Footnote -->
   <div class="footer-bottom-bar">
     <div class="legal-links">
       <a href="#impressum-modal" class="legal-btn">Impressum</a>
@@ -854,8 +854,20 @@
   </div>
 </div>
 
-<!-- ===================== 14. SCROLL-TO-TOP BUTTON ===================== -->
-<a href="#start" class="scroll-top-btn" title="Nach oben">↑</a>
+<!-- ===================== 14. SCROLL-TO-TOP BUTTON (Erst ab Folie 2 sichtbar) ===================== -->
+<a href="#start" class="scroll-top-btn" id="scrollTopBtn" title="Nach oben">↑</a>
+
+<script>
+  // Sorgt dafür, dass der "Nach oben"-Button erst ab der 2. Folie erscheint
+  window.addEventListener('scroll', function() {
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    if (window.scrollY > 400) {
+      scrollBtn.style.display = 'flex';
+    } else {
+      scrollBtn.style.display = 'none';
+    }
+  });
+</script>
 
 </body>
 </html>
