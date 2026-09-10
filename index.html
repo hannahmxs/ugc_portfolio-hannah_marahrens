@@ -131,10 +131,11 @@
       font-weight: 600; 
       text-transform: uppercase;
     }
+    /* 7. Desktop-Hero Positionierung (ursprüngliche Höhe wiederhergestellt) */
     .hero-contact-left,
     .hero-contact-right {
       position: absolute;
-      bottom: 5rem;
+      bottom: 4rem;
       font-size: 20px;
       z-index: 3;
     }
@@ -154,12 +155,10 @@
       height: 100%;
     }
     .intro-text {
-      padding: 4rem 2.5rem 4rem 1rem;
+      padding: 2rem 2.5rem 4rem 1rem; /* 8. Desktop-Textblock etwas höher gesetzt */
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* 8. Textblock auf Desktop etwas höher setzen */
-      transform: translateY(-2rem);
     }
     .intro-text h2 { font-size: 32px; margin-bottom: 1.5rem; line-height: 1.25; }
     .intro-text p { margin: 0 0 1.2rem; color: var(--muted); font-size: 20px; }
@@ -539,7 +538,6 @@
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { 
         padding: 2rem 1.5rem 1rem 1.5rem !important; 
-        transform: none !important; /* Desktoptop-Verschiebung für Mobile aufheben */
       }
 
       /* 4. "Why UGC" Bild soll dieselbe Höhe und Weite haben wie intro.jpg */
