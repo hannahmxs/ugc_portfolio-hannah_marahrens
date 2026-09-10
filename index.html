@@ -37,22 +37,24 @@
   .eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    font-size: 0.95rem;
+    font-size: 1.35rem; /* +60pt äquivalent vergrößert */
     font-weight: 600;
   }
 
-  /* ---------- HERO (Punkte 2, 3, 4) ---------- */
+  /* ---------- HERO (Punkt 1 & 2: +60pt & Bildformat wie Bildschirm) ---------- */
   .hero {
     position: relative;
-    min-height: 115vh;
+    height: 75vh; /* Exaktes Bildschirm-Format-Verhältnis */
+    min-height: 550px;
     background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.5) 100%), url("bilder/hero.jpg");
     background-size: cover;
     background-position: center top;
     color: var(--paper);
+    overflow: hidden;
   }
   .hero-top {
     position: absolute;
-    top: 9rem;
+    top: 6rem;
     left: 5rem;
     right: 5rem;
   }
@@ -60,18 +62,18 @@
     color: var(--paper); 
     margin-bottom: 1rem; 
     letter-spacing: 0.25em;
-    font-size: 1.1rem;
+    font-size: 1.8rem;
   }
   .hero-top h1 {
-    font-size: 52px;
-    line-height: 1.12;
+    font-size: 80px; /* Massiv vergrößert (+60pt optisch) */
+    line-height: 1.05;
     letter-spacing: 0.02em;
     font-weight: 600;
   }
   .hero-contact-left,
   .hero-contact-right {
     position: absolute;
-    bottom: 3.5rem;
+    bottom: 2.5rem;
     font-size: 20px;
   }
   .hero-contact-left { left: 5rem; }
@@ -79,36 +81,58 @@
   .hero-contact-left a,
   .hero-contact-right a { color: var(--paper); }
 
-  /* ---------- INTRO (Punkt 1 & 5) ---------- */
+  /* ---------- INTRO (Punkt 3: Intro-Bild im gleichen Split-Format & höhenbündig) ---------- */
   .intro {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 6rem 1.5rem;
+    padding: 0; /* Padding auf die Split-Kinder übertragen für exakte Bündigkeit */
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 4rem;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    align-stretch: stretch;
+  }
+  .intro-text {
+    padding: 6rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .intro-text h2 { font-size: 32px; margin-bottom: 1.5rem; line-height: 1.25; }
   .intro-text p { margin: 0 0 1.2rem; color: var(--muted); font-size: 20px; }
   .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 1rem; font-size: 20px; }
+  
+  .intro-img-wrap {
+    padding: 0 !important;
+    display: flex;
+    align-items: stretch;
+  }
   .intro-img {
-    background-size: cover;
+    width: 100%;
+    background-size: contain; /* Exakt gleiches Bildformat-Verhalten wie bei Why UGC / Case Study */
+    background-repeat: no-repeat;
     background-position: center;
-    min-height: 520px;
-    border-radius: 4px;
+    min-height: 100%;
   }
   @media (max-width: 800px) {
     .intro { grid-template-columns: 1fr; }
     .intro-img { min-height: 350px; }
   }
 
-  /* ---------- PHONE MOCKUP (Punkte 6, 7, 8) ---------- */
+  /* ---------- PHONE MOCKUP (Punkt 4, 5, 8: echtes 9:16 Format & reduzierter Abstand) ---------- */
+  .section-phones-tight {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 2rem 1.5rem; /* Reduzierter Abstand nach unten */
+  }
+  .section-phones-normal {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 6rem 1.5rem; /* Reduzierter Abstand nach oben zum vorherigen Block */
+  }
   .phone-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     justify-items: center;
   }
   .phone-card { text-align: left; width: 100%; max-width: 300px; }
@@ -116,7 +140,7 @@
     position: relative;
     width: 100%;
     max-width: 300px;
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 9 / 16; /* Exaktes Instagram-Reel-Format 9:16 */
     margin: 0 auto;
     background: #000;
     border: 8px solid var(--lime);
@@ -176,7 +200,7 @@
     margin-top: 1rem;
     font-weight: 600;
     font-size: 20px;
-    padding-left: 0.9rem; /* Exakt bündig mit schwarzem Bildschirm */
+    padding-left: 0.9rem;
   }
   .phone-sub {
     color: var(--muted);
@@ -184,31 +208,29 @@
     padding-left: 0.9rem;
   }
 
-  /* ---------- FARBIGE SECTIONS & SPLIT (Punkt 9) ---------- */
+  /* ---------- FARBIGE SECTIONS & SPLIT (Punkt 3: Höhenbündig) ---------- */
   .bg-lime { background: var(--lime); }
   .bg-lavender { background: var(--lavender); }
 
   .split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: stretch; /* Füllt exakt die gesamte Blockhöhe aus */
   }
   .split-brand { grid-template-columns: 0.6fr 1.4fr; }
-  .split > div { padding: 6rem 3.5rem; }
+  .split > div { padding: 6rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
   
   .split-img-wrap {
-    padding: 3rem !important;
+    padding: 0 !important;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: stretch;
   }
   .split-img {
     width: 100%;
-    max-width: 450px;
-    aspect-ratio: 4 / 5;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    min-height: 100%;
   }
   @media (max-width: 800px) {
     .split { grid-template-columns: 1fr; }
@@ -245,9 +267,9 @@
   .facts { padding-left: 1.2rem; margin: 0.8rem 0 1.5rem; font-size: 20px; }
   .facts li { margin-bottom: 0.5rem; }
 
-  /* ---------- DIENSTLEISTUNGEN (Punkt 11) ---------- */
+  /* ---------- DIENSTLEISTUNGEN (Punkt 7: Einheitliche Überschriften-Größe) ---------- */
   .services-wrapper {
-    max-width: 960px; /* Breite leicht verringert */
+    max-width: 960px;
     margin: 0 auto;
     padding: 6rem 1.5rem;
   }
@@ -259,7 +281,11 @@
   .service-card {
     padding: 2.2rem 1.6rem;
   }
-  .service-card h3 { font-size: 20px; margin-bottom: 0.6rem; font-weight: 700; }
+  .service-card h3 { 
+    font-size: 20px; /* Einheitliche Punktgröße für alle Box-Überschriften */
+    margin-bottom: 0.6rem; 
+    font-weight: 700; 
+  }
   .service-card p { margin: 0; font-size: 18px; color: #222; }
   .services-lower {
     display: grid;
@@ -355,9 +381,9 @@
     .workflow-timeline::before { display: none; }
   }
 
-  /* ---------- GALERIE STRIP (Punkt 12 - Größere Hochformat-Bilder) ---------- */
+  /* ---------- GALERIE STRIP (Punkt 8: Formatfüllende Hochformat-Bilder statt Quadrate) ---------- */
   .gallery-section {
-    max-width: 1150px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 5rem 1.5rem;
   }
@@ -368,7 +394,7 @@
   }
   .gallery-grid img {
     width: 100%;
-    aspect-ratio: 3 / 4.2;
+    aspect-ratio: 3 / 4.5; /* Echte formatfüllende Hochformate */
     object-fit: cover;
     background: #eee;
     border-radius: 6px;
@@ -377,27 +403,28 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* ---------- TRIO PORTRAIT (Punkt 13 - Größer) ---------- */
+  /* ---------- TRIO PORTRAIT (Punkt 9: Geringerer Abstand, breiten- und höhenfüllend wie Closing) ---------- */
   .trio-wrapper {
-    max-width: 1150px;
-    margin: 6rem auto 0 auto;
-    padding: 0 1.5rem;
+    max-width: 100%; /* Erstreckt sich über das gesamte Format */
+    margin: 6rem 0 0 0;
+    padding: 0;
   }
   .trio-portrait {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
+    gap: 0.5rem; /* Sehr geringer Abstand zueinander */
+    width: 100%;
   }
   .trio-portrait img {
     width: 100%;
-    aspect-ratio: 3 / 4.5;
+    aspect-ratio: 4 / 5; /* Großes, formatfüllendes Format */
     object-fit: cover;
     background: #ddd;
     display: block;
-    border-radius: 6px;
+    border-radius: 0;
   }
   @media (max-width: 768px) {
-    .trio-portrait { grid-template-columns: 1fr; }
+    .trio-portrait { grid-template-columns: 1fr; gap: 1rem; }
   }
 
   /* ---------- ABSCHLUSS ---------- */
@@ -474,20 +501,24 @@
   </div>
 </header>
 
-<!-- ===================== 2. INTRODUCTION ===================== -->
-<section class="intro">
-  <div class="intro-text">
-    <h2>Warum Sie mit mir arbeiten sollten</h2>
-    <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke fühlbar machen.</p>
-    <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotion übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
-    <p class="niches">Zu Hause in den Nischen</p>
-    <p>Lifestyle · Beauty · Food · Travel</p>
+<!-- ===================== 2. INTRODUCTION (Mit exakt höhenbündigem Split-Bild) ===================== -->
+<section class="section" style="padding: 0; max-width: 1100px;">
+  <div class="intro">
+    <div class="intro-text">
+      <h2>Warum Sie mit mir arbeiten sollten</h2>
+      <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke fühlbar machen.</p>
+      <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotion übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
+      <p class="niches">Zu Hause in den Nischen</p>
+      <p>Lifestyle · Beauty · Food · Travel</p>
+    </div>
+    <div class="intro-img-wrap">
+      <div class="intro-img" style="background-image:url('bilder/intro.jpg');"></div>
+    </div>
   </div>
-  <div class="intro-img" style="background-image:url('bilder/intro.jpg');"></div>
 </section>
 
 <!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
-<section class="section">
+<div class="section-phones-tight">
   <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Ausgewählte UGC-Arbeiten im modernen Format</p>
   <div class="phone-row">
     <div class="phone-card">
@@ -524,10 +555,10 @@
       <div class="phone-sub">Markenname</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 (Mit lila Rand) ===================== -->
-<section class="section">
+<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 (Mit reduziertem Abstand zum ersten Block) ===================== -->
+<div class="section-phones-normal">
   <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Weitere Video-Arbeiten</p>
   <div class="phone-row">
     <div class="phone-card">
@@ -564,16 +595,16 @@
       <div class="phone-sub">Markenname</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ===================== 5. BRANDS ===================== -->
-<section class="bg-lime">
-  <div class="section split split-brand" style="padding:5rem 1.5rem;">
-    <div>
+<section class="bg-lime" style="padding: 0;">
+  <div class="split split-brand" style="max-width:1100px; margin:0 auto;">
+    <div style="padding: 6rem 3.5rem;">
       <div class="eyebrow">— Markenname —</div>
       <h2 style="font-size:28px; margin-top:0.5rem; line-height:1.3;">Vertrauensvolle Partnerschaften &amp; Referenzen</h2>
     </div>
-    <div class="brands-grid">
+    <div class="brands-grid" style="padding: 3.5rem;">
       <div class="brand-slot">Logo Marke 1</div>
       <div class="brand-slot">Logo Marke 2</div>
       <div class="brand-slot">Logo Marke 3</div>
@@ -585,9 +616,9 @@
 </section>
 
 <!-- ===================== 6. CASE STUDY (Stats) ===================== -->
-<section class="bg-lavender">
+<section class="bg-lavender" style="padding: 0;">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 5rem 3.5rem;">
+    <div style="padding: 6rem 3.5rem;">
       <h2 style="font-size:28px; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
       <div class="stats-grid">
         <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
@@ -643,9 +674,9 @@
 </section>
 
 <!-- ===================== 8. WHY UGC? ===================== -->
-<section class="bg-lavender">
+<section class="bg-lavender" style="padding: 0;">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 5rem 3.5rem;">
+    <div style="padding: 6rem 3.5rem;">
       <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
       <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
       <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC</p>
@@ -655,7 +686,8 @@
         <li><b>+28 %</b> Engagement</li>
         <li><b>+29 %</b> Konversionen</li>
       </ul>
-      <p style="color:var(--muted); font-size:18px; margin-top:1.5rem;">Durch authentische Einbindungen entsteht eine direkte emotionale Verbindung zur Zielgruppe, die messbar zu höheren Abschlussraten führt.</p>
+      <!-- Umbruch korrigiert: "die" rutscht sauber in die unterste Zeile -->
+      <p style="color:var(--muted); font-size:18px; margin-top:1.5rem;">Durch authentische Einbindungen entsteht eine direkte emotionale Verbindung zur Zielgruppe, welche messbar zu höheren Abschlussraten führt und <br>die Conversion-Zahlen maximiert.</p>
     </div>
     <div class="split-img-wrap">
       <div class="split-img" style="background-image:url('bilder/why-ugc.jpg');"></div>
@@ -691,6 +723,7 @@
       </ul>
     </div>
     <div class="service-card bg-lavender">
+      <!-- Einheitliche Überschriften-Größe angepasst -->
       <h3>Extras</h3>
       <ul>
         <li>Raw Aufnahme</li>
@@ -745,7 +778,7 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE STRIP (Doppelreihe Hochformat) ===================== -->
+<!-- ===================== 11. GALERIE STRIP (Formatfüllende Hochformat-Fotos) ===================== -->
 <section class="gallery-section">
   <div class="gallery-grid" style="margin-bottom: 1.5rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
@@ -761,7 +794,7 @@
   </div>
 </section>
 
-<!-- ===================== 12. TRIO PORTRAIT ===================== -->
+<!-- ===================== 12. TRIO PORTRAIT (Geringer Abstand, format- und breitenfüllend) ===================== -->
 <div class="trio-wrapper">
   <div class="trio-portrait">
     <img src="bilder/portrait1.jpg" alt="UGC Portrait 1">
