@@ -502,6 +502,56 @@
     .scroll-top-btn:hover {
       background: rgba(255, 255, 255, 0.5);
     }
+    /* ---------- MOBILE OPTIMIERUNG (Smartphone) ---------- */
+    @media (max-width: 800px) {
+      /* Alle erzwungenen Vollbild-Höhen auf dem Handy aufheben */
+      .fullscreen-slide {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 4rem 1.5rem !important;
+      }
+      
+      /* Hero-Bereich mobil anpassen */
+      .hero {
+        height: 70vh !important;
+        min-height: 500px !important;
+      }
+      .hero-top {
+        top: 3rem !important;
+        left: 1.5rem !important;
+        right: 1.5rem !important;
+      }
+      .hero-top h1 {
+        font-size: 45px !important; /* Überschrift mobil kleiner machen */
+      }
+      .hero-contact-left,
+      .hero-contact-right {
+        bottom: 1.5rem !important;
+        font-size: 16px !important;
+      }
+      .hero-contact-left { left: 1.5rem !important; }
+      .hero-contact-right { right: 1.5rem !important; }
+
+      /* Splits (wie Intro) untereinander statt nebeneinander */
+      .intro, .split {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+      }
+      .intro-text, .split > div {
+        padding: 2rem 0 !important;
+      }
+      
+      /* Abschluss-Textbox mobil ausrichten */
+      .closing-text-box {
+        padding: 0 2rem 3rem 2rem !important;
+        font-size: 32px !important;
+      }
+      .closing-bar {
+        padding: 1.5rem 2rem !important;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
   </style>
 </head>
 <body>
