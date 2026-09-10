@@ -41,11 +41,11 @@
     font-weight: 600;
   }
 
-  /* ---------- HERO (Punkt 2: Vollbild ohne weißen Rand unten) ---------- */
+  /* ---------- HERO (Punkt 1: Höhe um wenige Millimeter angepasst) ---------- */
   .hero {
     position: relative;
-    height: 100vh; /* Exakt bildschirmfüllend */
-    min-height: 770px;
+    height: calc(100vh - 15px); /* Um wenige Millimeter verkürzt */
+    min-height: 745px;
     background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.5) 100%), url("bilder/hero.jpg");
     background-size: cover;
     background-position: center top;
@@ -66,7 +66,7 @@
     font-size: 1.8rem;
   }
   .hero-top h1 {
-    font-size: 100px; /* Punkt 1: Um 50px verringert (von 150px auf 100px) */
+    font-size: 100px;
     line-height: 1.02;
     letter-spacing: 0.01em;
     font-weight: 500; 
@@ -82,16 +82,16 @@
   .hero-contact-left a,
   .hero-contact-right a { color: var(--paper); }
 
-  /* ---------- INTRO & SPLIT (Punkt 3: Exaktes Why-UGC Bildformat via object-fit) ---------- */
+  /* ---------- INTRO & SPLIT (Punkt 2: Text nach links, Bild nach rechts) ---------- */
   .intro {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 0.95fr; /* Text etwas breiter nach links gezogen */
     align-items: stretch;
   }
   .intro-text {
-    padding: 6rem 3.5rem;
+    padding: 6rem 2.5rem 6rem 1rem; /* Nach links verschoben */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -106,11 +106,11 @@
     align-items: stretch;
     overflow: hidden;
   }
-  /* Einheitliches Bildformat wie bei Why UGC (über <img> mit object-fit gelöst) */
   .media-img-format {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 75% center; /* Bild minimal nach rechts verschoben */
     display: block;
   }
 
@@ -119,7 +119,7 @@
     .intro-img-wrap { min-height: 350px; }
   }
 
-  /* ---------- PHONE MOCKUP (Punkt 6: Korrigiertes Hochformat wie Why-UGC) ---------- */
+  /* ---------- PHONE MOCKUP (Punkt 4: Echtes Hochformat) ---------- */
   .section-phones-tight {
     max-width: 1100px;
     margin: 0 auto;
@@ -137,15 +137,15 @@
     margin-top: 2rem;
     justify-items: center;
   }
-  .phone-card { text-align: left; width: 100%; max-width: 300px; }
+  .phone-card { text-align: left; width: 100%; max-width: 270px; }
   .phone-frame {
     position: relative;
     width: 100%;
-    max-width: 300px;
-    aspect-ratio: 4 / 5; /* Angepasst an das Bildformat von Why UGC */
+    max-width: 270px;
+    aspect-ratio: 3 / 5; /* Deutliches, schlankes Hochformat */
     margin: 0 auto;
     background: #000;
-    border: 8px solid var(--lime);
+    border: 6px solid var(--lime);
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.18);
     overflow: hidden;
@@ -153,13 +153,10 @@
   .phone-frame.lavender-border {
     border-color: var(--lavender);
   }
-  .phone-notch {
-    display: none; /* Entfernt Notch für saubere Bild-Anpassung im Format */
-  }
   .phone-screen {
     width: 100%;
     height: 100%;
-    border-radius: 16px;
+    border-radius: 18px;
     overflow: hidden;
     background: #111;
     position: relative;
@@ -181,17 +178,17 @@
     padding-left: 0.9rem;
   }
 
-  /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
+  /* ---------- FARBIGE SECTIONS & SPLIT (Punkt 2 angewandt) ---------- */
   .bg-lime { background: var(--lime); }
   .bg-lavender { background: var(--lavender); }
 
   .split {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 0.95fr;
     align-items: stretch;
   }
   .split-brand { grid-template-columns: 0.6fr 1.4fr; }
-  .split > div { padding: 6rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+  .split > div { padding: 6rem 2.5rem 6rem 1rem; display: flex; flex-direction: column; justify-content: center; }
   
   @media (max-width: 800px) {
     .split { grid-template-columns: 1fr; }
@@ -228,7 +225,7 @@
   .facts { padding-left: 1.2rem; margin: 0.8rem 0 1.5rem; font-size: 20px; }
   .facts li { margin-bottom: 0.5rem; }
 
-  /* ---------- DIENSTLEISTUNGEN (Punkt 4: Textblöcke eingerückt) ---------- */
+  /* ---------- DIENSTLEISTUNGEN ---------- */
   .services-wrapper {
     max-width: 840px;
     margin: 0 auto;
@@ -255,7 +252,6 @@
     gap: 1.2rem;
     margin-top: 1.2rem;
   }
-  /* Punkt 4: Inhalt innerhalb der Testpaket- und Extras-Boxen nach rechts eingerückt */
   .service-card-inset {
     padding: 2rem 1.4rem 2rem 2.5rem; 
   }
@@ -283,7 +279,7 @@
   }
   .btn:hover { background: #000; color: #fff; }
 
-  /* ---------- WORKFLOW (Punkt 5: Sichtbare CSS-Einblendung korrigiert) ---------- */
+  /* ---------- WORKFLOW ---------- */
   .workflow-section {
     background: var(--lime);
     padding: 6rem 2rem;
@@ -292,7 +288,7 @@
   .workflow-container {
     max-width: 1100px;
     margin: 0 auto;
-    opacity: 1; /* Sichtbarkeit erzwungen statt unsichtbarem Startframe */
+    opacity: 1;
     transform: none;
   }
   .workflow-container h2 {
@@ -363,7 +359,7 @@
   }
   .gallery-grid img {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 5;
     object-fit: cover;
     background: #eee;
     border-radius: 0;
@@ -372,7 +368,7 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* ---------- TRIO PORTRAIT (Punkt 7: Höhe passt sich dem Hero-Vollbild an) ---------- */
+  /* ---------- TRIO PORTRAIT (Punkt 3: In einer Zeile, Höhe exakt wie Hero) ---------- */
   .trio-wrapper {
     max-width: 100%;
     margin: 6rem 0 0 0;
@@ -380,13 +376,14 @@
   }
   .trio-portrait {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 Spalten nebeneinander in einer Zeile */
     gap: 0.4rem;
     width: 100%;
   }
   .trio-portrait img {
-    width: 100vw; /* Volle Bildschirmbreite */
-    height: 100vh; /* Passt sich exakt der Hero-Bildschirmhöhe an */
+    width: 100%;
+    height: calc(100vh - 15px); /* Exakt identische Höhe wie das Hero-Bild */
+    min-height: 745px;
     object-fit: cover;
     background: #ddd;
     display: block;
@@ -394,21 +391,20 @@
   }
   @media (max-width: 768px) {
     .trio-portrait { grid-template-columns: 1fr; gap: 1rem; }
-    .trio-portrait img { height: auto; aspect-ratio: 4 / 5; }
+    .trio-portrait img { height: auto; aspect-ratio: 3 / 5; }
   }
 
-  /* ---------- ABSCHLUSS (Punkt 8 & 9) ---------- */
+  /* ---------- ABSCHLUSS (Punkt 1 & 3: Höhe, schmaler Streifen, schwarze Schrift) ---------- */
   .closing-card {
     width: 100%;
     background: var(--lime);
     margin-top: 6rem;
   }
-  /* Punkt 8: Exakte Maße und Höhe des Hero-Titelbildes */
   .closing-img {
     position: relative;
     width: 100%;
-    height: 100vh;
-    min-height: 770px;
+    height: calc(100vh - 15px); /* Exakte Höhe angepasst */
+    min-height: 745px;
     background-image: url("bilder/closing.jpg");
     background-size: cover;
     background-position: center;
@@ -430,18 +426,17 @@
     line-height: 1.15;
     padding: 0 5rem 3.5rem 5rem;
   }
-  /* Punkt 9: Schmalerer Streifen und schwarze Schriftfarbe */
   .closing-bar {
     background: var(--lime);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 5rem; /* Höhe deutlich verringert */
+    padding: 0.8rem 5rem; /* Höhe des weißen Streifens stark minimiert */
     flex-wrap: wrap;
     gap: 1.5rem;
   }
   .closing-bar a {
-    color: var(--ink); /* Schwarze Schrift */
+    color: var(--ink); /* Footnote in schwarzer Schrift */
     text-decoration: none;
     font-size: 20px;
     font-weight: 500;
@@ -561,7 +556,7 @@
 <!-- ===================== 5. BRANDS ===================== -->
 <section class="bg-lime" style="padding: 0;">
   <div class="split split-brand" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 6rem 3.5rem;">
+    <div style="padding: 6rem 2.5rem 6rem 1rem;">
       <div class="eyebrow">— Markenname —</div>
       <h2 style="font-size:28px; margin-top:0.5rem; line-height:1.3;">Vertrauensvolle Partnerschaften &amp; Referenzen</h2>
     </div>
@@ -579,7 +574,7 @@
 <!-- ===================== 6. CASE STUDY (Stats) ===================== -->
 <section class="bg-lavender" style="padding: 0;">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 6rem 3.5rem;">
+    <div style="padding: 6rem 2.5rem 6rem 1rem;">
       <h2 style="font-size:28px; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
       <div class="stats-grid">
         <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
@@ -631,7 +626,7 @@
 <!-- ===================== 8. WHY UGC? ===================== -->
 <section class="bg-lavender" style="padding: 0;">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 6rem 3.5rem;">
+    <div style="padding: 6rem 2.5rem 6rem 1rem;">
       <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
       <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
       <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC (2026)</p>
