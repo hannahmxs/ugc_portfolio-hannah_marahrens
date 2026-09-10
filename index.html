@@ -3,12 +3,25 @@
 <head>
   <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hannah Marahrens – UGC Portfolio</title>
   <style>
+    /* ---------- SCHRIFTART GOTHAM (Lokal / Fallback) ---------- */
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/gotham-book.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/gotham-medium.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --lime: #E1FFA5;
       --lavender: #E1DCFA;
@@ -20,7 +33,7 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Quicksand", "Helvetica Neue", Arial, sans-serif; /* Hier wurde Quicksand als Hauptschriftart eingetragen */
+      font-family: "Gotham", "Helvetica Neue", Arial, sans-serif;
       color: var(--ink);
       background: var(--paper);
       line-height: 1.6;
@@ -50,17 +63,26 @@
       font-weight: 600;
     }
 
-    /* ---------- HERO ---------- */
-    .hero {
+    /* ---------- FULLSCREEN SECTIONS (Hero bis Dienstleistungen) ----------. */
+    .fullscreen-slide {
       position: relative;
       height: calc(100vh + 8px); 
       min-height: 770px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
       background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.5) 100%), url("bilder/hero.jpg");
       background-size: cover;
       background-position: center top;
       color: var(--paper);
-      overflow: hidden;
       margin-bottom: 3rem;
+      height: calc(100vh + 8px);
+      min-height: 770px;
     }
     .hero-top {
       position: absolute;
@@ -78,7 +100,7 @@
       font-size: 100px;
       line-height: 1.02;
       letter-spacing: 0.01em;
-      font-weight: 500; 
+      font-weight: 600; 
       text-transform: uppercase;
     }
     .hero-contact-left,
@@ -99,9 +121,11 @@
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       align-items: stretch;
+      width: 100%;
+      height: 100%;
     }
     .intro-text {
-      padding: 6rem 2.5rem 6rem 1rem;
+      padding: 4rem 2.5rem 4rem 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -120,25 +144,27 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 85% center;
+      object-position: 95% center; /* Bild weiter nach rechts platziert */
       display: block;
     }
 
     @media (max-width: 800px) {
       .intro { grid-template-columns: 1fr; }
-      .intro-img-wrap { min-height: 350px; }
+      .fullscreen-slide { height: auto; min-height: auto; padding: 4rem 0; }
     }
 
     /* ---------- PHONE MOCKUP (Reel Format 9:16) ---------- */
     .section-phones-tight {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 4rem 1.5rem 2rem 1.5rem;
+      padding: 0 1.5rem;
+      width: 100%;
     }
     .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 6rem 1.5rem;
+      padding: 0 1.5rem;
+      width: 100%;
     }
     .phone-row {
       display: grid;
@@ -179,43 +205,12 @@
       justify-content: center;
       gap: 9px;
     }
-    .phone-speaker {
-      width: 30px;
-      height: 3px;
-      background: #555;
-      border-radius: 2px;
-    }
-    .phone-camera {
-      width: 9px;
-      height: 9px;
-      background: #2a2a2a;
-      border-radius: 50%;
-      border: 1px solid #666;
-    }
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 26px;
-      overflow: hidden;
-      background: #111;
-      position: relative;
-    }
-    .phone-screen video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .phone-label {
-      margin-top: 1rem;
-      font-weight: 600;
-      font-size: 20px;
-      padding-left: 0.9rem;
-    }
-    .phone-sub {
-      color: var(--muted);
-      font-size: 17px;
-      padding-left: 0.9rem;
-    }
+    .phone-speaker { width: 30px; height: 3px; background: #555; border-radius: 2px; }
+    .phone-camera { width: 9px; height: 9px; background: #2a2a2a; border-radius: 50%; border: 1px solid #666; }
+    .phone-screen { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #111; position: relative; }
+    .phone-screen video { width: 100%; height: 100%; object-fit: cover; }
+    .phone-label { margin-top: 1rem; font-weight: 600; font-size: 20px; padding-left: 0.9rem; }
+    .phone-sub { color: var(--muted); font-size: 17px; padding-left: 0.9rem; }
 
     /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
     .bg-lime { background: var(--lime); }
@@ -225,14 +220,12 @@
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       align-items: stretch;
+      width: 100%;
+      height: 100%;
     }
     .split-brand { grid-template-columns: 0.6fr 1.4fr; }
-    .split > div { padding: 6rem 2.5rem 6rem 1rem; display: flex; flex-direction: column; justify-content: center; }
+    .split > div { padding: 4rem 2.5rem 4rem 1rem; display: flex; flex-direction: column; justify-content: center; }
     
-    @media (max-width: 800px) {
-      .split { grid-template-columns: 1fr; }
-    }
-
     .brands-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -256,7 +249,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin: 2rem 0;
+      margin: 1.5rem 0;
     }
     .stat .num { font-size: 32px; font-weight: 700; }
     .stat .lbl { font-size: 15px; color: var(--muted); }
@@ -268,21 +261,16 @@
     .services-wrapper {
       max-width: 840px;
       margin: 0 auto;
-      padding: 6rem 1.5rem;
+      padding: 0 1.5rem;
+      width: 100%;
     }
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
     }
-    .service-card {
-      padding: 2rem 1.4rem;
-    }
-    .service-card h3 { 
-      font-size: 20px; 
-      margin-bottom: 0.6rem; 
-      font-weight: 700; 
-    }
+    .service-card { padding: 2rem 1.4rem; }
+    .service-card h3 { font-size: 20px; margin-bottom: 0.6rem; font-weight: 700; }
     .service-card p { margin: 0; font-size: 17px; color: #222; }
     
     .services-lower {
@@ -291,14 +279,12 @@
       gap: 1.2rem;
       margin-top: 1.2rem;
     }
-    .service-card-inset {
-      padding: 2rem 1.4rem 2rem 2.5rem; 
-    }
+    .service-card-inset { padding: 2rem 1.4rem 2rem 2.5rem; }
     .service-card ul { margin: 0.6rem 0 0; padding-left: 1.1rem; font-size: 17px; }
     .service-card li { margin-bottom: 0.4rem; }
 
     .cta-row {
-      margin-top: 3.5rem;
+      margin-top: 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -318,22 +304,15 @@
     }
     .btn:hover { background: #000; color: #fff; }
 
-    /* ---------- WORKFLOW ---------- */
+    /* ---------- STANDARD SECTIONS (Ab Workflow) ---------- */
     .workflow-section {
       background: var(--lime);
       padding: 7rem 2rem;
       margin-top: 3rem;
       overflow: hidden;
     }
-    .workflow-container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .workflow-container h2 {
-      font-size: 32px;
-      margin-bottom: 3.5rem;
-      font-weight: 600;
-    }
+    .workflow-container { max-width: 1100px; margin: 0 auto; }
+    .workflow-container h2 { font-size: 32px; margin-bottom: 3.5rem; font-weight: 600; }
     .workflow-timeline {
       position: relative;
       display: grid;
@@ -350,10 +329,7 @@
       background: var(--ink);
       z-index: 1;
     }
-    .workflow-step {
-      position: relative;
-      z-index: 2;
-    }
+    .workflow-step { position: relative; z-index: 2; }
     .workflow-step::before {
       content: "";
       display: block;
@@ -364,80 +340,26 @@
       border-radius: 50%;
       margin-bottom: 1.5rem;
     }
-    .workflow-step h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 1.0rem;
-      line-height: 1.35;
-    }
-    .workflow-step ul {
-      margin: 0;
-      padding-left: 1.1rem;
-      font-size: 18px;
-      color: #222;
-    }
-    .workflow-step li {
-      margin-bottom: 0.5rem;
-    }
+    .workflow-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 1.0rem; line-height: 1.35; }
+    .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 18px; color: #222; }
+    .workflow-step li { margin-bottom: 0.5rem; }
     @media (max-width: 900px) {
       .workflow-timeline { grid-template-columns: 1fr 1fr; gap: 3rem; }
       .workflow-timeline::before { display: none; }
     }
 
-    /* ---------- GALERIE STRIP (Hochformat) ---------- */
-    .gallery-section {
-      max-width: 1100px;
-      margin: 6rem auto;
-      padding: 0 1.5rem;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .gallery-grid img {
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      object-fit: cover;
-      background: #eee;
-      border-radius: 0;
-    }
-    @media (max-width: 768px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    .gallery-section { max-width: 1100px; margin: 6rem auto; padding: 0 1.5rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .gallery-grid img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #eee; }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    /* ---------- TRIO PORTRAIT ---------- */
-    .trio-wrapper {
-      max-width: 100%;
-      margin: 6rem auto 0.4rem auto;
-      padding: 0;
-    }
-    .trio-portrait {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.4rem;
-      width: 100%;
-    }
-    .trio-portrait img {
-      width: 100%;
-      height: calc(100vh + 8px);
-      min-height: 770px;
-      object-fit: cover;
-      background: #ddd;
-      display: block;
-      border-radius: 0;
-    }
-    @media (max-width: 768px) {
-      .trio-portrait { grid-template-columns: 1fr; gap: 1rem; }
-      .trio-portrait img { height: auto; aspect-ratio: 9 / 16; }
-    }
+    .trio-wrapper { max-width: 100%; margin: 6rem auto 0.4rem auto; padding: 0; }
+    .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; width: 100%; }
+    .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; background: #ddd; display: block; }
+    @media (max-width: 768px) { .trio-portrait { grid-template-columns: 1fr; gap: 1rem; } .trio-portrait img { height: auto; aspect-ratio: 9 / 16; } }
 
-    /* ---------- ABSCHLUSS & GELBER STREIFEN ---------- */
-    .closing-card {
-      width: 100%;
-      background: var(--lime);
-      margin-top: 0;
-    }
+    /* ---------- ABSCHLUSS & FOOTER ---------- */
+    .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
     .closing-img {
       position: relative;
       width: 100%;
@@ -462,24 +384,46 @@
       font-weight: 600;
       font-size: 48px;
       line-height: 1.15;
-      padding: 0 5rem 6.5rem 5rem;
+      padding: 0 5rem 8rem 5rem; /* Ein Tick weiter runtergesetzt */
     }
     .closing-bar {
       background: var(--lime);
       display: grid;
       grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto;
+      grid-template-rows: auto auto auto;
       align-items: center;
-      padding: 3rem 8rem;
-      gap: 1.5rem;
+      padding: 2.5rem 8rem 3rem 8rem; /* Ein Tick höher gesetzt */
+      gap: 1.2rem;
     }
-    .closing-bar a:nth-of-type(1) { grid-column: 1; grid-row: 1; justify-self: start; }
-    .closing-bar a:nth-of-type(2) { grid-column: 2; grid-row: 1; justify-self: end; }
-    .closing-bar .closing-copyright {
+    .closing-bar a.contact-item-ig { grid-column: 1; grid-row: 1; justify-self: start; }
+    .closing-bar a.contact-item-mail { grid-column: 2; grid-row: 1; justify-self: end; }
+    
+    /* Rechtliche Links (Impressum & Datenschutz Buttons) */
+    .legal-links {
       grid-column: 1 / -1;
       grid-row: 2;
       justify-self: center;
-      margin-top: 1rem;
+      display: flex;
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+    .legal-btn {
+      font-size: 15px;
+      color: var(--ink);
+      text-decoration: underline;
+      font-weight: 400;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .legal-btn:hover { color: var(--muted); }
+
+    .closing-bar .closing-copyright {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      justify-self: center;
+      margin-top: 0.5rem;
     }
     .closing-bar a {
       color: var(--ink);
@@ -491,11 +435,43 @@
     }
     .closing-copyright {
       color: var(--ink);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 300;
     }
 
-    /* ---------- SCROLL-TO-TOP BUTTON ---------- */
+    /* Modals für Impressum & Datenschutz (Rechtliche Absicherung) */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .modal:target { display: flex; }
+    .modal-content {
+      background: var(--paper);
+      padding: 3rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      border-radius: 4px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 24px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: bold;
+    }
+
+    /* SCROLL TO TOP */
     .scroll-top-btn {
       position: fixed;
       bottom: 2rem;
@@ -513,33 +489,28 @@
       font-size: 22px;
       text-decoration: none;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: background 0.2s, transform 0.2s;
       z-index: 999;
-    }
-    .scroll-top-btn:hover {
-      background: rgba(255, 255, 255, 0.85);
-      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
 
-<!-- ===================== 1. HERO ===================== -->
+<!-- ===================== 1. HERO (Fullscreen) ===================== -->
 <header class="hero" id="start">
   <div class="hero-top">
     <div class="eyebrow">UGC Portfolio</div>
     <h1>Hannah<br>Marahrens</h1>
   </div>
   <div class="hero-contact-left">
-    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="">hannah_marahrens@gmx.de</a>
+    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
   </div>
   <div class="hero-contact-right">
-    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="">hannah_marahrens</a>
+    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
 </header>
 
-<!-- ===================== 2. INTRODUCTION ===================== -->
-<section class="section" style="padding: 0; max-width: 1100px;">
+<!-- ===================== 2. INTRODUCTION (Fullscreen) ===================== -->
+<section class="fullscreen-slide">
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir arbeiten sollten</h2>
@@ -554,84 +525,88 @@
   </div>
 </section>
 
-<!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
-<div class="section-phones-tight">
-  <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Ausgewählte UGC-Arbeiten im modernen Format</p>
-  <div class="phone-row">
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video1-poster.jpg"><source src="videos/backmischung.mp4" type="video/mp4"></video>
+<!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 (Fullscreen) ===================== -->
+<div class="fullscreen-slide">
+  <div class="section-phones-tight">
+    <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Ausgewählte UGC-Arbeiten im modernen Format</p>
+    <div class="phone-row">
+      <div class="phone-card">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video1-poster.jpg"><source src="videos/backmischung.mp4" type="video/mp4"></video>
+          </div>
         </div>
+        <div class="phone-label">Produkt Demo</div>
+        <div class="phone-sub">Markenname</div>
       </div>
-      <div class="phone-label">Produkt Demo</div>
-      <div class="phone-sub">Markenname</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
+      <div class="phone-card">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
+          </div>
         </div>
+        <div class="phone-label">Storytelling</div>
+        <div class="phone-sub">Markenname</div>
       </div>
-      <div class="phone-label">Storytelling</div>
-      <div class="phone-sub">Markenname</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video3-poster.jpg"><source src="videos/unboxing.mp4" type="video/mp4"></video>
+      <div class="phone-card">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video3-poster.jpg"><source src="videos/unboxing.mp4" type="video/mp4"></video>
+          </div>
         </div>
+        <div class="phone-label">Trendiges Konzept</div>
+        <div class="phone-sub">Markenname</div>
       </div>
-      <div class="phone-label">Trendiges Konzept</div>
-      <div class="phone-sub">Markenname</div>
-    </div>
-  </div>
-</div>
-
-<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
-<div class="section-phones-normal">
-  <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Weitere Video-Arbeiten</p>
-  <div class="phone-row">
-    <div class="phone-card">
-      <div class="phone-frame lavender-border">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video4-poster.jpg"><source src="videos/fashion-strand.mp4" type="video/mp4"></video>
-        </div>
-      </div>
-      <div class="phone-label">Ästhetisches Video</div>
-      <div class="phone-sub">Markenname</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame lavender-border">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video5-poster.jpg"><source src="videos/blumenstrauss.mp4" type="video/mp4"></video>
-        </div>
-      </div>
-      <div class="phone-label">Storytelling</div>
-      <div class="phone-sub">Markenname</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame lavender-border">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
-        </div>
-      </div>
-      <div class="phone-label">Problem / Lösung</div>
-      <div class="phone-sub">Markenname</div>
     </div>
   </div>
 </div>
 
-<!-- ===================== 5. BRANDS ===================== -->
-<section class="bg-lime" style="padding: 0;">
+<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 (Fullscreen) ===================== -->
+<div class="fullscreen-slide">
+  <div class="section-phones-normal">
+    <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Weitere Video-Arbeiten</p>
+    <div class="phone-row">
+      <div class="phone-card">
+        <div class="phone-frame lavender-border">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video4-poster.jpg"><source src="videos/fashion-strand.mp4" type="video/mp4"></video>
+          </div>
+        </div>
+        <div class="phone-label">Ästhetisches Video</div>
+        <div class="phone-sub">Markenname</div>
+      </div>
+      <div class="phone-card">
+        <div class="phone-frame lavender-border">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video5-poster.jpg"><source src="videos/blumenstrauss.mp4" type="video/mp4"></video>
+          </div>
+        </div>
+        <div class="phone-label">Storytelling</div>
+        <div class="phone-sub">Markenname</div>
+      </div>
+      <div class="phone-card">
+        <div class="phone-frame lavender-border">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
+          </div>
+        </div>
+        <div class="phone-label">Problem / Lösung</div>
+        <div class="phone-sub">Markenname</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 5. BRANDS (Fullscreen) ===================== -->
+<section class="bg-lime fullscreen-slide">
   <div class="split split-brand" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 6rem 2.5rem 6rem 1rem;">
+    <div style="padding: 4rem 2.5rem 4rem 1rem;">
       <div class="eyebrow">— Markenname —</div>
       <h2 style="font-size:28px; margin-top:0.5rem; line-height:1.3;">Vertrauensvolle Partnerschaften &amp; Referenzen</h2>
     </div>
@@ -645,10 +620,10 @@
   </div>
 </section>
 
-<!-- ===================== 6. CASE STUDY (Stats) ===================== -->
-<section class="bg-lavender" style="padding: 0;">
+<!-- ===================== 6. CASE STUDY (Stats) (Fullscreen) ===================== -->
+<section class="bg-lavender fullscreen-slide">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 6rem 2.5rem 6rem 1rem;">
+    <div style="padding: 4rem 2.5rem 4rem 1rem;">
       <h2 style="font-size:28px; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
       <div class="stats-grid">
         <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
@@ -666,44 +641,46 @@
   </div>
 </section>
 
-<!-- ===================== 7. CASE STUDY (Video-Grid) ===================== -->
-<section class="section">
-  <h2 style="font-size:24px; margin-bottom:1.5rem;">Fallstudie — Umsetzung —</h2>
-  <div class="phone-row">
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video7-poster.jpg"><source src="videos/voiceover.mp4" type="video/mp4"></video>
+<!-- ===================== 7. CASE STUDY (Video-Grid) (Fullscreen) ===================== -->
+<section class="fullscreen-slide">
+  <div class="section" style="width:100%;">
+    <h2 style="font-size:24px; margin-bottom:1.5rem;">Fallstudie — Umsetzung —</h2>
+    <div class="phone-row" style="margin-top:0;">
+      <div class="phone-card">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video7-poster.jpg"><source src="videos/voiceover.mp4" type="video/mp4"></video>
+          </div>
         </div>
+        <div class="phone-label">Voiceover</div>
       </div>
-      <div class="phone-label">Voiceover</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video8-poster.jpg"><source src="videos/storytelling.mp4" type="video/mp4"></video>
+      <div class="phone-card">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video8-poster.jpg"><source src="videos/storytelling.mp4" type="video/mp4"></video>
+          </div>
         </div>
+        <div class="phone-label">Storytelling</div>
       </div>
-      <div class="phone-label">Storytelling</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-        <div class="phone-screen">
-          <video controls poster="bilder/video9-poster.jpg"><source src="videos/problem-loesung.mp4" type="video/mp4"></video>
+      <div class="phone-card">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <video controls poster="bilder/video9-poster.jpg"><source src="videos/problem-loesung.mp4" type="video/mp4"></video>
+          </div>
         </div>
+        <div class="phone-label">Problem / Lösung</div>
       </div>
-      <div class="phone-label">Problem / Lösung</div>
     </div>
   </div>
 </section>
 
-<!-- ===================== 8. WHY UGC? ===================== -->
-<section class="bg-lavender" style="padding: 0;">
+<!-- ===================== 8. WHY UGC? (Fullscreen) ===================== -->
+<section class="bg-lavender fullscreen-slide">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 6rem 2.5rem 6rem 1rem;">
+    <div style="padding: 4rem 2.5rem 4rem 1rem;">
       <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
       <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert –<br>echter Content schafft Vertrauen.</p>
       <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC (2026)</p>
@@ -713,7 +690,13 @@
         <li><b>+ 28 %</b> Engagement</li>
         <li><b>+ 29 %</b> Konversionen</li>
       </ul>
-      <p style="color:var(--muted); font-size:18px; margin-top:1.5rem;">Durch authentische Einbindungen entsteht eine direkte emotionale Verbindung zur Zielgruppe, welche messbar zu höheren Abschlussraten führt und die Conversion-Zahlen maximiert.</p>
+      <!-- Flattersatz korrigiert -->
+      <p style="color:var(--muted); font-size:17px; margin-top:1rem;">
+        Durch authentische Einbindungen entsteht eine direkte<br>
+        emotionale Verbindung zur Zielgruppe, welche messbar<br>
+        zu höheren Abschlussraten führt und die Conversion-<br>
+        Zahlen maximiert.
+      </p>
     </div>
     <div class="split-img-wrap">
       <img src="bilder/why-ugc.jpg" alt="Why UGC" class="media-img-format">
@@ -721,48 +704,50 @@
   </div>
 </section>
 
-<!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
-<div class="services-wrapper">
-  <h2 style="font-size: 32px; margin-bottom: 2.5rem;">Dienstleistungen</h2>
-  <div class="services-grid">
-    <div class="service-card bg-lime">
-      <h3>1 Videokonzept</h3>
-      <p>organisch oder bezahlt</p>
+<!-- ===================== 9. DIENSTLEISTUNGEN (Fullscreen Ende) ===================== -->
+<section class="fullscreen-slide">
+  <div class="services-wrapper">
+    <h2 style="font-size: 32px; margin-bottom: 2rem;">Dienstleistungen</h2>
+    <div class="services-grid">
+      <div class="service-card bg-lime">
+        <h3>1 Videokonzept</h3>
+        <p>organisch oder bezahlt</p>
+      </div>
+      <div class="service-card bg-lime">
+        <h3>3 UGC Videos</h3>
+        <p>2 organische + 1 bezahltes</p>
+      </div>
+      <div class="service-card bg-lime">
+        <h3>5 UGC Fotos</h3>
+        <p>Lifestyle- oder Produktfotografie</p>
+      </div>
     </div>
-    <div class="service-card bg-lime">
-      <h3>3 UGC Videos</h3>
-      <p>2 organische + 1 bezahltes</p>
+    <div class="services-lower">
+      <div class="service-card bg-lavender service-card-inset">
+        <h3>Testpakete</h3>
+        <ul>
+          <li>2 Basis Konzepte</li>
+          <li>4 Hooks</li>
+          <li>2 CTA's / Handlungsaufforderungen</li>
+          <li>10 Video-Varianten</li>
+        </ul>
+      </div>
+      <div class="service-card bg-lavender service-card-inset">
+        <h3>Extras</h3>
+        <ul>
+          <li>Raw Aufnahme</li>
+          <li>Zusätzliche Hooks</li>
+          <li>Whitelisting</li>
+          <li>UGC Produktfotografie</li>
+        </ul>
+      </div>
     </div>
-    <div class="service-card bg-lime">
-      <h3>5 UGC Fotos</h3>
-      <p>Lifestyle- oder Produktfotografie</p>
+    <div class="cta-row">
+      <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?<br>Kontaktieren Sie mich für individuelle Preise.</p>
+      <a class="btn" href="mailto:hannah_marahrens@gmx.de">Kontakt aufnehmen</a>
     </div>
   </div>
-  <div class="services-lower">
-    <div class="service-card bg-lavender service-card-inset">
-      <h3>Testpakete</h3>
-      <ul>
-        <li>2 Basis Konzepte</li>
-        <li>4 Hooks</li>
-        <li>2 CTA's / Handlungsaufforderungen</li>
-        <li>10 Video-Varianten</li>
-      </ul>
-    </div>
-    <div class="service-card bg-lavender service-card-inset">
-      <h3>Extras</h3>
-      <ul>
-        <li>Raw Aufnahme</li>
-        <li>Zusätzliche Hooks</li>
-        <li>Whitelisting</li>
-        <li>UGC Produktfotografie</li>
-      </ul>
-    </div>
-  </div>
-  <div class="cta-row">
-    <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?<br>Kontaktieren Sie mich für individuelle Preise.</p>
-    <a class="btn" href="mailto:hannah_marahrens@gmx.de">Kontakt aufnehmen</a>
-  </div>
-</div>
+</section>
 
 <!-- ===================== 10. WORKFLOW ===================== -->
 <section class="workflow-section">
@@ -828,15 +813,47 @@
   </div>
 </div>
 
-<!-- ===================== 13. ABSCHLUSS & COPYRIGHT ===================== -->
+<!-- ===================== 13. ABSCHLUSS & FOOTER ===================== -->
 <div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">Lust auf eine<br>Zusammenarbeit?</div>
   </div>
   <div class="closing-bar">
-    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram-white.svg" alt="">hannah_marahrens</a>
-    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail-white.svg" alt="">hannah_marahrens@gmx.de</a>
+    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener" class="contact-item-ig"><img class="icon-inline" src="bilder/icon-instagram-white.svg" alt="Instagram">hannah_marahrens</a>
+    <a href="mailto:hannah_marahrens@gmx.de" class="contact-item-mail"><img class="icon-inline" src="bilder/icon-mail-white.svg" alt="Mail">hannah_marahrens@gmx.de</a>
+    
+    <!-- Rechtliche Buttons (Impressum & Datenschutz) -->
+    <div class="legal-links">
+      <a href="#impressum-modal" class="legal-btn">Impressum</a>
+      <a href="#datenschutz-modal" class="legal-btn">Datenschutz</a>
+    </div>
+
     <span class="closing-copyright">&copy; 2026 Hannah Marahrens</span>
+  </div>
+</div>
+
+<!-- ===================== RECHTLICHE MODALS ===================== -->
+<div id="impressum-modal" class="modal">
+  <div class="modal-content">
+    <a href="#" class="modal-close">&times;</a>
+    <h2>Impressum</h2>
+    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+    <p>Hannah Marahrens<br>[Straße und Hausnummer]<br>[PLZ und Ort]</p>
+    <p><strong>Kontakt:</strong><br>Telefon: [Deine Telefonnummer]<br>E-Mail: hannah_marahrens@gmx.de</p>
+    <p><strong>Umsatzsteuer-ID:</strong><br>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: [Falls vorhanden, ansonsten diesen Satz löschen]</p>
+  </div>
+</div>
+
+<div id="datenschutz-modal" class="modal">
+  <div class="modal-content">
+    <a href="#" class="modal-close">&times;</a>
+    <h2>Datenschutzerklärung</h2>
+    <p><strong>1. Datenschutz auf einen Blick</strong></p>
+    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen...</p>
+    <p><strong>2. Hosting</strong></p>
+    <p>Diese Website wird extern gehostet (z.B. über GitHub Pages). Personenbezogene Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
+    <p><strong>3. Datenerfassung auf dieser Website</strong></p>
+    <p>Bei der bloßen Nutzung der Website werden standardmäßig Server-Logfiles (z.B. IP-Adresse, Uhrzeit) durch den Hoster erhoben, die technisch notwendig sind, um Ihnen die Website anzuzeigen.</p>
   </div>
 </div>
 
