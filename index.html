@@ -25,11 +25,6 @@
     margin: 0 auto;
     padding: 5rem 1.5rem;
   }
-  .section-narrow {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 5rem 1.5rem;
-  }
   h1, h2, h3 { margin: 0; font-weight: 600; }
   a { color: var(--ink); text-decoration: none; }
   .icon-inline {
@@ -50,34 +45,41 @@
   .hero {
     position: relative;
     min-height: 100vh;
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.55) 100%), url("bilder/hero.jpg");
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.4) 100%), url("bilder/hero.jpg");
     background-size: cover;
     background-position: center;
     color: var(--paper);
   }
   .hero-top {
     position: absolute;
-    top: 3rem;
-    left: 2rem;
-    right: 2rem;
+    top: 3.5rem;
+    left: 4rem;
+    right: 4rem;
   }
-  .hero-top .eyebrow { color: var(--paper); margin-bottom: 0.75rem; }
+  .hero-top .eyebrow { 
+    color: var(--paper); 
+    margin-bottom: 0.75rem; 
+    letter-spacing: 0.2em;
+    font-size: 0.9rem;
+  }
   .hero-top h1 {
-    font-size: 3.4rem;
-    line-height: 1.05;
+    font-size: 3.8rem;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    font-weight: 500;
   }
   .hero-contact-left,
   .hero-contact-right {
     position: absolute;
-    bottom: 2rem;
+    bottom: 3rem;
     font-size: 0.95rem;
   }
-  .hero-contact-left { left: 2rem; }
-  .hero-contact-right { right: 2rem; }
+  .hero-contact-left { left: 4rem; }
+  .hero-contact-right { right: 4rem; }
   .hero-contact-left a,
   .hero-contact-right a { color: var(--paper); }
 
-  /* ---------- INTRO (Warum Sie mit mir arbeiten sollten) ---------- */
+  /* ---------- INTRO ---------- */
   .intro {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -94,151 +96,93 @@
   .intro-text p { margin: 0 0 1.2rem; color: var(--muted); max-width: 420px; font-size: 1rem; }
   .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 1rem; }
   .intro-img {
-    background-image: url("bilder/intro.jpg");
     background-size: cover;
     background-position: center;
     min-height: 420px;
   }
-  @media (max-width: 800px) {
-    .intro { grid-template-columns: 1fr; }
-    .intro-img { min-height: 300px; }
-  }
-  @media (max-width: 600px) {
-    .phone-row { grid-template-columns: 1fr; }
-  }
 
-  /* ---------- PHONE MOCKUP (für Videos) ---------- */
+  /* ---------- PHONE MOCKUP ---------- */
   .phone-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 2rem;
     justify-items: center;
   }
-  .phone-card { text-align: left; width: 100%; max-width: 220px; }
+  .phone-card { text-align: left; width: 100%; max-width: 260px; }
   .phone-frame {
     position: relative;
     width: 100%;
-    max-width: 220px;
+    max-width: 260px;
     aspect-ratio: 9 / 16;
     margin: 0 auto;
-    background: #111;
-    border: 10px solid #111;
-    border-radius: 26px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    background: #000;
+    border: 8px solid var(--lime);
+    border-radius: 36px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    overflow: hidden;
   }
   .phone-frame::before {
     content: "";
     position: absolute;
-    top: 8px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40%;
-    height: 8px;
+    width: 35%;
+    height: 14px;
     background: #000;
-    border-radius: 6px;
-    z-index: 2;
+    border-radius: 10px;
+    z-index: 10;
   }
   .phone-screen {
     width: 100%;
     height: 100%;
-    border-radius: 14px;
+    border-radius: 28px;
     overflow: hidden;
-    background: #ddd;
+    background: #111;
+    position: relative;
   }
-  .phone-screen video,
-  .phone-screen iframe {
+  .phone-screen video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 0;
   }
   .phone-label {
-    margin-top: 0.75rem;
+    margin-top: 0.85rem;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   .phone-sub {
     color: var(--muted);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
-  /* ---------- Farbige Sections ---------- */
+  /* ---------- FARBIGE SECTIONS & BOXEN (Ohne abgerundete Ecken) ---------- */
   .bg-lime { background: var(--lime); }
   .bg-lavender { background: var(--lavender); }
 
-  .split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .split-brand { grid-template-columns: 0.6fr 1.4fr; }
-  .split > div { padding: 4rem 3rem; }
-  .split-img {
-    background-size: cover;
-    background-position: center;
-    min-height: 380px;
-  }
-  @media (max-width: 800px) {
-    .split { grid-template-columns: 1fr; }
-  }
-
-  /* Brands placeholder */
-  .brands-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-items: center;
-    justify-items: center;
-  }
-  .brand-slot {
-    width: 100%;
-    height: 70px;
-    border: 1px dashed rgba(0,0,0,0.3);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-
-  /* Case study stats */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-  .stat { }
-  .stat .num { font-size: 1.8rem; font-weight: 700; }
-  .stat .lbl { font-size: 0.85rem; color: var(--muted); }
-
-  /* Why UGC list */
-  ul.facts { padding-left: 1.1rem; margin: 0.5rem 0 1.5rem; }
-  ul.facts li { margin-bottom: 0.4rem; }
-  ul.facts b { }
-
-  /* Services */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
   .service-card {
-    padding: 1.25rem 1.25rem;
-    border-radius: 10px;
+    padding: 2rem 1.75rem;
+    border-radius: 0; /* Exakt eckig nach Wunsch */
   }
-  .service-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
-  .service-card p { margin: 0; font-size: 0.9rem; }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 0.6rem; font-weight: 700; }
+  .service-card p { margin: 0; font-size: 0.95rem; color: #222; }
   .services-lower {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    margin-top: 1.25rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
   }
-  .service-card ul { margin: 0.4rem 0 0; padding-left: 1.1rem; font-size: 0.9rem; }
+  .service-card ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.95rem; }
+  .service-card li { margin-bottom: 0.3rem; }
+
   .cta-row {
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -249,66 +193,91 @@
     background: var(--paper);
     color: var(--ink);
     border: 2px solid var(--ink);
-    padding: 0.75rem 1.6rem;
-    border-radius: 6px;
+    padding: 0.85rem 2rem;
+    border-radius: 0;
     font-size: 0.95rem;
+    font-weight: 600;
     text-decoration: none;
     display: inline-block;
   }
-  .btn:hover { background: #f2f2f2; }
+  .btn:hover { background: #000; color: #fff; }
 
-  /* Gallery */
-  .gallery-strip {
+  /* ---------- WORKFLOW SEKTION ---------- */
+  .workflow-section {
+    background: var(--lime);
+    padding: 5rem 2rem;
+  }
+  .workflow-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .workflow-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    font-weight: 600;
+  }
+  .workflow-timeline {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+    gap: 1.5rem;
   }
-  .gallery-strip img,
-  .gallery-strip .ph {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    background: #eee;
-    border-radius: 0;
+  .workflow-timeline::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--ink);
+    z-index: 1;
   }
-
-  /* Drei hochformatige Vollbild-Fotos nebeneinander */
-  .trio-portrait {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+  .workflow-step {
+    position: relative;
+    z-index: 2;
   }
-  .trio-portrait img,
-  .trio-portrait .ph {
-    width: 100%;
-    aspect-ratio: 3/4.3;
-    object-fit: cover;
-    background: #ddd;
+  .workflow-step::before {
+    content: "";
+    position: display;
     display: block;
+    width: 13px;
+    height: 13px;
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
   }
-  @media (min-width: 1000px) {
-    .trio-portrait img,
-    .trio-portrait .ph { aspect-ratio: 3/5; }
+  .workflow-step h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.3;
   }
-  @media (max-width: 600px) {
-    .trio-portrait { grid-template-columns: 1fr; }
+  .workflow-step ul {
+    margin: 0;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    color: #222;
+  }
+  .workflow-step li {
+    margin-bottom: 0.5rem;
   }
 
-  footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--muted);
-    font-size: 0.85rem;
+  @media (max-width: 900px) {
+    .workflow-timeline { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .workflow-timeline::before { display: none; }
   }
 
-  /* ---------- CLOSING (Lust auf eine Zusammenarbeit?) ---------- */
+  /* ---------- ABSCHLUSS (Letzte Seite mit großem Bild) ---------- */
   .closing-card {
     width: 100%;
+    background: var(--lime);
   }
   .closing-img {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    min-height: 85vh;
+    background-image: url("bilder/closing.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -318,35 +287,43 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.5) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
   }
-  .closing-text {
+  .closing-text-box {
     position: relative;
     z-index: 1;
     color: var(--paper);
-    font-weight: 700;
-    font-size: 2rem;
-    line-height: 1.25;
-    padding: 2.5rem 3rem;
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 1.15;
+    padding: 0 4rem 3rem 4rem;
   }
   .closing-bar {
     background: var(--lime);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.6rem 3rem;
+    padding: 2rem 4rem;
     flex-wrap: wrap;
     gap: 1rem;
   }
   .closing-bar a {
     color: var(--ink);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 500;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
   }
-  .closing-bar a:hover { opacity: 0.7; }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    background: var(--paper);
+  }
 </style>
 </head>
 <body>
@@ -379,12 +356,11 @@
 
 <!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
 <section class="section">
-  <p>Schreibe hier einen kleinen Text über deine UGC Beispiele</p>
+  <p style="color: var(--muted); margin-bottom: 2rem;">Schreibe hier einen kleinen Text über deine UGC Beispiele</p>
   <div class="phone-row">
     <div class="phone-card">
       <div class="phone-frame">
         <div class="phone-screen">
-          <!-- Video 1: hier eigenes Video/Embed einsetzen -->
           <video controls poster="bilder/video1-poster.jpg">
             <source src="videos/backmischung.mp4" type="video/mp4">
           </video>
@@ -418,143 +394,9 @@
   </div>
 </section>
 
-<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
+<!-- ===================== 4. DIENSTLEISTUNGEN ===================== -->
 <section class="section">
-  <p>Schreibe hier einen kleinen Text über deine UGC Beispiele</p>
-  <div class="phone-row">
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-screen">
-          <video controls poster="bilder/video4-poster.jpg">
-            <source src="videos/fashion-strand.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="phone-label">Ästhetisches Video</div>
-      <div class="phone-sub">Markenname</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-screen">
-          <video controls poster="bilder/video5-poster.jpg">
-            <source src="videos/blumenstrauss.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="phone-label">Storytelling</div>
-      <div class="phone-sub">Markenname</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-screen">
-          <video controls poster="bilder/video6-poster.jpg">
-            <source src="videos/beauty.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="phone-label">Problem / Lösung</div>
-      <div class="phone-sub">Markenname</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 5. BRANDS ===================== -->
-<section class="bg-lime">
-  <div class="section split split-brand" style="padding:0;">
-    <div>
-      <div class="eyebrow">— Markenname —</div>
-      <h2 style="font-size:1.7rem; margin-top:0.5rem;">Eine kurze Referenz von einer der MARKEN</h2>
-    </div>
-    <div class="brands-grid" style="padding:3rem;">
-      <div class="brand-slot">Logo Marke 1</div>
-      <div class="brand-slot">Logo Marke 2</div>
-      <div class="brand-slot">Logo Marke 3</div>
-      <div class="brand-slot">Logo Marke 4</div>
-      <div class="brand-slot">Logo Marke 5</div>
-      <div class="brand-slot">Logo Marke 6</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 6. CASE STUDY (Stats) ===================== -->
-<section class="bg-lavender">
-  <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div>
-      <h2 style="font-size:1.6rem;">Fallstudie — Markenname —</h2>
-      <div class="stats-grid">
-        <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Rendite der Werbeausgaben</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Likes / Ansichten</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Klicks / CTR</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Konversionen</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Gewinn</div></div>
-      </div>
-      <p style="color:var(--muted); font-size:0.9rem;">Zeige Zahlen und Statistiken zu dem von dir erstellten Content und erläutere den Schmerzpunkt, mit dem die Marke konfrontiert war, sowie die von dir angebotene Lösung.</p>
-    </div>
-    <div class="split-img" style="background-image:url('bilder/case-study.jpg');"></div>
-  </div>
-</section>
-
-<!-- ===================== 7. CASE STUDY (Video-Grid) ===================== -->
-<section class="section">
-  <h2 style="font-size:1.4rem; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
-  <div class="phone-row">
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-screen">
-          <video controls poster="bilder/video7-poster.jpg">
-            <source src="videos/voiceover.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="phone-label">Voiceover</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-screen">
-          <video controls poster="bilder/video8-poster.jpg">
-            <source src="videos/storytelling.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="phone-label">Storytelling</div>
-    </div>
-    <div class="phone-card">
-      <div class="phone-frame">
-        <div class="phone-screen">
-          <video controls poster="bilder/video9-poster.jpg">
-            <source src="videos/problem-loesung.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="phone-label">Problem / Lösung</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 8. WHY UGC? ===================== -->
-<section class="bg-lavender">
-  <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div>
-      <h2 style="font-size:1.8rem;">Warum UGC?</h2>
-      <p>Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
-      <p style="font-weight:600; margin-bottom:0.3rem;">Fakten über UGC (2026)</p>
-      <ul class="facts">
-        <li><b>4x</b> höhere Klickrate (CTR)</li>
-        <li><b>2,4x</b> mehr Aufmerksamkeit</li>
-        <li><b>+28 %</b> Engagement</li>
-        <li><b>+29 %</b> Konversionen</li>
-      </ul>
-      <p style="font-weight:600; margin-bottom:0.3rem;">Was du verpasst</p>
-      <p>Ohne UGC verschenkst du wertvolle Reichweite, wirkst in Zeiten von steriler KI-Werbung schnell austauschbar und lässt kaufbereite Kundschaft liegen.</p>
-    </div>
-    <div class="split-img" style="background-image:url('bilder/why-ugc.jpg');"></div>
-  </div>
-</section>
-
-<!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
-<section class="section">
-  <h2 style="font-size:1.8rem; margin-bottom:1.5rem;">Dienstleistungen</h2>
+  <h2 style="font-size: 2.2rem; margin-bottom: 2.5rem;">Dienstleistungen</h2>
   <div class="services-grid">
     <div class="service-card bg-lime">
       <h3>1 Videokonzept</h3>
@@ -595,29 +437,49 @@
   </div>
 </section>
 
-<!-- ===================== 10 / 11. WEITERE UGC BEISPIELE ===================== -->
-<section class="section" style="padding-bottom:1.5rem;">
-  <div class="gallery-strip">
-    <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
-    <img src="bilder/beispiel2.jpg" alt="UGC Beispiel 2">
-    <img src="bilder/beispiel3.jpg" alt="UGC Beispiel 3">
-    <img src="bilder/beispiel4.jpg" alt="UGC Beispiel 4">
+<!-- ===================== 5. WORKFLOW (Neu eingefügt) ===================== -->
+<section class="workflow-section">
+  <div class="workflow-container">
+    <h2>Mein Workflow</h2>
+    <div class="workflow-timeline">
+      <div class="workflow-step">
+        <h3>Entwicklung<br>einer Vision</h3>
+        <ul>
+          <li>Briefing &amp; Konzept</li>
+          <li>Definition der Deliverables</li>
+          <li>Klärung aller Anforderungen</li>
+          <li>Entwicklung der Content-Ideen</li>
+        </ul>
+      </div>
+      <div class="workflow-step">
+        <h3>Vertrags-<br>abschluss</h3>
+        <ul>
+          <li>Verbindlicher Vertragsabschluss</li>
+          <li>50% Anzahlung bei Vertragsabschluss</li>
+        </ul>
+      </div>
+      <div class="workflow-step">
+        <h3>Kreativer<br>Prozess</h3>
+        <ul>
+          <li>Produkt-Erhalt als Startschuss</li>
+          <li>Erste Entwürfe innerhalb von 7 Tagen</li>
+        </ul>
+      </div>
+      <div class="workflow-step">
+        <h3>Lieferung</h3>
+        <ul>
+          <li>Restzahlung von 50% nach Freigabe</li>
+          <li>Bereitstellung via Wetransfer, SwissTransfer oder Google Drive</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== VORLETZTE SEITE: 3 hochformatige Fotos ===================== -->
-<section style="max-width:1200px; margin:0 auto; padding:0 1.5rem 3rem;">
-  <div class="trio-portrait">
-    <img src="bilder/portrait1.jpg" alt="UGC Beispiel Portrait 1">
-    <img src="bilder/portrait2.jpg" alt="UGC Beispiel Portrait 2">
-    <img src="bilder/portrait3.jpg" alt="UGC Beispiel Portrait 3">
-  </div>
-</section>
-
-<!-- ===================== ABSCHLUSS: Lust auf eine Zusammenarbeit? (vollflächig) ===================== -->
+<!-- ===================== 6. ABSCHLUSS ===================== -->
 <div class="closing-card">
-  <div class="closing-img" style="background-image:url('bilder/closing.jpg');">
-    <div class="closing-text">Lust auf eine<br>Zusammenarbeit?</div>
+  <div class="closing-img">
+    <div class="closing-text-box">Lust auf eine<br>Zusammenarbeit?</div>
   </div>
   <div class="closing-bar">
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.svg" alt="">hannah_marahrens</a>
