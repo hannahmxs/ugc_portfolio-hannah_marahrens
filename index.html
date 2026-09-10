@@ -13,6 +13,7 @@
     --muted: #5c5c5c;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
@@ -82,7 +83,7 @@
   .hero-contact-left a,
   .hero-contact-right a { color: var(--paper); }
 
-  /* ---------- INTRO & SPLIT (Punkt 7: Weiter nach rechts versetzt) ---------- */
+  /* ---------- INTRO & SPLIT (Punkt 2: Weiter nach rechts versetzt) ---------- */
   .intro {
     max-width: 1100px;
     margin: 0 auto;
@@ -110,7 +111,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 88% center; /* Noch etwas weiter nach rechts verschoben */
+    object-position: 94% center; /* Noch weiter nach rechts platziert */
     display: block;
   }
 
@@ -119,7 +120,7 @@
     .intro-img-wrap { min-height: 350px; }
   }
 
-  /* ---------- PHONE MOCKUP (Punkt 6: Kamera & Mikrofon ergänzt) ---------- */
+  /* ---------- PHONE MOCKUP (Punkt 1, 5 & 6: Helleres Detail, Vergrößert) ---------- */
   .section-phones-tight {
     max-width: 1100px;
     margin: 0 auto;
@@ -137,29 +138,29 @@
     margin-top: 2rem;
     justify-items: center;
   }
-  .phone-card { text-align: left; width: 100%; max-width: 260px; }
+  .phone-card { text-align: left; width: 100%; max-width: 290px; }
   .phone-frame {
     position: relative;
     width: 100%;
-    max-width: 260px;
+    max-width: 290px; /* Vergrößert (Punkt 5 & 6) */
     aspect-ratio: 9 / 16;
     margin: 0 auto;
     background: #000;
     border: 10px solid var(--lime);
-    border-radius: 32px;
+    border-radius: 34px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.18);
     overflow: hidden;
   }
   .phone-frame.lavender-border {
     border-color: var(--lavender);
   }
-  /* Kamera-Insel / Notch Detail mit Lautsprecher & Kamera-Linse */
+  /* Kamera-Insel mit helleren Details (Punkt 1) */
   .phone-notch {
     position: absolute;
     top: 6px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90px;
+    width: 95px;
     height: 18px;
     background: #000;
     border-bottom-left-radius: 10px;
@@ -168,25 +169,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 9px;
   }
   .phone-speaker {
-    width: 28px;
+    width: 30px;
     height: 3px;
-    background: #222;
+    background: #555; /* Heller für besseren Kontrast */
     border-radius: 2px;
   }
   .phone-camera {
-    width: 8px;
-    height: 8px;
-    background: #151515;
+    width: 9px;
+    height: 9px;
+    background: #2a2a2a; /* Heller für besseren Kontrast */
     border-radius: 50%;
-    border: 1px solid #333;
+    border: 1px solid #666;
   }
   .phone-screen {
     width: 100%;
     height: 100%;
-    border-radius: 22px;
+    border-radius: 24px;
     overflow: hidden;
     background: #111;
     position: relative;
@@ -309,10 +310,11 @@
   }
   .btn:hover { background: #000; color: #fff; }
 
-  /* ---------- WORKFLOW ---------- */
+  /* ---------- WORKFLOW (Punkt 7: Abstand davor erweitert) ---------- */
   .workflow-section {
     background: var(--lime);
-    padding: 6rem 2rem;
+    padding: 7rem 2rem; /* Erhöhter Abstand vor dem Workflow */
+    margin-top: 3rem;
     overflow: hidden;
   }
   .workflow-container {
@@ -374,11 +376,11 @@
     .workflow-timeline::before { display: none; }
   }
 
-  /* ---------- GALERIE STRIP (Punkt 4: Exaktes Format 5:7) ---------- */
+  /* ---------- GALERIE STRIP ---------- */
   .gallery-section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 1.5rem 1.5rem; /* Reduzierter unterer Abstand (Punkt 5) */
+    padding: 4rem 1.5rem 2rem 1.5rem;
   }
   .gallery-grid {
     display: grid;
@@ -387,7 +389,7 @@
   }
   .gallery-grid img {
     width: 100%;
-    aspect-ratio: 5 / 7; /* Exakt 5:7 Format */
+    aspect-ratio: 5 / 7;
     object-fit: cover;
     background: #eee;
     border-radius: 0;
@@ -396,10 +398,10 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* ---------- TRIO PORTRAIT (Punkt 5: Abstand nach oben verringert) ---------- */
+  /* ---------- TRIO PORTRAIT (Punkt 8: Abstand zu Produktbildern erweitert) ---------- */
   .trio-wrapper {
     max-width: 100%;
-    margin: 1.5rem 0 0 0; /* Nahtloser, verkürzter Abstand zur Produktgalerie */
+    margin: 4rem 0 0 0; /* Deutlich erweiterter und harmonisch angepasster Abstand */
     padding: 0;
   }
   .trio-portrait {
@@ -422,7 +424,7 @@
     .trio-portrait img { height: auto; aspect-ratio: 9 / 16; }
   }
 
-  /* ---------- ABSCHLUSS (Punkt 2 & 3: Leiste verschmälert & Text nach oben) ---------- */
+  /* ---------- ABSCHLUSS (Punkt 4: Strichstärke & Design wie Hero) ---------- */
   .closing-card {
     width: 100%;
     background: var(--lime);
@@ -452,34 +454,60 @@
     font-weight: 600;
     font-size: 48px;
     line-height: 1.15;
-    padding: 0 5rem 6.5rem 5rem; /* Text um einige Millimeter nach oben verschoben */
+    padding: 0 5rem 6.5rem 5rem;
   }
   .closing-bar {
     background: var(--lime);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.35rem 5rem; /* Noch schmalere Leiste (Höhe verringert) */
+    padding: 0.35rem 5rem;
     flex-wrap: wrap;
     gap: 1.5rem;
   }
   .closing-bar a {
     color: var(--ink);
     text-decoration: none;
-    font-size: 19px;
-    font-weight: 500;
+    font-size: 20px; /* Gleiche Schriftgröße wie im Hero */
+    font-weight: 450; /* Strichstärke exakt an Hero angepasst */
     display: inline-flex;
     align-items: center;
   }
 
-  /* Punkt 1: Fußnoten/Copyright in schwarzer Schrift */
+  /* Punkt 3: Copyright-Schrift mit verringerter Strichstärke */
   footer {
     text-align: center;
     padding: 2rem;
     color: var(--ink); 
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 300; /* Dünnere Strichstärke */
     background: var(--paper);
+  }
+
+  /* ---------- SCROLL-TO-TOP BUTTON (Punkt 9) ---------- */
+  .scroll-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: background 0.2s, transform 0.2s;
+    z-index: 999;
+  }
+  .scroll-top-btn:hover {
+    background: rgba(255, 255, 255, 0.85);
+    transform: translateY(-2px);
   }
 </style>
 </head>
@@ -765,7 +793,7 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE STRIP (Punkt 4: Format 5:7) ===================== -->
+<!-- ===================== 11. GALERIE STRIP ===================== -->
 <section class="gallery-section">
   <div class="gallery-grid" style="margin-bottom: 1.5rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
@@ -802,6 +830,9 @@
 </div>
 
 <footer>&copy; 2026 Hannah Marahrens</footer>
+
+<!-- ===================== 14. SCROLL-TO-TOP BUTTON ===================== -->
+<a href="#start" class="scroll-top-btn" title="Nach oben">↑</a>
 
 </body>
 </html>
