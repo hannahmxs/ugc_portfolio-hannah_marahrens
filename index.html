@@ -18,64 +18,64 @@
     font-family: "Helvetica Neue", Arial, sans-serif;
     color: var(--ink);
     background: var(--paper);
-    line-height: 1.55;
+    line-height: 1.6;
   }
   .section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 5rem 1.5rem;
+    padding: 6rem 1.5rem;
   }
   h1, h2, h3 { margin: 0; font-weight: 600; }
   a { color: var(--ink); text-decoration: none; }
   .icon-inline {
-    width: 1em;
-    height: 1em;
+    width: 1.1em;
+    height: 1.1em;
     display: inline-block;
-    vertical-align: -0.15em;
-    margin-right: 0.4em;
+    vertical-align: -0.2em;
+    margin-right: 0.5em;
   }
   .eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
   }
 
-  /* ---------- HERO ---------- */
+  /* ---------- HERO (Punkt 1 & 2) ---------- */
   .hero {
     position: relative;
     min-height: 100vh;
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.4) 100%), url("bilder/hero.jpg");
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.5) 100%), url("bilder/hero.jpg");
     background-size: cover;
     background-position: center;
     color: var(--paper);
   }
   .hero-top {
     position: absolute;
-    top: 3.5rem;
-    left: 4rem;
-    right: 4rem;
+    top: 5rem;
+    left: 5rem;
+    right: 5rem;
   }
   .hero-top .eyebrow { 
     color: var(--paper); 
-    margin-bottom: 0.75rem; 
-    letter-spacing: 0.2em;
-    font-size: 0.9rem;
+    margin-bottom: 1rem; 
+    letter-spacing: 0.25em;
+    font-size: 1rem;
   }
   .hero-top h1 {
-    font-size: 3.8rem;
-    line-height: 1.25;
-    letter-spacing: 0.04em;
-    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    font-weight: 600;
   }
   .hero-contact-left,
   .hero-contact-right {
     position: absolute;
-    bottom: 3rem;
-    font-size: 0.95rem;
+    bottom: 3.5rem;
+    font-size: 20px;
   }
-  .hero-contact-left { left: 4rem; }
-  .hero-contact-right { right: 4rem; }
+  .hero-contact-left { left: 5rem; }
+  .hero-contact-right { right: 5rem; }
   .hero-contact-left a,
   .hero-contact-right a { color: var(--paper); }
 
@@ -87,61 +87,85 @@
     align-items: stretch;
   }
   .intro-text {
-    padding: 4rem 3rem;
+    padding: 5rem 3.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  .intro-text h2 { font-size: 2rem; margin-bottom: 1.5rem; max-width: 420px; }
-  .intro-text p { margin: 0 0 1.2rem; color: var(--muted); max-width: 420px; font-size: 1rem; }
-  .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 1rem; }
+  .intro-text h2 { font-size: 32px; margin-bottom: 1.5rem; max-width: 450px; line-height: 1.25; }
+  .intro-text p { margin: 0 0 1.2rem; color: var(--muted); max-width: 450px; font-size: 20px; }
+  .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 1rem; font-size: 20px; }
   .intro-img {
     background-size: cover;
     background-position: center;
-    min-height: 420px;
+    min-height: 480px;
   }
   @media (max-width: 800px) {
     .intro { grid-template-columns: 1fr; }
-    .intro-img { min-height: 300px; }
+    .intro-img { min-height: 350px; }
   }
 
-  /* ---------- PHONE MOCKUP ---------- */
+  /* ---------- PHONE MOCKUP (Punkt 4, 5, 6) ---------- */
   .phone-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     justify-items: center;
   }
-  .phone-card { text-align: left; width: 100%; max-width: 260px; }
+  .phone-card { text-align: left; width: 100%; max-width: 250px; }
   .phone-frame {
     position: relative;
     width: 100%;
-    max-width: 260px;
+    max-width: 250px;
     aspect-ratio: 9 / 16;
     margin: 0 auto;
     background: #000;
-    border: 8px solid var(--lime);
+    border: 7px solid var(--lime);
     border-radius: 36px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     overflow: hidden;
   }
+  .phone-frame.lavender-border {
+    border-color: var(--lavender);
+  }
+  /* Detailreiche iPhone Notch mit Kamera & Lautsprecher */
   .phone-frame::before {
     content: "";
     position: absolute;
-    top: 10px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 35%;
-    height: 14px;
+    width: 90px;
+    height: 18px;
     background: #000;
-    border-radius: 10px;
+    border-radius: 12px;
     z-index: 10;
+  }
+  .phone-notch-cam {
+    position: absolute;
+    top: 13px;
+    left: calc(50% + 22px);
+    width: 7px;
+    height: 7px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    z-index: 11;
+  }
+  .phone-notch-speaker {
+    position: absolute;
+    top: 16px;
+    left: calc(50% - 18px);
+    width: 28px;
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
+    z-index: 11;
   }
   .phone-screen {
     width: 100%;
     height: 100%;
-    border-radius: 28px;
+    border-radius: 29px;
     overflow: hidden;
     background: #111;
     position: relative;
@@ -152,29 +176,43 @@
     object-fit: cover;
   }
   .phone-label {
-    margin-top: 0.85rem;
+    margin-top: 0.9rem;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 18px;
+    padding-left: 0.2rem;
   }
   .phone-sub {
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 16px;
+    padding-left: 0.2rem;
   }
 
-  /* ---------- FARBIGE SECTIONS & BOXEN ---------- */
+  /* ---------- FARBIGE SECTIONS & SPLIT (Punkt 3, 8) ---------- */
   .bg-lime { background: var(--lime); }
   .bg-lavender { background: var(--lavender); }
 
   .split {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
   .split-brand { grid-template-columns: 0.6fr 1.4fr; }
-  .split > div { padding: 4rem 3rem; }
+  .split > div { padding: 5rem 3.5rem; }
+  
+  /* Erhöhte Folien-Höhen und dezenter Rand für Bilder (Punkt 3 & 8) */
+  .split-img-wrap {
+    padding: 3rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .split-img {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4 / 5;
     background-size: cover;
     background-position: center;
-    min-height: 380px;
+    border-radius: 4px;
   }
   @media (max-width: 800px) {
     .split { grid-template-columns: 1fr; }
@@ -190,13 +228,12 @@
   }
   .brand-slot {
     width: 100%;
-    height: 70px;
+    height: 75px;
     border: 1px dashed rgba(0,0,0,0.3);
-    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
+    font-size: 16px;
     color: var(--muted);
     background: var(--paper);
   }
@@ -208,67 +245,73 @@
     gap: 1.5rem;
     margin: 2rem 0;
   }
-  .stat .num { font-size: 1.8rem; font-weight: 700; }
-  .stat .lbl { font-size: 0.85rem; color: var(--muted); }
+  .stat .num { font-size: 32px; font-weight: 700; }
+  .stat .lbl { font-size: 15px; color: var(--muted); }
 
   /* Why UGC list */
-  .facts { padding-left: 1.1rem; margin: 0.5rem 0 1.5rem; }
-  .facts li { margin-bottom: 0.4rem; }
+  .facts { padding-left: 1.2rem; margin: 0.8rem 0 1.5rem; font-size: 20px; }
+  .facts li { margin-bottom: 0.5rem; }
 
-  /* Services (eckig) */
+  /* Services (Punkt 10 - Boxen etwas schmaler) */
+  .services-wrapper {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+  }
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
   .service-card {
-    padding: 2rem 1.75rem;
+    padding: 2.2rem 1.8rem;
     border-radius: 0;
   }
-  .service-card h3 { font-size: 1.15rem; margin-bottom: 0.6rem; font-weight: 700; }
-  .service-card p { margin: 0; font-size: 0.95rem; color: #222; }
+  .service-card h3 { font-size: 20px; margin-bottom: 0.6rem; font-weight: 700; }
+  .service-card p { margin: 0; font-size: 18px; color: #222; }
   .services-lower {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin-top: 1.5rem;
   }
-  .service-card ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.95rem; }
-  .service-card li { margin-bottom: 0.3rem; }
+  .service-card ul { margin: 0.6rem 0 0; padding-left: 1.2rem; font-size: 18px; }
+  .service-card li { margin-bottom: 0.4rem; }
 
   .cta-row {
-    margin-top: 3rem;
+    margin-top: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
+    font-size: 20px;
   }
   .btn {
     background: var(--paper);
     color: var(--ink);
     border: 2px solid var(--ink);
-    padding: 0.85rem 2rem;
+    padding: 0.9rem 2.2rem;
     border-radius: 0;
-    font-size: 0.95rem;
+    font-size: 18px;
     font-weight: 600;
     text-decoration: none;
     display: inline-block;
   }
   .btn:hover { background: #000; color: #fff; }
 
-  /* ---------- WORKFLOW SEKTION ---------- */
+  /* ---------- WORKFLOW SEKTION (Punkt 11) ---------- */
   .workflow-section {
     background: var(--lime);
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
   }
   .workflow-container {
     max-width: 1100px;
     margin: 0 auto;
   }
   .workflow-container h2 {
-    font-size: 2.2rem;
-    margin-bottom: 3rem;
+    font-size: 32px;
+    margin-bottom: 3.5rem;
     font-weight: 600;
   }
   .workflow-timeline {
@@ -280,7 +323,7 @@
   .workflow-timeline::before {
     content: "";
     position: absolute;
-    top: 6px;
+    top: 7px;
     left: 0;
     right: 0;
     height: 3px;
@@ -291,76 +334,87 @@
     position: relative;
     z-index: 2;
   }
+  /* Kreise in Hintergrundfarbe (Gelb) mit schwarzer Kontur (Punkt 11) */
   .workflow-step::before {
     content: "";
     display: block;
-    width: 13px;
-    height: 13px;
-    background: var(--paper);
+    width: 15px;
+    height: 15px;
+    background: var(--lime);
     border: 3px solid var(--ink);
     border-radius: 50%;
     margin-bottom: 1.5rem;
   }
   .workflow-step h3 {
-    font-size: 1.1rem;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 1rem;
-    line-height: 1.3;
+    line-height: 1.35;
   }
   .workflow-step ul {
     margin: 0;
-    padding-left: 1rem;
-    font-size: 0.9rem;
+    padding-left: 1.1rem;
+    font-size: 18px;
     color: #222;
   }
   .workflow-step li {
     margin-bottom: 0.5rem;
   }
   @media (max-width: 900px) {
-    .workflow-timeline { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .workflow-timeline { grid-template-columns: 1fr 1fr; gap: 3rem; }
     .workflow-timeline::before { display: none; }
   }
 
-  /* Gallery strip */
-  .gallery-strip {
+  /* ---------- GALERIE STRIP (Punkt 12 - Hochformat & Doppelreihe) ---------- */
+  .gallery-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+  }
+  .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+    gap: 1.2rem;
   }
-  .gallery-strip img {
+  .gallery-grid img {
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     background: #eee;
+    border-radius: 4px;
   }
-  @media (max-width: 600px) {
-    .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* Trio portrait */
+  /* ---------- TRIO PORTRAIT (Punkt 13 & 14 - Abstand erhöht & Breitenanpassung) ---------- */
+  .trio-wrapper {
+    max-width: 1100px;
+    margin: 6rem auto 0 auto; /* Erhöhter Abstand zu den Produktfotos (Punkt 13) */
+    padding: 0 1.5rem;
+  }
   .trio-portrait {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: 1.2rem;
   }
   .trio-portrait img {
     width: 100%;
-    aspect-ratio: 3/4.3;
+    aspect-ratio: 3 / 4.5;
     object-fit: cover;
     background: #ddd;
     display: block;
+    border-radius: 4px;
   }
-  @media (min-width: 1000px) {
-    .trio-portrait img { aspect-ratio: 3/5; }
-  }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .trio-portrait { grid-template-columns: 1fr; }
   }
 
-  /* ---------- ABSCHLUSS ---------- */
+  /* ---------- ABSCHLUSS (Punkt 15 - Längerer gelber Streifen) ---------- */
   .closing-card {
     width: 100%;
     background: var(--lime);
+    margin-top: 6rem;
   }
   .closing-img {
     position: relative;
@@ -376,41 +430,40 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.5) 100%);
   }
   .closing-text-box {
     position: relative;
     z-index: 1;
     color: var(--paper);
     font-weight: 600;
-    font-size: 3.2rem;
+    font-size: 48px;
     line-height: 1.15;
-    padding: 0 4rem 3rem 4rem;
+    padding: 0 5rem 3.5rem 5rem;
   }
   .closing-bar {
     background: var(--lime);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: 2.5rem 5rem; /* Verlängerter/großzügiger Streifen (Punkt 15) */
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   .closing-bar a {
     color: var(--ink);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 500;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
   }
 
   footer {
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
     color: var(--muted);
-    font-size: 0.85rem;
+    font-size: 16px;
     background: var(--paper);
   }
 </style>
@@ -434,9 +487,9 @@
 <!-- ===================== 2. INTRODUCTION ===================== -->
 <section class="intro">
   <div class="intro-text">
-    <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
-    <p>Moin, ich bin Hannah – Creator &amp;<br>Kommunikationsdesignerin mit einer besonderen<br>Sensibilität für Bildsprache, Stimmung und die<br>kleinen Details, die eine Marke fühlbar machen.</p>
-    <p>Mit einem geschulten Auge für Komposition<br>und einem feinen Gespür für Emotion übersetze<br>ich Marken in Content, der nahbar ist und im<br>Gedächtnis bleibt.</p>
+    <h2>Warum Sie mit mir arbeiten sollten</h2>
+    <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke fühlbar machen.</p>
+    <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotion übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
     <p class="niches">Zu Hause in den Nischen</p>
     <p>Lifestyle · Beauty · Food · Travel</p>
   </div>
@@ -445,14 +498,14 @@
 
 <!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
 <section class="section">
-  <p style="color: var(--muted); margin-bottom: 2rem;">Schreibe hier einen kleinen Text über deine UGC Beispiele</p>
+  <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Ausgewählte UGC-Arbeiten im modernen Format</p>
   <div class="phone-row">
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
-          <video controls poster="bilder/video1-poster.jpg">
-            <source src="videos/backmischung.mp4" type="video/mp4">
-          </video>
+          <video controls poster="bilder/video1-poster.jpg"><source src="videos/backmischung.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="phone-label">Produkt Demo</div>
@@ -460,10 +513,10 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
-          <video controls poster="bilder/video2-poster.jpg">
-            <source src="videos/omega3.mp4" type="video/mp4">
-          </video>
+          <video controls poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="phone-label">Storytelling</div>
@@ -471,10 +524,10 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
-          <video controls poster="bilder/video3-poster.jpg">
-            <source src="videos/unboxing.mp4" type="video/mp4">
-          </video>
+          <video controls poster="bilder/video3-poster.jpg"><source src="videos/unboxing.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="phone-label">Trendiges Konzept</div>
@@ -483,38 +536,38 @@
   </div>
 </section>
 
-<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
+<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 (Mit lila Rand - Punkt 7) ===================== -->
 <section class="section">
-  <p style="color: var(--muted); margin-bottom: 2rem;">Weitere ausgewählte Video-Arbeiten</p>
+  <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Weitere Video-Arbeiten</p>
   <div class="phone-row">
     <div class="phone-card">
-      <div class="phone-frame">
+      <div class="phone-frame lavender-border">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
-          <video controls poster="bilder/video4-poster.jpg">
-            <source src="videos/fashion-strand.mp4" type="video/mp4">
-          </video>
+          <video controls poster="bilder/video4-poster.jpg"><source src="videos/fashion-strand.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="phone-label">Ästhetisches Video</div>
       <div class="phone-sub">Markenname</div>
     </div>
     <div class="phone-card">
-      <div class="phone-frame">
+      <div class="phone-frame lavender-border">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
-          <video controls poster="bilder/video5-poster.jpg">
-            <source src="videos/blumenstrauss.mp4" type="video/mp4">
-          </video>
+          <video controls poster="bilder/video5-poster.jpg"><source src="videos/blumenstrauss.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="phone-label">Storytelling</div>
       <div class="phone-sub">Markenname</div>
     </div>
     <div class="phone-card">
-      <div class="phone-frame">
+      <div class="phone-frame lavender-border">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
-          <video controls poster="bilder/video6-poster.jpg">
-            <source src="videos/beauty.mp4" type="video/mp4">
-          </video>
+          <video controls poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="phone-label">Problem / Lösung</div>
@@ -525,10 +578,10 @@
 
 <!-- ===================== 5. BRANDS ===================== -->
 <section class="bg-lime">
-  <div class="section split split-brand" style="padding:4rem 1.5rem;">
+  <div class="section split split-brand" style="padding:5rem 1.5rem;">
     <div>
       <div class="eyebrow">— Markenname —</div>
-      <h2 style="font-size:1.7rem; margin-top:0.5rem;">Eine kurze Referenz von einer der MARKEN</h2>
+      <h2 style="font-size:28px; margin-top:0.5rem; line-height:1.3;">Vertrauensvolle Partnerschaften &amp; Referenzen</h2>
     </div>
     <div class="brands-grid">
       <div class="brand-slot">Logo Marke 1</div>
@@ -544,8 +597,8 @@
 <!-- ===================== 6. CASE STUDY (Stats) ===================== -->
 <section class="bg-lavender">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div>
-      <h2 style="font-size:1.6rem;">Fallstudie — Markenname —</h2>
+    <div style="padding: 5rem 3.5rem;">
+      <h2 style="font-size:28px; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
       <div class="stats-grid">
         <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
         <div class="stat"><div class="num">00</div><div class="lbl">Rendite</div></div>
@@ -554,18 +607,22 @@
         <div class="stat"><div class="num">00</div><div class="lbl">Konversionen</div></div>
         <div class="stat"><div class="num">00</div><div class="lbl">Gewinn</div></div>
       </div>
-      <p style="color:var(--muted); font-size:0.9rem;">Zeige Zahlen und Statistiken zu dem von dir erstellten Content und erläutere den Schmerzpunkt.</p>
+      <p style="color:var(--muted); font-size:18px; margin-top:1.5rem;">Zahlen und Statistiken zu erfolgreichen Content-Kampagnen.</p>
     </div>
-    <div class="split-img" style="background-image:url('bilder/case-study.jpg');"></div>
+    <div class="split-img-wrap">
+      <div class="split-img" style="background-image:url('bilder/case-study.jpg');"></div>
+    </div>
   </div>
 </section>
 
 <!-- ===================== 7. CASE STUDY (Video-Grid) ===================== -->
 <section class="section">
-  <h2 style="font-size:1.4rem; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
+  <h2 style="font-size:24px; margin-bottom:1.5rem;">Fallstudie — Umsetzung —</h2>
   <div class="phone-row">
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video7-poster.jpg"><source src="videos/voiceover.mp4" type="video/mp4"></video>
         </div>
@@ -574,6 +631,8 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video8-poster.jpg"><source src="videos/storytelling.mp4" type="video/mp4"></video>
         </div>
@@ -582,6 +641,8 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch-cam"></div>
+        <div class="phone-notch-speaker"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video9-poster.jpg"><source src="videos/problem-loesung.mp4" type="video/mp4"></video>
         </div>
@@ -594,26 +655,26 @@
 <!-- ===================== 8. WHY UGC? ===================== -->
 <section class="bg-lavender">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div>
-      <h2 style="font-size:1.8rem;">Warum UGC?</h2>
-      <p>Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
-      <p style="font-weight:600; margin-bottom:0.3rem;">Fakten über UGC (2026)</p>
+    <div style="padding: 5rem 3.5rem;">
+      <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
+      <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
+      <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC</p>
       <ul class="facts">
         <li><b>4x</b> höhere Klickrate (CTR)</li>
         <li><b>2,4x</b> mehr Aufmerksamkeit</li>
         <li><b>+28 %</b> Engagement</li>
         <li><b>+29 %</b> Konversionen</li>
       </ul>
-      <p style="font-weight:600; margin-bottom:0.3rem;">Was du verpasst</p>
-      <p>Ohne UGC verschenkst du wertvolle Reichweite und wirkst in Zeiten steriler KI-Werbung austauschbar.</p>
     </div>
-    <div class="split-img" style="background-image:url('bilder/why-ugc.jpg');"></div>
+    <div class="split-img-wrap">
+      <div class="split-img" style="background-image:url('bilder/why-ugc.jpg');"></div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
-<section class="section">
-  <h2 style="font-size: 2.2rem; margin-bottom: 2.5rem;">Dienstleistungen</h2>
+<!-- ===================== 9. DIENSTLEISTUNGEN (Punkt 10) ===================== -->
+<div class="services-wrapper">
+  <h2 style="font-size: 32px; margin-bottom: 2.5rem;">Dienstleistungen</h2>
   <div class="services-grid">
     <div class="service-card bg-lime">
       <h3>1 Videokonzept</h3>
@@ -644,17 +705,17 @@
         <li>Raw Aufnahme</li>
         <li>Zusätzliche Hooks</li>
         <li>Whitelisting</li>
-        <li>UGC Produkt- &amp; Lifestyle Fotografie</li>
+        <li>UGC Produktfotografie</li>
       </ul>
     </div>
   </div>
   <div class="cta-row">
-    <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?<br>Kontaktieren Sie mich für monatliche Preise.</p>
+    <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?<br>Kontaktieren Sie mich für individuelle Preise.</p>
     <a class="btn" href="mailto:hannah_marahrens@gmx.de">Kontakt aufnehmen</a>
   </div>
-</section>
+</div>
 
-<!-- ===================== 10. WORKFLOW ===================== -->
+<!-- ===================== 10. WORKFLOW (Punkt 11) ===================== -->
 <section class="workflow-section">
   <div class="workflow-container">
     <h2>Mein Workflow</h2>
@@ -665,54 +726,60 @@
           <li>Briefing &amp; Konzept</li>
           <li>Definition der Deliverables</li>
           <li>Klärung aller Anforderungen</li>
-          <li>Entwicklung der Content-Ideen</li>
+          <li>Entwicklung Content-Ideen</li>
         </ul>
       </div>
       <div class="workflow-step">
         <h3>Vertrags-<br>abschluss</h3>
         <ul>
-          <li>Verbindlicher Vertragsabschluss</li>
-          <li>50% Anzahlung bei Vertragsabschluss</li>
+          <li>Verbindlicher Vertrag</li>
+          <li>50% Anzahlung bei Start</li>
         </ul>
       </div>
       <div class="workflow-step">
         <h3>Kreativer<br>Prozess</h3>
         <ul>
           <li>Produkt-Erhalt als Startschuss</li>
-          <li>Erste Entwürfe innerhalb von 7 Tagen</li>
+          <li>Entwürfe nach 7 Tagen</li>
         </ul>
       </div>
       <div class="workflow-step">
         <h3>Lieferung</h3>
         <ul>
-          <li>Restzahlung von 50% nach Freigabe</li>
-          <li>Bereitstellung via Wetransfer, SwissTransfer oder Google Drive</li>
+          <li>Restzahlung nach Freigabe</li>
+          <li>Bereitstellung via Cloud</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE STRIP ===================== -->
-<section class="section" style="padding-bottom:1.5rem;">
-  <div class="gallery-strip">
+<!-- ===================== 11. GALERIE STRIP (Doppelreihe Hochformat - Punkt 12) ===================== -->
+<section class="gallery-section">
+  <div class="gallery-grid" style="margin-bottom: 1.2rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
     <img src="bilder/beispiel2.jpg" alt="UGC Beispiel 2">
     <img src="bilder/beispiel3.jpg" alt="UGC Beispiel 3">
     <img src="bilder/beispiel4.jpg" alt="UGC Beispiel 4">
   </div>
-</section>
-
-<!-- ===================== 12. TRIO PORTRAIT ===================== -->
-<section style="max-width:1200px; margin:0 auto; padding:0 1.5rem 3rem;">
-  <div class="trio-portrait">
-    <img src="bilder/portrait1.jpg" alt="UGC Beispiel Portrait 1">
-    <img src="bilder/portrait2.jpg" alt="UGC Beispiel Portrait 2">
-    <img src="bilder/portrait3.jpg" alt="UGC Beispiel Portrait 3">
+  <div class="gallery-grid">
+    <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 5">
+    <img src="bilder/beispiel2.jpg" alt="UGC Beispiel 6">
+    <img src="bilder/beispiel3.jpg" alt="UGC Beispiel 7">
+    <img src="bilder/beispiel4.jpg" alt="UGC Beispiel 8">
   </div>
 </section>
 
-<!-- ===================== 13. ABSCHLUSS ===================== -->
+<!-- ===================== 12. TRIO PORTRAIT (Punkt 13 & 14) ===================== -->
+<div class="trio-wrapper">
+  <div class="trio-portrait">
+    <img src="bilder/portrait1.jpg" alt="UGC Portrait 1">
+    <img src="bilder/portrait2.jpg" alt="UGC Portrait 2">
+    <img src="bilder/portrait3.jpg" alt="UGC Portrait 3">
+  </div>
+</div>
+
+<!-- ===================== 13. ABSCHLUSS (Punkt 15) ===================== -->
 <div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">Lust auf eine<br>Zusammenarbeit?</div>
