@@ -153,7 +153,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 70% center; /* Hier wird der Ausschnitt nach rechts verschoben */
+      object-position: 70% center;
       display: block;
     }
 
@@ -182,7 +182,7 @@
       position: relative;
       width: 100%;
       max-width: 310px;
-      aspect-ratio: 9 / 16; /* Originales Videoverhältnis beibehalten */
+      aspect-ratio: 9 / 16;
       margin: 0 auto;
       background: #000;
       border: 10px solid var(--lime);
@@ -350,7 +350,7 @@
       .workflow-timeline::before { display: none; }
     }
 
-    /* ---------- GALERIE STRIP (Exakt die 8 UGC-Beispiel-Fotos im Format 2:3) ---------- */
+    /* ---------- GALERIE STRIP (Format 2:3) ---------- */
     .gallery-section { max-width: 1100px; margin: 6rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
@@ -520,7 +520,7 @@
   </div>
 </header>
 
-<!-- ===================== 2. INTRODUCTION (Intro-Bild nach rechts verschoben) ===================== -->
+<!-- ===================== 2. INTRODUCTION ===================== -->
 <section class="fullscreen-slide">
   <div class="intro">
     <div class="intro-text">
@@ -614,8 +614,8 @@
   </div>
 </div>
 
-<!-- ===================== 5. BRANDS ===================== -->
-<section class="bg-lime fullscreen-slide">
+<!-- ===================== 5. BRANDS (HIER VERSTECKT) ===================== -->
+<section class="bg-lime fullscreen-slide element-hidden">
   <div class="split split-brand" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
       <div class="eyebrow">— Markenname —</div>
@@ -631,8 +631,8 @@
   </div>
 </section>
 
-<!-- ===================== 6. CASE STUDY (Stats) (Case-Study-Bild nach rechts verschoben) ===================== -->
-<section class="bg-lavender fullscreen-slide">
+<!-- ===================== 6. CASE STUDY / STATS (HIER VERSTECKT) ===================== -->
+<section class="bg-lavender fullscreen-slide element-hidden">
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
       <h2 style="font-size:28px; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
@@ -652,8 +652,8 @@
   </div>
 </section>
 
-<!-- ===================== 7. CASE STUDY (Video-Grid) ===================== -->
-<section class="fullscreen-slide">
+<!-- ===================== 7. CASE STUDY / VIDEO-GRID (HIER VERSTECKT) ===================== -->
+<section class="fullscreen-slide element-hidden">
   <div class="section" style="width:100%;">
     <h2 style="font-size:24px; margin-bottom:1.5rem;">Fallstudie — Umsetzung —</h2>
     <div class="phone-row" style="margin-top:0;">
@@ -688,7 +688,7 @@
   </div>
 </section>
 
-<!-- ===================== 8. WHY UGC? (Why-UGC-Bild nach rechts verschoben) ===================== -->
+<!-- ===================== 8. WHY UGC? ===================== -->
 <section class="bg-lavender fullscreen-slide">
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
@@ -798,7 +798,7 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE STRIP (Nur die 8 UGC-Beispiel-Fotos exakt im Format 2:3) ===================== -->
+<!-- ===================== 11. GALERIE STRIP ===================== -->
 <section class="gallery-section">
   <div class="gallery-grid" style="margin-bottom: 1.5rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
