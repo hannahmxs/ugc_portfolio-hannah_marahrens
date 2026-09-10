@@ -37,13 +37,13 @@
       font-family: "Gotham", "Helvetica Neue", Arial, sans-serif;
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.6;
+      line-height: 1.5;
       letter-spacing: 0.03em;
     }
     .section {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 6rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
     h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: 0.04em; }
     a { color: var(--ink); text-decoration: none; }
@@ -85,7 +85,7 @@
       position: relative;
       height: calc(100vh + 8px);
       min-height: 770px;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -101,18 +101,18 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 30%;
       display: block;
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.5) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.02) 30%, rgba(0,0,0,0.45) 100%);
       z-index: 2;
     }
     .hero-top {
       position: absolute;
-      top: 5rem;
+      top: 12rem;
       left: 5rem;
       right: 5rem;
       z-index: 3;
@@ -120,7 +120,7 @@
     }
     .hero-top .eyebrow { 
       color: var(--paper); 
-      margin-bottom: 1rem; 
+      margin-bottom: 0.8rem; 
       letter-spacing: 0.25em;
       font-size: 1.8rem;
     }
@@ -134,7 +134,7 @@
     .hero-contact-left,
     .hero-contact-right {
       position: absolute;
-      bottom: 4rem;
+      bottom: 3.5rem;
       font-size: 20px;
       z-index: 3;
     }
@@ -149,19 +149,19 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      align-items: stretch;
+      align-items: center;
       width: 100%;
       height: 100%;
     }
     .intro-text {
-      padding: 2rem 2.5rem 4rem 1rem;
+      padding: 1.5rem 2.5rem 2.5rem 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    .intro-text h2 { font-size: 32px; margin-bottom: 1.5rem; line-height: 1.25; }
-    .intro-text p { margin: 0 0 1.2rem; color: var(--muted); font-size: 20px; }
-    .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.4rem; font-size: 20px; }
+    .intro-text h2 { font-size: 32px; margin-bottom: 1.2rem; line-height: 1.2; }
+    .intro-text p { margin: 0 0 1rem; color: var(--muted); font-size: 20px; }
+    .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 0.3rem; margin-bottom: 0.3rem; font-size: 20px; }
     
     .intro-img-wrap, .split-img-wrap {
       padding: 0 !important;
@@ -169,6 +169,7 @@
       align-items: stretch;
       overflow: hidden;
       position: relative;
+      height: 100%;
     }
     
     .shifted-right-img {
@@ -190,7 +191,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2.5rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       justify-items: center;
     }
     .phone-card { text-align: left; width: 100%; max-width: 310px; }
@@ -227,7 +228,7 @@
     .phone-camera { width: 9px; height: 9px; background: #2a2a2a; border-radius: 50%; border: 1px solid #666; }
     .phone-screen { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #111; position: relative; }
     .phone-screen video { width: 100%; height: 100%; object-fit: cover; }
-    .phone-label { margin-top: 1rem; font-weight: 600; font-size: 20px; padding-left: 0.9rem; text-align: left; }
+    .phone-label { margin-top: 0.8rem; font-weight: 600; font-size: 20px; padding-left: 0.9rem; text-align: left; }
     .phone-sub { color: var(--muted); font-size: 17px; padding-left: 0.9rem; text-align: left; }
 
     /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
@@ -242,7 +243,7 @@
       height: 100%;
     }
     .split-brand { grid-template-columns: 0.6fr 1.4fr; }
-    .split > div { padding: 4rem 2.5rem 4rem 1rem; display: flex; flex-direction: column; justify-content: center; }
+    .split > div { padding: 3rem 2.5rem 3rem 1rem; display: flex; flex-direction: column; justify-content: center; }
     
     .brands-grid {
       display: grid;
@@ -267,13 +268,13 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
     }
     .stat .num { font-size: 32px; font-weight: 700; }
     .stat .lbl { font-size: 15px; color: var(--muted); }
 
-    .facts { padding-left: 1.2rem; margin: 0.8rem 0 1.5rem; font-size: 20px; }
-    .facts li { margin-bottom: 0.5rem; }
+    .facts { padding-left: 1.2rem; margin: 0.6rem 0 1.2rem; font-size: 20px; }
+    .facts li { margin-bottom: 0.4rem; }
 
     /* ---------- DIENSTLEISTUNGEN ---------- */
     .services-wrapper {
@@ -287,8 +288,8 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
     }
-    .service-card { padding: 2rem 1.4rem; }
-    .service-card h3 { font-size: 20px; margin-bottom: 0.6rem; font-weight: 700; }
+    .service-card { padding: 1.8rem 1.4rem; }
+    .service-card h3 { font-size: 20px; margin-bottom: 0.5rem; font-weight: 700; }
     .service-card p { margin: 0; font-size: 17px; color: #222; }
     
     .services-lower {
@@ -297,12 +298,12 @@
       gap: 1.2rem;
       margin-top: 1.2rem;
     }
-    .service-card-inset { padding: 2rem 1.4rem 2rem 2.5rem; }
-    .service-card ul { margin: 0.6rem 0 0; padding-left: 1.1rem; font-size: 17px; }
-    .service-card li { margin-bottom: 0.4rem; }
+    .service-card-inset { padding: 1.8rem 1.4rem 1.8rem 2.2rem; }
+    .service-card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; font-size: 17px; }
+    .service-card li { margin-bottom: 0.3rem; }
 
     .cta-row {
-      margin-top: 2.5rem;
+      margin-top: 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -314,7 +315,7 @@
       background: var(--paper);
       color: var(--ink);
       border: 2px solid var(--ink);
-      padding: 0.9rem 2.2rem;
+      padding: 0.8rem 2rem;
       font-size: 18px;
       font-weight: 600;
       text-decoration: none;
@@ -325,12 +326,12 @@
     /* ---------- STANDARD SECTIONS ---------- */
     .workflow-section {
       background: var(--lime);
-      padding: 7rem 2rem;
-      margin-top: 3rem;
+      padding: 5rem 2rem;
+      margin-top: 2rem;
       overflow: hidden;
     }
     .workflow-container { max-width: 1100px; margin: 0 auto; }
-    .workflow-container h2 { font-size: 32px; margin-bottom: 3.5rem; font-weight: 600; }
+    .workflow-container h2 { font-size: 32px; margin-bottom: 2.5rem; font-weight: 600; }
     .workflow-timeline {
       position: relative;
       display: grid;
@@ -356,19 +357,19 @@
       background: var(--lime);
       border: 3px solid var(--ink);
       border-radius: 50%;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
-    .workflow-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 1.0rem; line-height: 1.35; min-height: 54px; }
+    .workflow-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.35; min-height: 54px; }
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 18px; color: #222; }
-    .workflow-step li { margin-bottom: 0.5rem; }
+    .workflow-step li { margin-bottom: 0.4rem; }
 
     /* ---------- GALERIE STRIP ---------- */
-    .gallery-section { max-width: 1100px; margin: 6rem auto; padding: 0 1.5rem; }
+    .gallery-section { max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
 
     /* ---------- TRIO PORTRAIT ---------- */
-    .trio-wrapper { max-width: 100%; margin: 6rem auto 0 auto; padding: 0; }
+    .trio-wrapper { max-width: 100%; margin: 4rem auto 0 auto; padding: 0; }
     .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; }
     .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; object-position: 65% center; background: #ddd; display: block; }
 
@@ -398,7 +399,7 @@
       font-weight: 600;
       font-size: 48px;
       line-height: 1.15;
-      padding: 0 5rem 5rem 8rem;
+      padding: 0 5rem 4rem 8rem;
     }
     
     .closing-bar {
@@ -406,12 +407,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.8rem 8rem; 
+      padding: 1.5rem 8rem; 
     }
     .closing-bar a {
       color: var(--ink);
       text-decoration: none;
-      font-size: 20px; 
+      font-size: 18px; 
       font-weight: 400;
       display: inline-flex;
       align-items: center;
@@ -423,8 +424,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.8rem 2rem;
-      gap: 1rem;
+      padding: 1.5rem 2rem;
+      gap: 0.8rem;
     }
     .legal-links { display: flex; gap: 2rem; }
     .legal-btn {
@@ -441,11 +442,11 @@
     }
     .modal.active { display: flex; }
     .modal-content {
-      background: var(--lime-subtle); padding: 3.5rem; max-width: 750px; width: 100%;
+      background: var(--lime-subtle); padding: 3rem; max-width: 750px; width: 100%;
       max-height: 85vh; overflow-y: auto; position: relative; border-radius: 0; border: 1px solid rgba(0,0,0,0.1);
     }
     .modal-close {
-      position: absolute; top: 1.5rem; right: 1.5rem; font-size: 28px;
+      position: absolute; top: 1.2rem; right: 1.2rem; font-size: 26px;
       text-decoration: none; color: var(--ink); font-weight: bold; cursor: pointer; background: none; border: none;
     }
 
@@ -467,32 +468,32 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* 1. & 2. Hero Bild Ausschnitt korrigiert (rechts komplett sichtbar, links angeschnitten) */
+      /* 1. Hero Bild Ausschnitt angepasst (Gesicht im Fokus, rechts minimal beschnitten) */
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
         margin-bottom: 1rem !important;
       }
       .hero-img {
-        object-position: right top !important;
+        object-position: 78% 30% !important;
       }
       .hero-top {
         position: absolute !important;
         top: auto !important;
-        bottom: 5rem !important;
+        bottom: 5.5rem !important;
         left: 1.5rem !important;
         right: 1.5rem !important;
       }
       .hero-top .eyebrow {
         font-size: 1.1rem !important;
-        margin-bottom: 0.3rem !important;
+        margin-bottom: 0.2rem !important;
       }
       .hero-top h1 {
         line-height: 1.1 !important;
         margin-bottom: 0 !important;
       }
       
-      /* 1. Nur Icons (ohne Text) rechts unten im Hero platzieren */
+      /* Nur Icons (ohne Text) rechts unten im Hero platzieren */
       .hero-contact-left,
       .hero-contact-right {
         position: absolute !important;
@@ -509,7 +510,7 @@
         bottom: 4.2rem !important;
       }
 
-      /* Text unsichtbar machen, damit nur die Icons übrig bleiben */
+      /* Text unsichtbar machen, damit nur Icons übrig bleiben */
       .hero-contact-left a,
       .hero-contact-right a {
         font-size: 0 !important;
@@ -525,28 +526,29 @@
       .fullscreen-slide {
         height: auto !important;
         min-height: auto !important;
-        padding: 3rem 0 !important;
+        padding: 2.5rem 0 !important;
       }
 
-      /* Mobiler Flattersatz für Intro-Text */
-      .intro-text p:nth-of-type(1) {
-        white-space: pre-line !important;
+      /* 2. Flattersatz / Sauberer Abschluss rechts für Textblöcke */
+      p, li, .intro-text p, .phone-sub, .service-card p, .service-card li {
+        text-align: justify !important;
+        text-justify: inter-word !important;
       }
 
-      .section-phones-tight { padding-bottom: 0 !important; margin-bottom: -2rem !important; }
+      .section-phones-tight { padding-bottom: 0 !important; margin-bottom: -1rem !important; }
 
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { 
-        padding: 2rem 1.5rem 1rem 1.5rem !important; 
+        padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
       }
 
-      /* 3. "Why UGC" Bild exakt an das Format von intro.jpg anpassen */
+      /* 4. "Why UGC" Bild als echtes Hochformat exakt im Intro-Bild-Format */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
-      .split > div { padding: 2rem 1.5rem !important; }
+      .split > div { padding: 1.5rem 1.5rem !important; }
       .split-img-wrap { 
         width: 100% !important; 
-        aspect-ratio: 4 / 3 !important; 
-        min-height: auto !important; 
+        aspect-ratio: 4 / 5 !important; 
+        min-height: 380px !important; 
       }
       .split-img-wrap img {
         width: 100% !important;
@@ -554,17 +556,10 @@
         object-fit: cover !important;
       }
 
-      /* Nach dem Punkt "29% Konversionen" den Abstand verringern */
-      .bg-lavender .split > div > p:last-of-type {
-        white-space: pre-line !important;
-        margin-top: 0.5rem !important;
-        line-height: 1.5 !important;
-      }
-
-      /* Alle iPhones untereinander + Unterschriften linksbündig */
+      /* 3. iPhones & Unterschriften nach rechts verschieben */
       .phone-row {
         grid-template-columns: 1fr !important;
-        gap: 2rem !important;
+        gap: 1.8rem !important;
         margin-top: 1rem !important;
       }
       .phone-card {
@@ -574,6 +569,7 @@
         flex-direction: column;
         align-items: flex-start !important;
         text-align: left !important;
+        padding-left: 0.8rem !important; /* Leichter Versatz nach rechts */
       }
       .phone-frame {
         max-width: 82vw !important;
@@ -587,57 +583,52 @@
 
       /* Dienstleistung Seite */
       .services-wrapper { padding: 0 1.5rem !important; }
-      .services-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
-      .services-lower { grid-template-columns: 1fr !important; gap: 1rem !important; margin-top: 1rem !important; }
-      .service-card-inset { padding: 2rem 1.4rem !important; }
+      .services-grid { grid-template-columns: 1fr !important; gap: 0.8rem !important; }
+      .services-lower { grid-template-columns: 1fr !important; gap: 0.8rem !important; margin-top: 0.8rem !important; }
+      .service-card-inset { padding: 1.5rem 1.4rem !important; }
       
       .cta-row { 
         flex-direction: column !important; 
         align-items: flex-start !important; 
         text-align: left !important; 
       }
-      .cta-row p {
-        white-space: pre-line !important;
-      }
 
       /* Workflow Anpassungen */
-      .workflow-section { padding: 4rem 1.5rem 4rem 2.5rem !important; }
-      .workflow-timeline { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .workflow-section { padding: 3rem 1.5rem 3rem 2rem !important; }
+      .workflow-timeline { grid-template-columns: 1fr !important; gap: 2rem !important; }
       .workflow-timeline::before { display: none !important; }
       .workflow-step::before { display: none !important; }
       .workflow-step { position: relative; padding-left: 0 !important; }
       
       .workflow-step h3 { min-height: auto !important; font-size: 18px !important; }
-      .workflow-step h3 br { display: none !important; }
 
       /* Abstand zwischen 3 Portrait-Bildern auf 0 und Höhe anpassen */
       .trio-portrait { grid-template-columns: 1fr !important; gap: 0 !important; }
       .trio-portrait img {
         height: 75vh !important;
-        min-height: 500px !important;
+        min-height: 450px !important;
         object-position: center 20% !important;
       }
 
-      /* Closing-Bild & 4. Korrigierte Schriftgröße für Closing-Leiste */
+      /* Closing-Bild & korrigierte Schriftgröße für Closing-Leiste */
       .closing-img {
         height: 45vh !important;
-        min-height: 280px !important;
+        min-height: 260px !important;
         background-size: cover !important;
         background-position: center !important;
       }
       .closing-text-box {
-        padding: 0 1.5rem 2rem 1.5rem !important;
-        font-size: 32px !important;
+        padding: 0 1.5rem 1.5rem 1.5rem !important;
+        font-size: 30px !important;
       }
       
       .closing-bar {
-        padding: 1.5rem 1.5rem !important;
+        padding: 1.2rem 1.5rem !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important;
         text-align: left !important;
       }
-      /* 4. Schriftgröße auf Closing Page an normalen Text angepasst */
       .closing-bar a {
         font-size: 18px !important;
       }
@@ -670,16 +661,7 @@
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
-      <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin
-mit einer besonderen Sensibilität für
-Bildsprache, Stimmung und die
-kleinen Details, die eine Marke
-fühlbar machen. Mit einem
-geschulten Auge für Komposition
-und einem feinen Gespür für
-Emotion übersetze ich Marken in
-Content, der nahbar ist und im
-Gedächtnis bleibt.</p>
+      <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke fühlbar machen. Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotion übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
       <p class="niches">Zu Hause in den Nischen</p>
       <p>Lifestyle · Beauty · Food · Travel</p>
     </div>
@@ -692,7 +674,7 @@ Gedächtnis bleibt.</p>
 <!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
 <div class="fullscreen-slide">
   <div class="section-phones-tight">
-    <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Ausgewählte UGC-Arbeiten</p>
+    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Ausgewählte UGC-Arbeiten</p>
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame">
@@ -731,7 +713,7 @@ Gedächtnis bleibt.</p>
 <!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
 <div class="fullscreen-slide">
   <div class="section-phones-normal">
-    <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Weitere Video-Arbeiten</p>
+    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Weitere Video-Arbeiten</p>
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame lavender-border">
@@ -770,7 +752,7 @@ Gedächtnis bleibt.</p>
 <!-- ===================== 5. BRANDS (Versteckt) ===================== -->
 <section class="bg-lime fullscreen-slide element-hidden">
   <div class="split split-brand" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 4rem 2.5rem 4rem 1rem;">
+    <div style="padding: 3rem 2.5rem 3rem 1rem;">
       <div class="eyebrow">— Markenname —</div>
       <h2 style="font-size:28px; margin-top:0.5rem; line-height:1.3;">Vertrauensvolle Partnerschaften &amp; Referenzen</h2>
     </div>
@@ -787,8 +769,8 @@ Gedächtnis bleibt.</p>
 <!-- ===================== 6. CASE STUDY / STATS (Versteckt) ===================== -->
 <section class="bg-lavender fullscreen-slide element-hidden">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 4rem 2.5rem 4rem 1rem;">
-      <h2 style="font-size:28px; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
+    <div style="padding: 3rem 2.5rem 3rem 1rem;">
+      <h2 style="font-size:28px; margin-bottom:1.2rem;">Fallstudie — Markenname —</h2>
       <div class="stats-grid">
         <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
         <div class="stat"><div class="num">00</div><div class="lbl">Rendite</div></div>
@@ -797,7 +779,7 @@ Gedächtnis bleibt.</p>
         <div class="stat"><div class="num">00</div><div class="lbl">Konversionen</div></div>
         <div class="stat"><div class="num">00</div><div class="lbl">Gewinn</div></div>
       </div>
-      <p style="color:var(--muted); font-size:18px; margin-top:1.5rem;">Zahlen und Statistiken zu erfolgreichen Content-Kampagnen.</p>
+      <p style="color:var(--muted); font-size:18px; margin-top:1.2rem;">Zahlen und Statistiken zu erfolgreichen Content-Kampagnen.</p>
     </div>
     <div class="split-img-wrap">
       <img src="bilder/case-study.jpg" alt="Case Study" class="shifted-right-img">
@@ -808,7 +790,7 @@ Gedächtnis bleibt.</p>
 <!-- ===================== 7. CASE STUDY / VIDEO-GRID (Versteckt) ===================== -->
 <section class="fullscreen-slide element-hidden">
   <div class="section" style="width:100%;">
-    <h2 style="font-size:24px; margin-bottom:1.5rem;">Fallstudie — Umsetzung —</h2>
+    <h2 style="font-size:24px; margin-bottom:1.2rem;">Fallstudie — Umsetzung —</h2>
     <div class="phone-row" style="margin-top:0;">
       <div class="phone-card">
         <div class="phone-frame">
@@ -844,23 +826,17 @@ Gedächtnis bleibt.</p>
 <!-- ===================== 8. WHY UGC? ===================== -->
 <section class="bg-lavender fullscreen-slide">
   <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 4rem 2.5rem 4rem 1rem;">
-      <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
-      <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert,<br>echter Content schafft Vertrauen.</p>
-      <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC (2026)</p>
+    <div style="padding: 3rem 2.5rem 3rem 1rem;">
+      <h2 style="font-size:32px; margin-bottom:0.8rem;">Warum UGC?</h2>
+      <p style="font-size:20px; color:var(--muted); margin-bottom:1.2rem;">Klassische Werbung wird oft ignoriert, echter Content schafft Vertrauen.</p>
+      <p style="font-weight:600; font-size:20px; margin-bottom:0.4rem;">Fakten über UGC (2026)</p>
       <ul class="facts">
         <li><b>4x</b> höhere Klickrate (CTR)</li>
         <li><b>2,4x</b> mehr Aufmerksamkeit</li>
         <li><b>+ 28 %</b> Engagement</li>
         <li><b>+ 29 %</b> Konversionen</li>
       </ul>
-      <p style="color:var(--muted); font-size:17px; margin-top:1rem;">
-        Durch authentische Einbindungen entsteht
-        eine direkte emotionale Verbindung zur
-        Zielgruppe, welche messbar zu höheren
-        Abschlussraten führt und die Conversion-
-        Zahlen maximiert.
-      </p>
+      <p style="color:var(--muted); font-size:17px; margin-top:0.8rem;">Durch authentische Einbindungen entsteht eine direkte emotionale Verbindung zur Zielgruppe, welche messbar zu höheren Abschlussraten führt und die Conversion-Zahlen maximiert.</p>
     </div>
     <div class="split-img-wrap">
       <img src="bilder/why-ugc.jpg" alt="Why UGC" class="shifted-right-img">
@@ -871,7 +847,7 @@ Gedächtnis bleibt.</p>
 <!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
 <section class="fullscreen-slide">
   <div class="services-wrapper">
-    <h2 style="font-size: 32px; margin-bottom: 2rem;">Dienstleistungen</h2>
+    <h2 style="font-size: 32px; margin-bottom: 1.5rem;">Dienstleistungen</h2>
     <div class="services-grid">
       <div class="service-card bg-lime">
         <h3>1 Videokonzept</h3>
@@ -907,9 +883,7 @@ Gedächtnis bleibt.</p>
       </div>
     </div>
     <div class="cta-row">
-      <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?
-Kontaktieren Sie mich für
-individuelle Preise.</p>
+      <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos? Kontaktieren Sie mich für individuelle Preise.</p>
       <a class="btn" href="mailto:hannah_marahrens@gmx.de">Kontakt aufnehmen</a>
     </div>
   </div>
@@ -1016,11 +990,11 @@ individuelle Preise.</p>
     <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
     <h2>Datenschutzerklärung</h2>
     <p><strong>1. Datenschutz auf einen Blick</strong></p>
-    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
     <p><strong>2. Hosting</strong></p>
-    <p>Diese Website wird extern gehostet (z.B. über GitHub Pages). Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
+    <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
     <p><strong>3. Datenerfassung auf dieser Website</strong></p>
-    <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+    <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber.</p>
   </div>
 </div>
 
