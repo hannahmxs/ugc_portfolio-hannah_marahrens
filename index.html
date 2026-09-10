@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hannah Marahrens – UGC Portfolio</title>
+<style>
+  :root {
+    --lime: #E1FFA5;
+    --lavender: #E1DCFA;
+    --ink: #000000;
+    --paper: #FFFFFF;
+    --muted: #5c5c5c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+  }
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+  }
+  .section-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+  }
+  h1, h2, h3 { margin: 0; font-weight: 600; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%), url("bilder/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    color: var(--paper);
+  }
+  .hero-inner {
+    padding: 3rem 2rem 4rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .hero .eyebrow { color: var(--lime); margin-bottom: 0.75rem; }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 2rem;
+  }
+  .hero-contact {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+  }
+  .hero-contact a { color: var(--paper); text-decoration: none; }
+  .hero-contact a:hover { text-decoration: underline; }
+
+  /* ---------- INTRO (Warum Sie mit mir arbeiten sollten) ---------- */
+  .intro {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .intro-text {
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .intro-text h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+  .intro-text p { margin: 0 0 1.2rem; color: var(--muted); }
+  .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 1rem; }
+  .intro-img {
+    background-image: url("bilder/intro.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 420px;
+  }
+  @media (max-width: 800px) {
+    .intro { grid-template-columns: 1fr; }
+    .intro-img { min-height: 300px; }
+  }
+
+  /* ---------- PHONE MOCKUP (für Videos) ---------- */
+  .phone-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .phone-card { text-align: center; }
+  .phone-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #111;
+    border-radius: 22px;
+    padding: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  .phone-frame::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 8px;
+    background: #000;
+    border-radius: 6px;
+    z-index: 2;
+  }
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ddd;
+  }
+  .phone-screen video,
+  .phone-screen iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+  }
+  .phone-label {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .phone-sub {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  /* ---------- Farbige Sections ---------- */
+  .bg-lime { background: var(--lime); }
+  .bg-lavender { background: var(--lavender); }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .split > div { padding: 4rem 3rem; }
+  .split-img {
+    background-size: cover;
+    background-position: center;
+    min-height: 380px;
+  }
+  @media (max-width: 800px) {
+    .split { grid-template-columns: 1fr; }
+  }
+
+  /* Brands placeholder */
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+  }
+  .brand-slot {
+    width: 100%;
+    height: 70px;
+    border: 1px dashed rgba(0,0,0,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* Case study stats */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .stat { }
+  .stat .num { font-size: 1.8rem; font-weight: 700; }
+  .stat .lbl { font-size: 0.85rem; color: var(--muted); }
+
+  /* Why UGC list */
+  ul.facts { padding-left: 1.1rem; margin: 0.5rem 0 1.5rem; }
+  ul.facts li { margin-bottom: 0.4rem; }
+  ul.facts b { }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .service-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  .service-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+  .service-card p { margin: 0; font-size: 0.9rem; }
+  .services-lower {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .service-card ul { margin: 0.4rem 0 0; padding-left: 1.1rem; font-size: 0.9rem; }
+  .cta-row {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn:hover { opacity: 0.85; }
+
+  /* Gallery */
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  .gallery-strip img,
+  .gallery-strip .ph {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    background: #eee;
+    border-radius: 6px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== 1. HERO ===================== -->
+<header class="hero" id="start">
+  <div class="hero-inner">
+    <div class="eyebrow">UGC Portfolio</div>
+    <h1>Hannah<br>Marahrens</h1>
+    <div class="hero-contact">
+      <a href="mailto:hannah_marahrens@gmx.de">✉ hannah_marahrens@gmx.de</a>
+      <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener">📷 hannah_marahrens</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== 2. INTRODUCTION ===================== -->
+<section class="intro">
+  <div class="intro-text">
+    <h2>Warum Sie mit mir arbeiten sollten</h2>
+    <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke fühlbar machen.</p>
+    <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotion übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
+    <p class="niches">Zu Hause in den Nischen</p>
+    <p>Lifestyle · Beauty · Food · Travel</p>
+  </div>
+  <div class="intro-img" style="background-image:url('bilder/intro.jpg');"></div>
+</section>
+
+<!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
+<section class="section">
+  <p>Schreibe hier einen kleinen Text über deine UGC Beispiele</p>
+  <div class="phone-row">
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <!-- Video 1: hier eigenes Video/Embed einsetzen -->
+          <video controls poster="bilder/video1-poster.jpg">
+            <source src="videos/backmischung.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Produkt Demo</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video2-poster.jpg">
+            <source src="videos/omega3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Storytelling</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video3-poster.jpg">
+            <source src="videos/unboxing.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Trendiges Konzept</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
+<section class="section">
+  <p>Schreibe hier einen kleinen Text über deine UGC Beispiele</p>
+  <div class="phone-row">
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video4-poster.jpg">
+            <source src="videos/fashion-strand.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Ästhetisches Video</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video5-poster.jpg">
+            <source src="videos/blumenstrauss.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Storytelling</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video6-poster.jpg">
+            <source src="videos/beauty.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Problem / Lösung</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. BRANDS ===================== -->
+<section class="bg-lime">
+  <div class="section split" style="padding:0;">
+    <div>
+      <div class="eyebrow">— Markenname —</div>
+      <h2 style="font-size:1.7rem; margin-top:0.5rem;">Eine kurze Referenz von einer der MARKEN</h2>
+    </div>
+    <div class="brands-grid" style="padding:3rem;">
+      <div class="brand-slot">Logo Marke 1</div>
+      <div class="brand-slot">Logo Marke 2</div>
+      <div class="brand-slot">Logo Marke 3</div>
+      <div class="brand-slot">Logo Marke 4</div>
+      <div class="brand-slot">Logo Marke 5</div>
+      <div class="brand-slot">Logo Marke 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. CASE STUDY (Stats) ===================== -->
+<section class="bg-lavender">
+  <div class="split" style="max-width:1100px; margin:0 auto;">
+    <div>
+      <h2 style="font-size:1.6rem;">Fallstudie — Markenname —</h2>
+      <div class="stats-grid">
+        <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Rendite der Werbeausgaben</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Likes / Ansichten</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Klicks / CTR</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Konversionen</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Gewinn</div></div>
+      </div>
+      <p style="color:var(--muted); font-size:0.9rem;">Zeige Zahlen und Statistiken zu dem von dir erstellten Content und erläutere den Schmerzpunkt, mit dem die Marke konfrontiert war, sowie die von dir angebotene Lösung.</p>
+    </div>
+    <div class="split-img" style="background-image:url('bilder/case-study.jpg');"></div>
+  </div>
+</section>
+
+<!-- ===================== 7. CASE STUDY (Video-Grid) ===================== -->
+<section class="section">
+  <h2 style="font-size:1.4rem; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
+  <div class="phone-row">
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video7-poster.jpg">
+            <source src="videos/voiceover.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Voiceover</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video8-poster.jpg">
+            <source src="videos/storytelling.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Storytelling</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video9-poster.jpg">
+            <source src="videos/problem-loesung.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Problem / Lösung</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. WHY UGC? ===================== -->
+<section class="bg-lavender">
+  <div class="split" style="max-width:1100px; margin:0 auto;">
+    <div>
+      <h2 style="font-size:1.8rem;">Warum UGC?</h2>
+      <p>Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
+      <p style="font-weight:600; margin-bottom:0.3rem;">Fakten über UGC (2026)</p>
+      <ul class="facts">
+        <li><b>4x</b> höhere Klickrate (CTR)</li>
+        <li><b>2,4x</b> mehr Aufmerksamkeit</li>
+        <li><b>+28 %</b> Engagement</li>
+        <li><b>+29 %</b> Konversionen</li>
+      </ul>
+      <p style="font-weight:600; margin-bottom:0.3rem;">Was du verpasst</p>
+      <p>Ohne UGC verschenkst du wertvolle Reichweite, wirkst in Zeiten von steriler KI-Werbung schnell austauschbar und lässt kaufbereite Kundschaft liegen.</p>
+    </div>
+    <div class="split-img" style="background-image:url('bilder/why-ugc.jpg');"></div>
+  </div>
+</section>
+
+<!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
+<section class="section">
+  <h2 style="font-size:1.8rem; margin-bottom:1.5rem;">Dienstleistungen</h2>
+  <div class="services-grid">
+    <div class="service-card bg-lime">
+      <h3>1 Videokonzept</h3>
+      <p>organisch oder bezahlt</p>
+    </div>
+    <div class="service-card bg-lime">
+      <h3>3 UGC Videos</h3>
+      <p>2 organische + 1 bezahltes</p>
+    </div>
+    <div class="service-card bg-lime">
+      <h3>5 UGC Fotos</h3>
+      <p>Lifestyle- oder Produktfotografie</p>
+    </div>
+  </div>
+  <div class="services-lower">
+    <div class="service-card bg-lavender">
+      <h3>Testpakete</h3>
+      <ul>
+        <li>2 Basis Konzepte</li>
+        <li>4 Hooks</li>
+        <li>2 CTA's / Handlungsaufforderungen</li>
+        <li>10 Video-Varianten</li>
+      </ul>
+    </div>
+    <div class="service-card bg-lavender">
+      <h3>Extras</h3>
+      <ul>
+        <li>Raw Aufnahme</li>
+        <li>Zusätzliche Hooks</li>
+        <li>Whitelisting</li>
+        <li>UGC Produkt- &amp; Lifestyle Fotografie</li>
+      </ul>
+    </div>
+  </div>
+  <div class="cta-row">
+    <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?<br>Kontaktieren Sie mich für monatliche Preise.</p>
+    <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+  </div>
+</section>
+
+<!-- ===================== 10 / 11. WEITERE UGC BEISPIELE ===================== -->
+<section class="section-narrow">
+  <div class="gallery-strip">
+    <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
+    <img src="bilder/beispiel2.jpg" alt="UGC Beispiel 2">
+    <img src="bilder/beispiel3.jpg" alt="UGC Beispiel 3">
+    <img src="bilder/beispiel4.jpg" alt="UGC Beispiel 4">
+  </div>
+</section>
+
+<!-- ===================== KONTAKT ===================== -->
+<section class="section" id="kontakt" style="text-align:center;">
+  <h2 style="font-size:1.6rem; margin-bottom:1rem;">Kontakt</h2>
+  <p><a href="mailto:hannah_marahrens@gmx.de">hannah_marahrens@gmx.de</a></p>
+  <p><a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener">Instagram: hannah_marahrens</a></p>
+</section>
+
+<!-- ===================== LETZTE SEITE = WIE DIE ERSTE ===================== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">UGC Portfolio</div>
+    <h1>Hannah<br>Marahrens</h1>
+    <div class="hero-contact">
+      <a href="mailto:hannah_marahrens@gmx.de">✉ hannah_marahrens@gmx.de</a>
+      <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener">📷 hannah_marahrens</a>
+    </div>
+  </div>
+</header>
+
+<footer>&copy; 2026 Hannah Marahrens</footer>
+
+</body>
+</html>
