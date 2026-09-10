@@ -480,46 +480,44 @@
       .hero-top {
         position: absolute !important;
         top: auto !important;
-        bottom: 5.5rem !important;
+        bottom: 1.5rem !important; /* Auf dieselbe untere horizontale Linie wie das Instagram-Icon platziert */
         left: 1.5rem !important;
-        right: 1.5rem !important;
+        right: 5.5rem !important;  /* Platz lassen für das Instagram-Icon rechts unten */
       }
       .hero-top .eyebrow {
         font-size: 1.1rem !important;
         margin-bottom: 0.2rem !important;
       }
       .hero-top h1 {
+        font-size: clamp(32px, 8vw, 50px) !important;
         line-height: 1.1 !important;
         margin-bottom: 0 !important;
       }
       
-      /* Nur Icons (ohne Text) rechts unten im Hero platzieren */
+      /* Nur Icons (ohne Text) rechts unten im Hero platzieren auf exakter horizontaler Linie */
       .hero-contact-left,
       .hero-contact-right {
         position: absolute !important;
-        bottom: auto !important;
+        bottom: 1.5rem !important; /* Exakte horizontale Ausrichtung mit .hero-top */
         left: auto !important;
         z-index: 3 !important;
       }
       .hero-contact-left {
         right: 1.5rem !important;
-        bottom: 1.5rem !important;
       }
       .hero-contact-right {
-        right: 1.5rem !important;
-        bottom: 4.2rem !important;
+        display: none !important; /* Mail-Icon auf Mobile ausblenden oder wie gewünscht, nur Instagram-Icon unten rechts */
       }
 
-      /* Text unsichtbar machen, damit nur Icons übrig bleiben */
-      .hero-contact-left a,
-      .hero-contact-right a {
+      /* Text unsichtbar machen, damit nur das Icon übrig bleibt */
+      .hero-contact-left a {
         font-size: 0 !important;
       }
-      .hero-contact-left .icon-inline,
-      .hero-contact-right .icon-inline {
+      .hero-contact-left .icon-inline {
         width: 32px !important;
         height: 32px !important;
         margin-right: 0 !important;
+        vertical-align: middle !important;
       }
 
       /* Allgemeine Slide-Höhen aufheben */
@@ -529,10 +527,9 @@
         padding: 2.5rem 0 !important;
       }
 
-      /* 2. Flattersatz / Sauberer Abschluss rechts für Textblöcke */
+      /* SOFORT BLOCKSATZ RÜCKGÄNGIG: Schöner, natürlicher Flattersatz */
       p, li, .intro-text p, .phone-sub, .service-card p, .service-card li {
-        text-align: justify !important;
-        text-justify: inter-word !important;
+        text-align: left !important;
       }
 
       .section-phones-tight { padding-bottom: 0 !important; margin-bottom: -1rem !important; }
@@ -542,21 +539,23 @@
         padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
       }
 
-      /* 4. "Why UGC" Bild als echtes Hochformat exakt im Intro-Bild-Format */
+      /* "Why UGC" Bild: Exaktes Hochformat ohne Anschnitt (object-fit: contain oder vollständige Anzeige) */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
       .split > div { padding: 1.5rem 1.5rem !important; }
       .split-img-wrap { 
         width: 100% !important; 
         aspect-ratio: 4 / 5 !important; 
         min-height: 380px !important; 
+        background: #f4f4f4;
       }
       .split-img-wrap img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: contain !important; /* Kein Anschneiden des Bildes */
+        object-position: center !important;
       }
 
-      /* 3. iPhones & Unterschriften nach rechts verschieben */
+      /* iPhones & Unterschriften nach rechts verschieben */
       .phone-row {
         grid-template-columns: 1fr !important;
         gap: 1.8rem !important;
@@ -987,6 +986,7 @@
 
 <div id="datenschutz-modal" class="modal">
   <div class="modal-content">
+    <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
     <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
     <h2>Datenschutzerklärung</h2>
     <p><strong>1. Datenschutz auf einen Blick</strong></p>
