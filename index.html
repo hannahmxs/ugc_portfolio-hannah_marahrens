@@ -37,7 +37,7 @@
       color: var(--ink);
       background: var(--paper);
       line-height: 1.6;
-      letter-spacing: 0.03em; /* Minimal erweitertes Letter Spacing */
+      letter-spacing: 0.03em;
     }
     .section {
       max-width: 1100px;
@@ -102,7 +102,7 @@
       font-size: 1.8rem;
     }
     .hero-top h1 {
-      font-size: 60px; /* Um 40 Punkt verkleinert (von 100px auf 60px) */
+      font-size: 85px; /* Auf exakt 85 Punktgröße angepasst */
       line-height: 1.08;
       letter-spacing: 0.03em;
       font-weight: 600; 
@@ -147,7 +147,6 @@
       position: relative;
     }
     
-    /* URSPRÜNGLICHER ZUSTAND WIEDERHERGESTELLT (Kein Abschneiden, kein Transform) */
     .media-img-format {
       width: 100%;
       height: 100%;
@@ -242,7 +241,7 @@
       justify-content: center;
       font-size: 16px;
       color: var(--muted);
-      background: var(--paper);
+      background: transparent; /* Transparent, damit PNG-Logos ohne Kasten bleiben */
     }
 
     .stats-grid {
@@ -348,15 +347,17 @@
       .workflow-timeline::before { display: none; }
     }
 
+    /* ---------- GALERIE STRIP (UGC PRODUKTFOTOS IM EXAKT KORREKTEN 9/16 FORMAT) ---------- */
     .gallery-section { max-width: 1100px; margin: 6rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .gallery-grid img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #eee; }
+    .gallery-grid img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #eee; display: block; }
     @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    .trio-wrapper { max-width: 100%; margin: 6rem auto 0.4rem auto; padding: 0; }
-    .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; width: 100%; }
+    /* ---------- TRIO PORTRAIT & CLOSING (Abstände auf 0 gesetzt) ---------- */
+    .trio-wrapper { max-width: 100%; margin: 6rem auto 0 auto; padding: 0; }
+    .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; }
     .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; background: #ddd; display: block; }
-    @media (max-width: 768px) { .trio-portrait { grid-template-columns: 1fr; gap: 1rem; } .trio-portrait img { height: auto; aspect-ratio: 9 / 16; } }
+    @media (max-width: 768px) { .trio-portrait { grid-template-columns: 1fr; gap: 0; } .trio-portrait img { height: auto; aspect-ratio: 9 / 16; } }
 
     /* ---------- ABSCHLUSS & FOOTER ---------- */
     .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
@@ -384,7 +385,7 @@
       font-weight: 600;
       font-size: 48px;
       line-height: 1.15;
-      padding: 0 5rem 5rem 5rem; /* Noch ein gutes Stück weiter nach unten gesetzt */
+      padding: 0 5rem 5rem 5rem;
     }
     
     .closing-bar {
@@ -434,7 +435,7 @@
       margin: 0;
     }
 
-    /* Modals (bleiben dank JS-Befehl an aktueller Position beim Schließen) */
+    /* Modals */
     .modal {
       display: none;
       position: fixed;
@@ -445,7 +446,7 @@
       justify-content: center;
       padding: 2rem;
     }
-    .modal:target { display: flex; }
+    .modal.active { display: flex; }
     .modal-content {
       background: var(--paper);
       padding: 3rem;
@@ -465,20 +466,22 @@
       color: var(--ink);
       font-weight: bold;
       cursor: pointer;
+      background: none;
+      border: none;
     }
 
-    /* SCROLL TO TOP (Transparenter & erst ab Folie 2 sichtbar durch JS-Steuerung) */
+    /* SCROLL TO TOP */
     .scroll-top-btn {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
       width: 48px;
       height: 48px;
-      background: rgba(255, 255, 255, 0.2); /* Sehr dezent / transparent */
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(4px);
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 50%;
-      display: none; /* Standardmäßig auf Hero ausgeblendet */
+      display: none;
       align-items: center;
       justify-content: center;
       color: var(--ink);
@@ -509,12 +512,12 @@
   </div>
 </header>
 
-<!-- ===================== 2. INTRODUCTION ===================== -->
+<!-- ===================== 2. INTRODUCTION (Flattersatz angepasst) ===================== -->
 <section class="fullscreen-slide">
   <div class="intro">
     <div class="intro-text">
-      <h2>Warum Sie mit mir arbeiten sollten</h2>
-      <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke fühlbar machen.</p>
+      <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
+      <p>Moin, ich bin Hannah – Creator &amp;<br>Kommunikationsdesignerin mit einer besonderen<br>Sensibilität für Bildsprache, Stimmung und die<br>kleinen Details, die eine Marke fühlbar machen.</p>
       <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotion übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
       <p class="niches">Zu Hause in den Nischen</p>
       <p>Lifestyle · Beauty · Food · Travel</p>
@@ -825,17 +828,17 @@
 
   <div class="footer-bottom-bar">
     <div class="legal-links">
-      <a href="#impressum-modal" class="legal-btn">Impressum</a>
-      <a href="#datenschutz-modal" class="legal-btn">Datenschutz</a>
+      <button onclick="openModal('impressum-modal')" class="legal-btn">Impressum</button>
+      <button onclick="openModal('datenschutz-modal')" class="legal-btn">Datenschutz</button>
     </div>
     <p class="closing-copyright">&copy; 2026 Hannah Marahrens</p>
   </div>
 </div>
 
-<!-- ===================== RECHTLICHE MODALS ===================== -->
+<!-- ===================== RECHTLICHE MODALS (Ohne Seiten-Sprung) ===================== -->
 <div id="impressum-modal" class="modal">
   <div class="modal-content">
-    <a href="javascript:history.back()" class="modal-close">&times;</a>
+    <button onclick="closeModal('impressum-modal')" class="modal-close">&times;</button>
     <h2>Impressum</h2>
     <p><strong>Angaben gemäß § 5 TMG:</strong></p>
     <p>Hannah Marahrens<br>[Straße und Hausnummer]<br>[PLZ und Ort]</p>
@@ -845,7 +848,7 @@
 
 <div id="datenschutz-modal" class="modal">
   <div class="modal-content">
-    <a href="javascript:history.back()" class="modal-close">&times;</a>
+    <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
     <h2>Datenschutzerklärung</h2>
     <p><strong>1. Datenschutz auf einen Blick</strong></p>
     <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen...</p>
@@ -854,11 +857,34 @@
   </div>
 </div>
 
-<!-- ===================== 14. SCROLL-TO-TOP BUTTON (Erst ab Folie 2 sichtbar) ===================== -->
+<!-- ===================== SCROLL-TO-TOP BUTTON ===================== -->
 <a href="#start" class="scroll-top-btn" id="scrollTopBtn" title="Nach oben">↑</a>
 
 <script>
-  // Sorgt dafür, dass der "Nach oben"-Button erst ab der 2. Folie erscheint
+  let scrollPosition = 0;
+
+  function openModal(modalId) {
+    scrollPosition = window.pageYOffset;
+    document.getElementById(modalId).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('active');
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPosition);
+  }
+
+  // Schließen bei Klick außerhalb des Modal-Inhalts
+  window.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal')) {
+      e.target.classList.remove('active');
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollPosition);
+    }
+  });
+
+  // Scroll-to-Top Button Steuerung (erst ab Folie 2)
   window.addEventListener('scroll', function() {
     const scrollBtn = document.getElementById('scrollTopBtn');
     if (window.scrollY > 400) {
