@@ -83,7 +83,7 @@
   .hero-contact-left a,
   .hero-contact-right a { color: var(--paper); }
 
-  /* ---------- INTRO & SPLIT (Punkt 2: Weiter nach rechts versetzt) ---------- */
+  /* ---------- INTRO & SPLIT (Weiter nach rechts versetzt) ---------- */
   .intro {
     max-width: 1100px;
     margin: 0 auto;
@@ -111,7 +111,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 94% center; /* Noch weiter nach rechts platziert */
+    object-position: 98% center; /* Noch weiter nach rechts platziert */
     display: block;
   }
 
@@ -120,7 +120,7 @@
     .intro-img-wrap { min-height: 350px; }
   }
 
-  /* ---------- PHONE MOCKUP (Punkt 1, 5 & 6: Helleres Detail, Vergrößert) ---------- */
+  /* ---------- PHONE MOCKUP (Helleres Detail, Vergrößert) ---------- */
   .section-phones-tight {
     max-width: 1100px;
     margin: 0 auto;
@@ -138,23 +138,23 @@
     margin-top: 2rem;
     justify-items: center;
   }
-  .phone-card { text-align: left; width: 100%; max-width: 290px; }
+  .phone-card { text-align: left; width: 100%; max-width: 310px; }
   .phone-frame {
     position: relative;
     width: 100%;
-    max-width: 290px; /* Vergrößert (Punkt 5 & 6) */
+    max-width: 310px; /* Leicht vergrößert */
     aspect-ratio: 9 / 16;
     margin: 0 auto;
     background: #000;
     border: 10px solid var(--lime);
-    border-radius: 34px;
+    border-radius: 36px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.18);
     overflow: hidden;
   }
   .phone-frame.lavender-border {
     border-color: var(--lavender);
   }
-  /* Kamera-Insel mit helleren Details (Punkt 1) */
+  /* Kamera-Insel mit helleren Details */
   .phone-notch {
     position: absolute;
     top: 6px;
@@ -174,20 +174,20 @@
   .phone-speaker {
     width: 30px;
     height: 3px;
-    background: #555; /* Heller für besseren Kontrast */
+    background: #555;
     border-radius: 2px;
   }
   .phone-camera {
     width: 9px;
     height: 9px;
-    background: #2a2a2a; /* Heller für besseren Kontrast */
+    background: #2a2a2a;
     border-radius: 50%;
     border: 1px solid #666;
   }
   .phone-screen {
     width: 100%;
     height: 100%;
-    border-radius: 24px;
+    border-radius: 26px;
     overflow: hidden;
     background: #111;
     position: relative;
@@ -310,10 +310,10 @@
   }
   .btn:hover { background: #000; color: #fff; }
 
-  /* ---------- WORKFLOW (Punkt 7: Abstand davor erweitert) ---------- */
+  /* ---------- WORKFLOW (Mit stark erweitertem Abstand danach) ---------- */
   .workflow-section {
     background: var(--lime);
-    padding: 7rem 2rem; /* Erhöhter Abstand vor dem Workflow */
+    padding: 7rem 2rem;
     margin-top: 3rem;
     overflow: hidden;
   }
@@ -376,11 +376,11 @@
     .workflow-timeline::before { display: none; }
   }
 
-  /* ---------- GALERIE STRIP ---------- */
+  /* ---------- GALERIE STRIP (Deutlich erweiterter Abstand nach dem Workflow) ---------- */
   .gallery-section {
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem 2rem 1.5rem;
+    margin: 6rem auto 2rem auto; /* Stark vergrößerter oberer Abstand zum Workflow */
+    padding: 0 1.5rem;
   }
   .gallery-grid {
     display: grid;
@@ -398,10 +398,10 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* ---------- TRIO PORTRAIT (Punkt 8: Abstand zu Produktbildern erweitert) ---------- */
+  /* ---------- TRIO PORTRAIT (Direkt an Closing-Bild angepasst) ---------- */
   .trio-wrapper {
     max-width: 100%;
-    margin: 4rem 0 0 0; /* Deutlich erweiterter und harmonisch angepasster Abstand */
+    margin: 3rem 0 0 0; /* Minimaler Abstand, direkt übergehend in den Abschluss */
     padding: 0;
   }
   .trio-portrait {
@@ -424,11 +424,11 @@
     .trio-portrait img { height: auto; aspect-ratio: 9 / 16; }
   }
 
-  /* ---------- ABSCHLUSS (Punkt 4: Strichstärke & Design wie Hero) ---------- */
+  /* ---------- ABSCHLUSS & GELBER STREIFEN (Mit integriertem Copyright) ---------- */
   .closing-card {
     width: 100%;
     background: var(--lime);
-    margin-top: 6rem;
+    margin-top: 0; /* Schließt nahtlos ans Trio-Portrait an */
   }
   .closing-img {
     position: relative;
@@ -461,30 +461,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.35rem 5rem;
+    padding: 2.2rem 5rem; /* Höhe des gelben Streifens vergrößert */
     flex-wrap: wrap;
     gap: 1.5rem;
   }
   .closing-bar a {
     color: var(--ink);
     text-decoration: none;
-    font-size: 20px; /* Gleiche Schriftgröße wie im Hero */
-    font-weight: 450; /* Strichstärke exakt an Hero angepasst */
+    font-size: 20px; 
+    font-weight: 450; 
     display: inline-flex;
     align-items: center;
   }
-
-  /* Punkt 3: Copyright-Schrift mit verringerter Strichstärke */
-  footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--ink); 
+  .closing-copyright {
+    color: var(--ink);
     font-size: 16px;
-    font-weight: 300; /* Dünnere Strichstärke */
-    background: var(--paper);
+    font-weight: 300;
   }
 
-  /* ---------- SCROLL-TO-TOP BUTTON (Punkt 9) ---------- */
+  /* ---------- SCROLL-TO-TOP BUTTON ---------- */
   .scroll-top-btn {
     position: fixed;
     bottom: 2rem;
@@ -793,7 +788,7 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE STRIP ===================== -->
+<!-- ===================== 11. GALERIE STRIP (Mit erweitertem Abstand zum Workflow) ===================== -->
 <section class="gallery-section">
   <div class="gallery-grid" style="margin-bottom: 1.5rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
@@ -818,18 +813,17 @@
   </div>
 </div>
 
-<!-- ===================== 13. ABSCHLUSS ===================== -->
+<!-- ===================== 13. ABSCHLUSS & COPYRIGHT ===================== -->
 <div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">Lust auf eine<br>Zusammenarbeit?</div>
   </div>
   <div class="closing-bar">
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.svg" alt="">hannah_marahrens</a>
+    <span class="closing-copyright">&copy; 2026 Hannah Marahrens</span>
     <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.svg" alt="">hannah_marahrens@gmx.de</a>
   </div>
 </div>
-
-<footer>&copy; 2026 Hannah Marahrens</footer>
 
 <!-- ===================== 14. SCROLL-TO-TOP BUTTON ===================== -->
 <a href="#start" class="scroll-top-btn" title="Nach oben">↑</a>
