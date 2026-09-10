@@ -69,7 +69,7 @@
       font-weight: 600;
     }
 
-    /* ---------- FULLSCREEN SECTIONS (Desktop: Etwas weiter oben positioniert) ---------- */
+    /* ---------- FULLSCREEN SECTIONS ---------- */
     .fullscreen-slide {
       position: relative;
       height: calc(100vh + 8px); 
@@ -77,8 +77,8 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* Geändert von center auf flex-start für Höherrücken */
-      padding-top: 3rem; /* Zusätzlicher Abstand nach oben */
+      justify-content: flex-start;
+      padding-top: 3rem;
     }
 
     /* ---------- HERO ---------- */
@@ -162,7 +162,8 @@
     }
     .intro-text h2 { font-size: 32px; margin-bottom: 1.2rem; line-height: 1.2; }
     .intro-text p { margin: 0 0 1rem; color: var(--muted); font-size: 20px; }
-    .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 0.3rem; margin-bottom: 0.3rem; font-size: 20px; }
+    .intro-text .Nices-p { margin-top: 0.5rem; margin-bottom: 0.3rem; }
+    .intro-text .niches { color: var(--ink); font-weight: 600; font-size: 20px; margin: 0; }
     
     .intro-img-wrap, .split-img-wrap {
       padding: 0 !important;
@@ -244,27 +245,7 @@
       width: 100%;
       height: 100%;
     }
-    .split-brand { grid-template-columns: 0.6fr 1.4fr; }
     .split > div { padding: 3rem 2.5rem 3rem 1rem; display: flex; flex-direction: column; justify-content: center; }
-    
-    .brands-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: center;
-      justify-items: center;
-    }
-    .brand-slot {
-      width: 100%;
-      height: 75px;
-      border: 1px dashed rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      color: var(--muted);
-      background: transparent;
-    }
 
     .stats-grid {
       display: grid;
@@ -452,8 +433,6 @@
       text-decoration: none; color: var(--ink); font-weight: bold; cursor: pointer; background: none; border: none;
     }
 
-    .element-hidden { display: none !important; }
-
     /* SCROLL TO TOP */
     .scroll-top-btn {
       position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px;
@@ -495,7 +474,6 @@
         margin-bottom: 0 !important;
       }
       
-      /* Mobile Social Icons rechts unten: Mail-Icon ÜBER Instagram-Icon */
       .hero-contact-left {
         display: none !important;
       }
@@ -531,6 +509,9 @@
       p, li, .intro-text p, .phone-sub, .service-card p, .service-card li {
         text-align: left !important;
       }
+
+      /* Mobiles Flattersatz ausschalten, damit es auf kleinen Screens normal umbricht */
+      .desktop-br { display: none !important; }
 
       .section-phones-tight { padding-bottom: 0 !important; margin-bottom: -1rem !important; }
 
@@ -672,20 +653,16 @@
     <div class="eyebrow">UGC Portfolio</div>
     <h1>Hannah<br>Marahrens</h1>
   </div>
-  <!-- Desktop Links: Links Instagram -->
   <div class="hero-contact-left">
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
-  <!-- Desktop Rechts: Korrekt wieder nur die E-Mail-Adresse / Mobil: Wird via CSS zu Mail über Instagram umgestapelt -->
   <div class="hero-contact-right">
     <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener" class="mobile-only-insta"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
 </header>
 
-<!-- Restlicher Code bleibt identisch -->
 <style>
-  /* Versteckt den zweiten Instagram-Link auf Desktops, damit er dort nicht angezeigt wird */
   @media (min-width: 801px) {
     .hero-contact-right .mobile-only-insta { display: none !important; }
   }
@@ -696,8 +673,9 @@
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
-      <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke fühlbar machen. Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotion übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
-      <p class="niches">Zu Hause in den Nischen</p>
+      <!-- Exakter Flattersatz für Desktop via br und .desktop-br -->
+      <p>Moin, ich bin Hannah – Creator &amp;<br class="desktop-br">Kommunikationsdesignerin mit einer besonderen<br class="desktop-br">Sensibilität für Bildsprache, Stimmung und die<br class="desktop-br">kleinen Details, die eine Marke fühlbar machen.<br class="desktop-br">Mit einem geschulten Auge für Komposition und<br class="desktop-br">einem feinen Gespür für Emotion übersetze ich<br class="desktop-br">Marken in Content, der nahbar ist und im<br class="desktop-br">Gedächtnis bleibt.</p>
+      <p class="Nices-p"><span class="niches">Zu Hause in den Nischen</span></p>
       <p>Lifestyle · Beauty · Food · Travel</p>
     </div>
     <div class="intro-img-wrap">
@@ -784,9 +762,9 @@
   </div>
 </div>
 
-<!-- ===================== 8. WHY UGC? ===================== -->
-<section class="bg-lavender fullscreen-slide">
-  <div class="split" style="max-width:1100px; margin:0 auto;">
+<!-- ===================== 8. WHY UGC? (Bild schließt wieder oben ab) ===================== -->
+<section class="bg-lavender fullscreen-slide" style="padding-top: 0 !important;">
+  <div class="split" style="max-width:1100px; margin:0 auto; height: 100%;">
     <div style="padding: 3rem 2.5rem 3rem 1rem;">
       <h2 style="font-size:32px; margin-bottom:0.8rem;">Warum UGC?</h2>
       <p style="font-size:20px; color:var(--muted); margin-bottom:1.2rem;">Klassische Werbung wird oft ignoriert, echter Content schafft Vertrauen.</p>
