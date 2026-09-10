@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hannah Marahrens – UGC Portfolio</title>
   <style>
-    /* ---------- SCHRIFTART GOTHAM (Lokal / Fallback) ---------- */
+    /* ---------- SCHRIFTART GOTHAM (.otf lokal) ---------- */
     @font-face {
       font-family: 'Gotham';
-      src: url('fonts/gotham-book.woff2') format('woff2');
+      src: url('fonts/gotham-book.otf') format('opentype');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
     @font-face {
       font-family: 'Gotham';
-      src: url('fonts/gotham-medium.woff2') format('woff2');
+      src: url('fonts/gotham-medium.otf') format('opentype');
       font-weight: 600;
       font-style: normal;
       font-display: swap;
@@ -63,7 +63,7 @@
       font-weight: 600;
     }
 
-    /* ---------- FULLSCREEN SECTIONS (Hero bis Dienstleistungen) ----------. */
+    /* ---------- FULLSCREEN SECTIONS ---------- */
     .fullscreen-slide {
       position: relative;
       height: calc(100vh + 8px); 
@@ -139,12 +139,14 @@
       display: flex;
       align-items: stretch;
       overflow: hidden;
+      position: relative;
     }
     .media-img-format {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 95% center; /* Bild weiter nach rechts platziert */
+      /* Explizit nach rechts verschoben durch 100% position */
+      object-position: 100% center; 
       display: block;
     }
 
@@ -153,14 +155,8 @@
       .fullscreen-slide { height: auto; min-height: auto; padding: 4rem 0; }
     }
 
-    /* ---------- PHONE MOCKUP (Reel Format 9:16) ---------- */
-    .section-phones-tight {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      width: 100%;
-    }
-    .section-phones-normal {
+    /* ---------- PHONE MOCKUP ---------- */
+    .section-phones-tight, .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 1.5rem;
@@ -186,9 +182,7 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.18);
       overflow: hidden;
     }
-    .phone-frame.lavender-border {
-      border-color: var(--lavender);
-    }
+    .phone-frame.lavender-border { border-color: var(--lavender); }
     .phone-notch {
       position: absolute;
       top: 6px;
@@ -304,7 +298,7 @@
     }
     .btn:hover { background: #000; color: #fff; }
 
-    /* ---------- STANDARD SECTIONS (Ab Workflow) ---------- */
+    /* ---------- STANDARD SECTIONS ---------- */
     .workflow-section {
       background: var(--lime);
       padding: 7rem 2rem;
@@ -358,7 +352,7 @@
     .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; background: #ddd; display: block; }
     @media (max-width: 768px) { .trio-portrait { grid-template-columns: 1fr; gap: 1rem; } .trio-portrait img { height: auto; aspect-ratio: 9 / 16; } }
 
-    /* ---------- ABSCHLUSS & FOOTER ---------- */
+    /* ---------- ABSCHLUSS & NEUER FOOTER ---------- */
     .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
     .closing-img {
       position: relative;
@@ -384,28 +378,39 @@
       font-weight: 600;
       font-size: 48px;
       line-height: 1.15;
-      padding: 0 5rem 8rem 5rem; /* Ein Tick weiter runtergesetzt */
+      padding: 0 5rem 9rem 5rem; /* Ein kleines Stück weiter runtergesetzt */
     }
+    
+    /* Verschlankter gelber Streifen */
     .closing-bar {
       background: var(--lime);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto auto;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      padding: 2.5rem 8rem 3rem 8rem; /* Ein Tick höher gesetzt */
-      gap: 1.2rem;
+      padding: 1.8rem 8rem; 
     }
-    .closing-bar a.contact-item-ig { grid-column: 1; grid-row: 1; justify-self: start; }
-    .closing-bar a.contact-item-mail { grid-column: 2; grid-row: 1; justify-self: end; }
-    
-    /* Rechtliche Links (Impressum & Datenschutz Buttons) */
+    .closing-bar a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 20px; 
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Neuer separat farbiger Latz (Lila) für Rechtliches & Footnote */
+    .footer-bottom-bar {
+      background: var(--lavender);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem 2rem;
+      gap: 1rem;
+    }
     .legal-links {
-      grid-column: 1 / -1;
-      grid-row: 2;
-      justify-self: center;
       display: flex;
       gap: 2rem;
-      margin-top: 0.5rem;
     }
     .legal-btn {
       font-size: 15px;
@@ -418,28 +423,14 @@
       padding: 0;
     }
     .legal-btn:hover { color: var(--muted); }
-
-    .closing-bar .closing-copyright {
-      grid-column: 1 / -1;
-      grid-row: 3;
-      justify-self: center;
-      margin-top: 0.5rem;
-    }
-    .closing-bar a {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 20px; 
-      font-weight: 400;
-      display: inline-flex;
-      align-items: center;
-    }
     .closing-copyright {
       color: var(--ink);
       font-size: 15px;
       font-weight: 300;
+      margin: 0;
     }
 
-    /* Modals für Impressum & Datenschutz (Rechtliche Absicherung) */
+    /* Modals (bleiben beim Schließen an Position durch JS-Fix) */
     .modal {
       display: none;
       position: fixed;
@@ -469,6 +460,7 @@
       text-decoration: none;
       color: var(--ink);
       font-weight: bold;
+      cursor: pointer;
     }
 
     /* SCROLL TO TOP */
@@ -495,7 +487,7 @@
 </head>
 <body>
 
-<!-- ===================== 1. HERO (Fullscreen) ===================== -->
+<!-- ===================== 1. HERO ===================== -->
 <header class="hero" id="start">
   <div class="hero-top">
     <div class="eyebrow">UGC Portfolio</div>
@@ -509,7 +501,7 @@
   </div>
 </header>
 
-<!-- ===================== 2. INTRODUCTION (Fullscreen) ===================== -->
+<!-- ===================== 2. INTRODUCTION ===================== -->
 <section class="fullscreen-slide">
   <div class="intro">
     <div class="intro-text">
@@ -525,7 +517,7 @@
   </div>
 </section>
 
-<!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 (Fullscreen) ===================== -->
+<!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
 <div class="fullscreen-slide">
   <div class="section-phones-tight">
     <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Ausgewählte UGC-Arbeiten im modernen Format</p>
@@ -564,7 +556,7 @@
   </div>
 </div>
 
-<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 (Fullscreen) ===================== -->
+<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
 <div class="fullscreen-slide">
   <div class="section-phones-normal">
     <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Weitere Video-Arbeiten</p>
@@ -603,7 +595,7 @@
   </div>
 </div>
 
-<!-- ===================== 5. BRANDS (Fullscreen) ===================== -->
+<!-- ===================== 5. BRANDS ===================== -->
 <section class="bg-lime fullscreen-slide">
   <div class="split split-brand" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
@@ -620,7 +612,7 @@
   </div>
 </section>
 
-<!-- ===================== 6. CASE STUDY (Stats) (Fullscreen) ===================== -->
+<!-- ===================== 6. CASE STUDY (Stats) ===================== -->
 <section class="bg-lavender fullscreen-slide">
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
@@ -641,7 +633,7 @@
   </div>
 </section>
 
-<!-- ===================== 7. CASE STUDY (Video-Grid) (Fullscreen) ===================== -->
+<!-- ===================== 7. CASE STUDY (Video-Grid) ===================== -->
 <section class="fullscreen-slide">
   <div class="section" style="width:100%;">
     <h2 style="font-size:24px; margin-bottom:1.5rem;">Fallstudie — Umsetzung —</h2>
@@ -677,7 +669,7 @@
   </div>
 </section>
 
-<!-- ===================== 8. WHY UGC? (Fullscreen) ===================== -->
+<!-- ===================== 8. WHY UGC? ===================== -->
 <section class="bg-lavender fullscreen-slide">
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
@@ -690,7 +682,6 @@
         <li><b>+ 28 %</b> Engagement</li>
         <li><b>+ 29 %</b> Konversionen</li>
       </ul>
-      <!-- Flattersatz korrigiert -->
       <p style="color:var(--muted); font-size:17px; margin-top:1rem;">
         Durch authentische Einbindungen entsteht eine direkte<br>
         emotionale Verbindung zur Zielgruppe, welche messbar<br>
@@ -704,7 +695,7 @@
   </div>
 </section>
 
-<!-- ===================== 9. DIENSTLEISTUNGEN (Fullscreen Ende) ===================== -->
+<!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
 <section class="fullscreen-slide">
   <div class="services-wrapper">
     <h2 style="font-size: 32px; margin-bottom: 2rem;">Dienstleistungen</h2>
@@ -818,42 +809,42 @@
   <div class="closing-img">
     <div class="closing-text-box">Lust auf eine<br>Zusammenarbeit?</div>
   </div>
+  
+  <!-- Schlanker gelber Streifen mit Kontaktdaten -->
   <div class="closing-bar">
-    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener" class="contact-item-ig"><img class="icon-inline" src="bilder/icon-instagram-white.svg" alt="Instagram">hannah_marahrens</a>
-    <a href="mailto:hannah_marahrens@gmx.de" class="contact-item-mail"><img class="icon-inline" src="bilder/icon-mail-white.svg" alt="Mail">hannah_marahrens@gmx.de</a>
-    
-    <!-- Rechtliche Buttons (Impressum & Datenschutz) -->
+    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram-white.svg" alt="Instagram">hannah_marahrens</a>
+    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail-white.svg" alt="Mail">hannah_marahrens@gmx.de</a>
+  </div>
+
+  <!-- Neuer separater lila Bereich für Impressum, Datenschutz & Footnote -->
+  <div class="footer-bottom-bar">
     <div class="legal-links">
       <a href="#impressum-modal" class="legal-btn">Impressum</a>
       <a href="#datenschutz-modal" class="legal-btn">Datenschutz</a>
     </div>
-
-    <span class="closing-copyright">&copy; 2026 Hannah Marahrens</span>
+    <p class="closing-copyright">&copy; 2026 Hannah Marahrens</p>
   </div>
 </div>
 
 <!-- ===================== RECHTLICHE MODALS ===================== -->
 <div id="impressum-modal" class="modal">
   <div class="modal-content">
-    <a href="#" class="modal-close">&times;</a>
+    <a href="javascript:history.back()" class="modal-close">&times;</a>
     <h2>Impressum</h2>
     <p><strong>Angaben gemäß § 5 TMG:</strong></p>
     <p>Hannah Marahrens<br>[Straße und Hausnummer]<br>[PLZ und Ort]</p>
     <p><strong>Kontakt:</strong><br>Telefon: [Deine Telefonnummer]<br>E-Mail: hannah_marahrens@gmx.de</p>
-    <p><strong>Umsatzsteuer-ID:</strong><br>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: [Falls vorhanden, ansonsten diesen Satz löschen]</p>
   </div>
 </div>
 
 <div id="datenschutz-modal" class="modal">
   <div class="modal-content">
-    <a href="#" class="modal-close">&times;</a>
+    <a href="javascript:history.back()" class="modal-close">&times;</a>
     <h2>Datenschutzerklärung</h2>
     <p><strong>1. Datenschutz auf einen Blick</strong></p>
     <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen...</p>
     <p><strong>2. Hosting</strong></p>
-    <p>Diese Website wird extern gehostet (z.B. über GitHub Pages). Personenbezogene Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
-    <p><strong>3. Datenerfassung auf dieser Website</strong></p>
-    <p>Bei der bloßen Nutzung der Website werden standardmäßig Server-Logfiles (z.B. IP-Adresse, Uhrzeit) durch den Hoster erhoben, die technisch notwendig sind, um Ihnen die Website anzuzeigen.</p>
+    <p>Diese Website wird extern über GitHub Pages gehostet.</p>
   </div>
 </div>
 
