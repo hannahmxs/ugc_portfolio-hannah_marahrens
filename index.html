@@ -444,11 +444,12 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* 1 & 2. Hero: Titel unten, Icons rechts als Stack ohne Text */
+      /* 2. Hero: Höhe verringern und links abschneiden statt rechts */
       .hero {
-        height: 100vh !important;
-        min-height: 550px !important;
-        margin-bottom: 1rem !important; /* 3. Abstand zur Folgeseite verringert */
+        height: 75vh !important;
+        min-height: 480px !important;
+        background-position: 25% top !important; /* Verschiebt den Fokus, sodass links abgeschnitten wird */
+        margin-bottom: 1rem !important;
       }
       .hero-top {
         top: auto !important;
@@ -470,7 +471,7 @@
         bottom: auto !important;
         right: 1.5rem !important;
         left: auto !important;
-        font-size: 0 !important; /* Text ausblenden */
+        font-size: 0 !important;
       }
       .hero-contact-right { bottom: 2rem !important; }
       .hero-contact-left { bottom: 5.5rem !important; }
@@ -492,17 +493,22 @@
         padding: 3rem 0 !important;
       }
 
-      /* 4. Mobiler Flattersatz für Intro-Text */
+      /* Mobiler Flattersatz für Intro-Text */
       .intro-text p:nth-of-type(1) {
         white-space: pre-line !important;
       }
 
-      /* 5. Abstand zwischen Intro-Bild und ersten iPhones verringern */
+      /* 1. Abstand zwischen gelben iPhones und lila iPhones verringern */
+      .section-phones-tight { padding-bottom: 0 !important; margin-bottom: -2rem !important; }
+
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { padding: 2rem 1.5rem 1rem 1.5rem !important; }
-      .section-phones-tight { padding-top: 0 !important; margin-top: -1rem !important; }
 
-      /* 6. Alle iPhones untereinander und füllen den Bildschirm gut aus */
+      /* 3. "Why UGC" Sektion: Bild unter den Textblock setzen statt daneben */
+      .split { grid-template-columns: 1fr !important; height: auto !important; }
+      .split > div { padding: 2rem 1.5rem !important; }
+
+      /* Alle iPhones untereinander und füllen den Bildschirm gut aus */
       .phone-row {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
@@ -524,35 +530,43 @@
         text-align: center;
       }
 
-      /* 7. Dienstleistung Seite untereinander aufteilen */
+      /* Dienstleistung Seite untereinander aufteilen */
       .services-wrapper { padding: 0 1.5rem !important; }
       .services-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
       .services-lower { grid-template-columns: 1fr !important; gap: 1rem !important; margin-top: 1rem !important; }
       .service-card-inset { padding: 2rem 1.4rem !important; }
-      .cta-row { flex-direction: column !important; align-items: stretch !important; text-align: center; }
+      
+      /* 4. Textblock "Benötigen Sie mehr Videos?..." linksbündig machen */
+      .cta-row { 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        text-align: left !important; 
+      }
 
-      /* 8. Workflow: Timeline-Linie ausblenden und Blöcke mit Nummern versehen */
-      .workflow-section { padding: 4rem 1.5rem !important; }
+      /* 8. Workflow: Mehr Abstand zum linken Rand für den gesamten Textblock */
+      .workflow-section { padding: 4rem 1.5rem 4rem 2.5rem !important; }
       .workflow-timeline { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
       .workflow-timeline::before { display: none !important; }
       .workflow-step::before { display: none !important; }
       .workflow-step { position: relative; padding-left: 0 !important; }
       
-      /* Nummern vor die Workflow-Schritte setzen */
       .workflow-step:nth-child(1) h3::before { content: "1. "; }
       .workflow-step:nth-child(2) h3::before { content: "2. "; }
       .workflow-step:nth-child(3) h3::before { content: "3. "; }
-      .workflow-step:nth-child(4) h3::before { content: "4. "; }
+      /* 5. "Lieferung" neben die 4. stellen, nicht darunter */
+      .workflow-step:nth-child(4) h3 { display: inline !important; }
+      .workflow-step:nth-child(4) h3::before { content: "4. Lieferung: "; }
+      .workflow-step:nth-child(4) h3 br { display: none !important; }
 
-      /* 9. Die 3 Portrait-Bilder unten etwas ansprechen (nicht zu hoch) */
-      .trio-portrait { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+      /* 6. Abstand zwischen 3 Portrait-Bildern auf 0 und Höhe etwas vergrößern */
+      .trio-portrait { grid-template-columns: 1fr !important; gap: 0 !important; }
       .trio-portrait img {
-        height: 65vh !important;
-        min-height: 400px !important;
-        object-position: center 20% !important; /* Obenfokus, unten angeschnitten */
+        height: 75vh !important;
+        min-height: 500px !important;
+        object-position: center 20% !important;
       }
 
-      /* 10. Closing-Bild im ursprünglichen Querformat belassen */
+      /* Closing-Bild im ursprünglichen Querformat belassen */
       .closing-img {
         height: 45vh !important;
         min-height: 280px !important;
@@ -563,11 +577,14 @@
         padding: 0 1.5rem 2rem 1.5rem !important;
         font-size: 32px !important;
       }
+      
+      /* 7. Instagram und Mail zum Schluss linksbündig setzen */
       .closing-bar {
         padding: 1.5rem 1.5rem !important;
         flex-direction: column !important;
+        align-items: flex-start !important;
         gap: 1rem !important;
-        text-align: center !important;
+        text-align: left !important;
       }
       .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
     }
