@@ -102,7 +102,6 @@
       letter-spacing: 0.25em;
       font-size: 1.8rem;
     }
-    /* 4. Proportionale Skalierung für Desktop & Mobil via clamp() */
     .hero-top h1 {
       font-size: clamp(38px, 6vw, 85px); 
       line-height: 1.08;
@@ -445,7 +444,7 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* 1. Hero: Höhe angepasst, Name & Icons wieder nach oben versetzt */
+      /* 1. & 2. Hero: Name & Icons unten links auf dem Bild platziert, Icons auf einer Linie mit dem Namen */
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
@@ -453,8 +452,8 @@
         margin-bottom: 1rem !important;
       }
       .hero-top {
-        top: 3.5rem !important;
-        bottom: auto !important;
+        top: auto !important;
+        bottom: 2.5rem !important;
         left: 1.5rem !important;
         right: 1.5rem !important;
       }
@@ -464,27 +463,20 @@
       }
       .hero-top h1 {
         line-height: 1.1 !important;
+        margin-bottom: 1.2rem !important;
       }
       .hero-contact-left,
       .hero-contact-right {
-        position: absolute !important;
-        top: auto !important;
-        bottom: 2rem !important;
-        right: 1.5rem !important;
-        left: auto !important;
+        position: static !important;
+        display: inline-block !important;
         font-size: 0 !important;
+        margin-right: 1.5rem !important;
       }
-      .hero-contact-right { bottom: 2rem !important; }
-      .hero-contact-left { bottom: 5.5rem !important; }
       .hero-contact-left .icon-inline,
       .hero-contact-right .icon-inline {
-        width: 32px !important;
-        height: 32px !important;
+        width: 24px !important;
+        height: 24px !important;
         margin: 0 !important;
-      }
-      .hero-contact-left a,
-      .hero-contact-right a {
-        color: var(--paper) !important;
       }
 
       /* Allgemeine Slide-Höhen aufheben */
@@ -494,7 +486,7 @@
         padding: 3rem 0 !important;
       }
 
-      /* Mobiler Flattersatz für Intro-Text */
+      /* 3. Mobiler Flattersatz für Intro-Text genau nach Vorgabe */
       .intro-text p:nth-of-type(1) {
         white-space: pre-line !important;
       }
@@ -504,13 +496,14 @@
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { padding: 2rem 1.5rem 1rem 1.5rem !important; }
 
-      /* "Why UGC" Sektion: Bild unter den Textblock setzen */
+      /* 5. "Why UGC" Sektion: Bild auf ganze Seite skalieren genau wie Intro-Bild */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
       .split > div { padding: 2rem 1.5rem !important; }
+      .split-img-wrap { min-height: 380px !important; }
 
-      /* 2. Schönerer mobiler Flattersatz ab "Durch authentische..." */
+      /* 4. Mobiler Flattersatz für Why UGC Textblock */
       .bg-lavender .split > div > p:last-of-type {
-        max-width: 32ch;
+        white-space: pre-line !important;
       }
 
       /* Alle iPhones untereinander */
@@ -541,10 +534,14 @@
       .services-lower { grid-template-columns: 1fr !important; gap: 1rem !important; margin-top: 1rem !important; }
       .service-card-inset { padding: 2rem 1.4rem !important; }
       
+      /* 6. Mobiler Flattersatz für den CTA-Text bei Dienstleistungen */
       .cta-row { 
         flex-direction: column !important; 
         align-items: flex-start !important; 
         text-align: left !important; 
+      }
+      .cta-row p {
+        white-space: pre-line !important;
       }
 
       /* Workflow */
@@ -558,7 +555,7 @@
       .workflow-step:nth-child(2) h3::before { content: "2. "; }
       .workflow-step:nth-child(3) h3::before { content: "3. "; }
       
-      /* 3. "Lieferung:" gelöscht und Abstand zur Auflistung angepasst */
+      /* 7. Doppeltes "Lieferung" behoben */
       .workflow-step:nth-child(4) h3 { display: inline !important; }
       .workflow-step:nth-child(4) h3::before { content: "4. Lieferung"; }
       .workflow-step:nth-child(4) h3 br { display: none !important; }
@@ -602,12 +599,12 @@
   <div class="hero-top">
     <div class="eyebrow">UGC Portfolio</div>
     <h1>Hannah<br>Marahrens</h1>
-  </div>
-  <div class="hero-contact-left">
-    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
-  </div>
-  <div class="hero-contact-right">
-    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
+    <div class="hero-contact-left">
+      <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
+    </div>
+    <div class="hero-contact-right">
+      <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
+    </div>
   </div>
 </header>
 
@@ -616,15 +613,17 @@
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
-      <p>Moin, ich bin Hannah – 
-Creator &amp; Kommunikationsdesignerin 
-mit einer besonderen Sensibilität für 
-Bildsprache, Stimmung und die kleinen 
-Details, die eine Marke fühlbar machen.
-Mit einem geschulten Auge für Komposition 
-und einem feinen Gespür für Emotion 
-übersetze ich Marken in Content, der 
-nahbar ist und im Gedächtnis bleibt.</p>
+      <!-- 3. Exakter Flattersatz für Intro -->
+      <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin
+mit einer besonderen Sensibilität für
+Bildsprache, Stimmung und die
+kleinen Details, die eine Marke
+fühlbar machen. Mit einem
+geschulten Auge für Komposition
+und einem feinen Gespür für
+Emotion übersetze ich Marken in
+Content, der nahbar ist und im
+Gedächtnis bleibt.</p>
       <p class="niches">Zu Hause in den Nischen</p>
       <p>Lifestyle · Beauty · Food · Travel</p>
     </div>
@@ -791,7 +790,6 @@ nahbar ist und im Gedächtnis bleibt.</p>
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
       <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
-      <!-- 2. Komma statt Gedankenstrich nach ignoriert -->
       <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert,<br>echter Content schafft Vertrauen.</p>
       <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC (2026)</p>
       <ul class="facts">
@@ -800,10 +798,12 @@ nahbar ist und im Gedächtnis bleibt.</p>
         <li><b>+ 28 %</b> Engagement</li>
         <li><b>+ 29 %</b> Konversionen</li>
       </ul>
+      <!-- 4. Exakter Flattersatz für Why UGC Textblock -->
       <p style="color:var(--muted); font-size:17px; margin-top:1rem;">
-        Durch authentische Einbindungen entsteht eine direkte<br>
-        emotionale Verbindung zur Zielgruppe, welche messbar<br>
-        zu höheren Abschlussraten führt und die Conversion-<br>
+        Durch authentische Einbindungen entsteht
+        eine direkte emotionale Verbindung zur
+        Zielgruppe, welche messbar zu höheren
+        Abschlussraten führt und die Conversion-
         Zahlen maximiert.
       </p>
     </div>
@@ -852,7 +852,10 @@ nahbar ist und im Gedächtnis bleibt.</p>
       </div>
     </div>
     <div class="cta-row">
-      <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?<br>Kontaktieren Sie mich für individuelle Preise.</p>
+      <!-- 6. Exakter Flattersatz für die Frage nach mehr Videos -->
+      <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?
+Kontaktieren Sie mich für
+individuelle Preise.</p>
       <a class="btn" href="mailto:hannah_marahrens@gmx.de">Kontakt aufnehmen</a>
     </div>
   </div>
