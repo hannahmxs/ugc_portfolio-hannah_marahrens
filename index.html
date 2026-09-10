@@ -89,6 +89,7 @@
       margin-bottom: 3rem;
       height: calc(100vh + 8px);
       min-height: 770px;
+      position: relative;
     }
     .hero-top {
       position: absolute;
@@ -112,8 +113,9 @@
     .hero-contact-left,
     .hero-contact-right {
       position: absolute;
-      bottom: 2.5rem;
+      bottom: 5rem;
       font-size: 20px;
+      z-index: 2;
     }
     .hero-contact-left { left: 5rem; }
     .hero-contact-right { right: 5rem; }
@@ -444,16 +446,18 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* Hero Mobilansicht */
+      /* 1. & 2. Hero Inhalte fest auf dem Hintergrundbild platziert ohne Rechterand-Anschnitt */
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
+        background-size: cover !important;
         background-position: center top !important;
         margin-bottom: 1rem !important;
       }
       .hero-top {
+        position: absolute !important;
         top: auto !important;
-        bottom: 2.5rem !important;
+        bottom: 5rem !important;
         left: 1.5rem !important;
         right: 1.5rem !important;
       }
@@ -463,15 +467,16 @@
       }
       .hero-top h1 {
         line-height: 1.1 !important;
-        margin-bottom: 1.2rem !important;
+        margin-bottom: 0 !important;
       }
       .hero-contact-left,
       .hero-contact-right {
-        position: static !important;
-        display: inline-block !important;
+        position: absolute !important;
+        bottom: 1.5rem !important;
         font-size: 0 !important;
-        margin-right: 1.5rem !important;
       }
+      .hero-contact-left { left: 1.5rem !important; }
+      .hero-contact-right { left: 8rem !important; }
       .hero-contact-left .icon-inline,
       .hero-contact-right .icon-inline {
         width: 24px !important;
@@ -486,7 +491,7 @@
         padding: 3rem 0 !important;
       }
 
-      /* Mobiler Flattersatz für Intro-Text genau nach Vorgabe */
+      /* Mobiler Flattersatz für Intro-Text */
       .intro-text p:nth-of-type(1) {
         white-space: pre-line !important;
       }
@@ -496,18 +501,19 @@
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { padding: 2rem 1.5rem 1rem 1.5rem !important; }
 
-      /* "Why UGC" Sektion: Bild auf gesamte Seite skalieren, Weite wie Intro-Bild */
+      /* 5. "Why UGC" Sektion: Bild auf gesamtes Format ziehen, Weite wie Intro-Bild */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
       .split > div { padding: 2rem 1.5rem !important; }
-      .split-img-wrap { min-height: 380px !important; }
+      .split-img-wrap { min-height: 380px !important; width: 100% !important; }
 
-      /* Angepasster Zeilenabstand nach 29% Konversionen */
+      /* 4. Zeilenabstand nach 29 % Konversionen anpassen an den nach "...Vertrauen." */
       .bg-lavender .split > div > p:last-of-type {
         white-space: pre-line !important;
         margin-top: 1.5rem !important;
+        line-height: 1.6 !important;
       }
 
-      /* Alle iPhones untereinander + Unterschriften linksbündig */
+      /* 3. Alle iPhones untereinander + Unterschriften linksbündig */
       .phone-row {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
@@ -519,13 +525,13 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start !important;
+        text-align: left !important;
       }
       .phone-frame {
         max-width: 82vw !important;
         width: 82vw !important;
         margin: 0 auto !important;
       }
-      .phone-card { text-align: left !important; }
       .phone-label, .phone-sub {
         padding-left: 0 !important;
         text-align: left !important;
@@ -555,15 +561,29 @@
       
       .workflow-step h3 { min-height: auto !important; }
       .workflow-step h3 br { display: none !important; }
-      .workflow-step:nth-child(1) h3::before { content: "1. "; }
-      .workflow-step:nth-child(2) h3::before { content: "2. "; }
-      .workflow-step:nth-child(3) h3::before { content: "3. "; }
       
-      /* Doppeltes "Lieferung" gelöscht */
+      /* 6. & 7. Unterüberschriften in eine Zeile & doppeltes "Lieferung" gelöscht */
+      .workflow-step:nth-child(1) h3 { display: inline !important; }
+      .workflow-step:nth-child(1) h3::before { content: "1. Entwicklung einer Vision"; }
+      .workflow-step:nth-child(1) h3 { font-size: 18px !important; }
+      
+      .workflow-step:nth-child(2) h3 { display: inline !important; }
+      .workflow-step:nth-child(2) h3::before { content: "2. Vertragsabschluss"; }
+      .workflow-step:nth-child(2) h3 { font-size: 18px !important; }
+
+      .workflow-step:nth-child(3) h3 { display: inline !important; }
+      .workflow-step:nth-child(3) h3::before { content: "3. Kreativer Prozess"; }
+      .workflow-step:nth-child(3) h3 { font-size: 18px !important; }
+      
       .workflow-step:nth-child(4) h3 { display: inline !important; }
-      .workflow-step:nth-child(4) h3::before { content: "4. Lieferung"; }
-      .workflow-step:nth-child(4) h3 br { display: none !important; }
-      .workflow-step:nth-child(4) ul { margin-top: 0.8rem !important; }
+      .workflow-step:nth-child(4) h3::before { content: "4. Lieferung & Leistung"; }
+      .workflow-step:nth-child(4) h3 { font-size: 18px !important; }
+
+      /* Ursprünglichen Text innerhalb der h3 unsichtbar machen, wenn via ::before formatiert */
+      .workflow-step h3 {
+        font-size: 0 !important;
+      }
+      .workflow-step ul { margin-top: 0.8rem !important; }
 
       /* Abstand zwischen 3 Portrait-Bildern auf 0 und Höhe vergrößern */
       .trio-portrait { grid-template-columns: 1fr !important; gap: 0 !important; }
@@ -603,12 +623,12 @@
   <div class="hero-top">
     <div class="eyebrow">UGC Portfolio</div>
     <h1>Hannah<br>Marahrens</h1>
-    <div class="hero-contact-left">
-      <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
-    </div>
-    <div class="hero-contact-right">
-      <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
-    </div>
+  </div>
+  <div class="hero-contact-left">
+    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
+  </div>
+  <div class="hero-contact-right">
+    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
   </div>
 </header>
 
@@ -891,7 +911,7 @@ individuelle Preise.</p>
         </ul>
       </div>
       <div class="workflow-step">
-        <h3><br>Lieferung</h3>
+        <h3>Lieferung<br>&amp; Leistung</h3>
         <ul>
           <li>Restzahlung nach Freigabe</li>
           <li>Bereitstellung via Cloud</li>
