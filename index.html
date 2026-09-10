@@ -30,7 +30,6 @@
     h1, h2, h3 { margin: 0; font-weight: 600; }
     a { color: var(--ink); text-decoration: none; }
     
-    /* Icon korrigiert: Verhindert das Stauchen durch feste Seitenverhältnisse */
     .icon-inline {
       width: 1.2em;
       height: auto;
@@ -77,7 +76,7 @@
       line-height: 1.02;
       letter-spacing: 0.01em;
       font-weight: 500; 
-      text-transform: uppercase; /* Name in Versalien (Großbuchstaben) */
+      text-transform: uppercase;
     }
     .hero-contact-left,
     .hero-contact-right {
@@ -90,7 +89,7 @@
     .hero-contact-left a,
     .hero-contact-right a { color: var(--paper); }
 
-    /* ---------- INTRO & SPLIT (Weiter nach rechts versetzt) ---------- */
+    /* ---------- INTRO & SPLIT ---------- */
     .intro {
       max-width: 1100px;
       margin: 0 auto;
@@ -118,7 +117,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 99% center;
+      object-position: 85% center; /* Minimal weiter nach rechts platziert */
       display: block;
     }
 
@@ -127,7 +126,7 @@
       .intro-img-wrap { min-height: 350px; }
     }
 
-    /* ---------- PHONE MOCKUP (Helleres Detail, Vergrößert) ---------- */
+    /* ---------- PHONE MOCKUP (Reel Format 9:16) ---------- */
     .section-phones-tight {
       max-width: 1100px;
       margin: 0 auto;
@@ -150,7 +149,7 @@
       position: relative;
       width: 100%;
       max-width: 310px;
-      aspect-ratio: 9 / 16;
+      aspect-ratio: 9 / 16; /* Exaktes Reel/TikTok Format */
       margin: 0 auto;
       background: #000;
       border: 10px solid var(--lime);
@@ -382,7 +381,7 @@
       .workflow-timeline::before { display: none; }
     }
 
-    /* ---------- GALERIE STRIP ---------- */
+    /* ---------- GALERIE STRIP (Hochformat) ---------- */
     .gallery-section {
       max-width: 1100px;
       margin: 6rem auto;
@@ -395,7 +394,7 @@
     }
     .gallery-grid img {
       width: 100%;
-      aspect-ratio: 5 / 7;
+      aspect-ratio: 9 / 16; /* Geändert zu klassischem Hochformat */
       object-fit: cover;
       background: #eee;
       border-radius: 0;
@@ -407,7 +406,7 @@
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper {
       max-width: 100%;
-      margin: 6rem auto 2rem auto;
+      margin: 6rem auto 0.4rem auto; /* Abstand exakt auf die 0.4rem Rastergap angepasst */
       padding: 0;
     }
     .trio-portrait {
@@ -483,7 +482,7 @@
       color: var(--ink);
       text-decoration: none;
       font-size: 20px; 
-      font-weight: 450; 
+      font-weight: 400; /* Angepasst an den Hero-Schriftschnitt */
       display: inline-flex;
       align-items: center;
     }
@@ -703,7 +702,7 @@
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 6rem 2.5rem 6rem 1rem;">
       <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
-      <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
+      <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert –<br>echter Content schafft Vertrauen.</p>
       <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC (2026)</p>
       <ul class="facts">
         <li><b>4x</b> höhere Klickrate (CTR)</li>
@@ -791,7 +790,7 @@
         </ul>
       </div>
       <div class="workflow-step">
-        <h3>Lieferung</h3>
+        <h3><br>Lieferung</h3>
         <ul>
           <li>Restzahlung nach Freigabe</li>
           <li>Bereitstellung via Cloud</li>
