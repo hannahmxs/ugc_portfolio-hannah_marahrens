@@ -37,24 +37,24 @@
   .eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    font-size: 1.35rem; /* +60pt äquivalent vergrößert */
+    font-size: 1.35rem;
     font-weight: 600;
   }
 
-  /* ---------- HERO (Punkt 1 & 2: +60pt & Bildformat wie Bildschirm) ---------- */
+  /* ---------- HERO (Punkt 1 & 2: Exakte Maße & Abstand) ---------- */
   .hero {
     position: relative;
-    height: 75vh; /* Exaktes Bildschirm-Format-Verhältnis */
-    min-height: 550px;
+    height: 650px; /* Exakte Höhe passend zum Split-Verhältnis */
     background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.5) 100%), url("bilder/hero.jpg");
     background-size: cover;
     background-position: center top;
     color: var(--paper);
     overflow: hidden;
+    margin-bottom: 3rem; /* Klarer Abstand zum Intro (Punkt 2) */
   }
   .hero-top {
     position: absolute;
-    top: 6rem;
+    top: 5rem;
     left: 5rem;
     right: 5rem;
   }
@@ -65,10 +65,10 @@
     font-size: 1.8rem;
   }
   .hero-top h1 {
-    font-size: 80px; /* Massiv vergrößert (+60pt optisch) */
-    line-height: 1.05;
-    letter-spacing: 0.02em;
-    font-weight: 600;
+    font-size: 100px; /* Nochmals +40pt vergrößert (Punkt 5) */
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    font-weight: 700; /* Kräftiger/Dicker */
   }
   .hero-contact-left,
   .hero-contact-right {
@@ -81,14 +81,13 @@
   .hero-contact-left a,
   .hero-contact-right a { color: var(--paper); }
 
-  /* ---------- INTRO (Punkt 3: Intro-Bild im gleichen Split-Format & höhenbündig) ---------- */
+  /* ---------- INTRO (Punkt 3 & 4: Bild leicht rechts & Zeilenabstand angepasst) ---------- */
   .intro {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0; /* Padding auf die Split-Kinder übertragen für exakte Bündigkeit */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-stretch: stretch;
+    align-items: stretch;
   }
   .intro-text {
     padding: 6rem 3.5rem;
@@ -98,7 +97,7 @@
   }
   .intro-text h2 { font-size: 32px; margin-bottom: 1.5rem; line-height: 1.25; }
   .intro-text p { margin: 0 0 1.2rem; color: var(--muted); font-size: 20px; }
-  .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 1rem; font-size: 20px; }
+  .intro-text .niches { color: var(--ink); font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.4rem; font-size: 20px; } /* Angepasster Zeilenabstand (Punkt 4) */
   
   .intro-img-wrap {
     padding: 0 !important;
@@ -107,26 +106,26 @@
   }
   .intro-img {
     width: 100%;
-    background-size: contain; /* Exakt gleiches Bildformat-Verhalten wie bei Why UGC / Case Study */
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center right; /* Leicht nach rechts versetzt (Punkt 3) */
     min-height: 100%;
   }
   @media (max-width: 800px) {
     .intro { grid-template-columns: 1fr; }
-    .intro-img { min-height: 350px; }
+    .intro-img { min-height: 350px; background-position: center; }
   }
 
-  /* ---------- PHONE MOCKUP (Punkt 4, 5, 8: echtes 9:16 Format & reduzierter Abstand) ---------- */
+  /* ---------- PHONE MOCKUP (iPhone Reels) ---------- */
   .section-phones-tight {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 4rem 1.5rem 2rem 1.5rem; /* Reduzierter Abstand nach unten */
+    padding: 4rem 1.5rem 2rem 1.5rem;
   }
   .section-phones-normal {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 6rem 1.5rem; /* Reduzierter Abstand nach oben zum vorherigen Block */
+    padding: 2rem 1.5rem 6rem 1.5rem;
   }
   .phone-row {
     display: grid;
@@ -140,7 +139,7 @@
     position: relative;
     width: 100%;
     max-width: 300px;
-    aspect-ratio: 9 / 16; /* Exaktes Instagram-Reel-Format 9:16 */
+    aspect-ratio: 9 / 16;
     margin: 0 auto;
     background: #000;
     border: 8px solid var(--lime);
@@ -208,14 +207,14 @@
     padding-left: 0.9rem;
   }
 
-  /* ---------- FARBIGE SECTIONS & SPLIT (Punkt 3: Höhenbündig) ---------- */
+  /* ---------- FARBIGE SECTIONS & SPLIT (Punkt 3: Bilder leicht rechts) ---------- */
   .bg-lime { background: var(--lime); }
   .bg-lavender { background: var(--lavender); }
 
   .split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: stretch; /* Füllt exakt die gesamte Blockhöhe aus */
+    align-items: stretch;
   }
   .split-brand { grid-template-columns: 0.6fr 1.4fr; }
   .split > div { padding: 6rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
@@ -229,7 +228,7 @@
     width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center right; /* Leicht nach rechts versetzt (Punkt 3) */
     min-height: 100%;
   }
   @media (max-width: 800px) {
@@ -267,33 +266,33 @@
   .facts { padding-left: 1.2rem; margin: 0.8rem 0 1.5rem; font-size: 20px; }
   .facts li { margin-bottom: 0.5rem; }
 
-  /* ---------- DIENSTLEISTUNGEN (Punkt 7: Einheitliche Überschriften-Größe) ---------- */
+  /* ---------- DIENSTLEISTUNGEN (Punkt 7: Box-Breite verringert für weniger Leerraum) ---------- */
   .services-wrapper {
-    max-width: 960px;
+    max-width: 880px; /* Noch kompakter, damit rechts kein unnötiger Leerraum bleibt */
     margin: 0 auto;
     padding: 6rem 1.5rem;
   }
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
   .service-card {
-    padding: 2.2rem 1.6rem;
+    padding: 2rem 1.4rem;
   }
   .service-card h3 { 
-    font-size: 20px; /* Einheitliche Punktgröße für alle Box-Überschriften */
+    font-size: 20px; 
     margin-bottom: 0.6rem; 
     font-weight: 700; 
   }
-  .service-card p { margin: 0; font-size: 18px; color: #222; }
+  .service-card p { margin: 0; font-size: 17px; color: #222; }
   .services-lower {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
   }
-  .service-card ul { margin: 0.6rem 0 0; padding-left: 1.2rem; font-size: 18px; }
+  .service-card ul { margin: 0.6rem 0 0; padding-left: 1.1rem; font-size: 17px; }
   .service-card li { margin-bottom: 0.4rem; }
 
   .cta-row {
@@ -317,14 +316,20 @@
   }
   .btn:hover { background: #000; color: #fff; }
 
-  /* ---------- WORKFLOW ---------- */
+  /* ---------- WORKFLOW (Punkt 8: Sanfte Wisch-Animation) ---------- */
   .workflow-section {
     background: var(--lime);
     padding: 6rem 2rem;
+    overflow: hidden;
   }
   .workflow-container {
     max-width: 1100px;
     margin: 0 auto;
+    animation: slideInWorkflow 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes slideInWorkflow {
+    0% { opacity: 0; transform: translateX(-40px); }
+    100% { opacity: 1; transform: translateX(0); }
   }
   .workflow-container h2 {
     font-size: 32px;
@@ -381,7 +386,7 @@
     .workflow-timeline::before { display: none; }
   }
 
-  /* ---------- GALERIE STRIP (Punkt 8: Formatfüllende Hochformat-Bilder statt Quadrate) ---------- */
+  /* ---------- GALERIE STRIP (Punkt 9: Keine abgerundeten Ecken, echtes Hochformat) ---------- */
   .gallery-section {
     max-width: 1100px;
     margin: 0 auto;
@@ -394,30 +399,30 @@
   }
   .gallery-grid img {
     width: 100%;
-    aspect-ratio: 3 / 4.5; /* Echte formatfüllende Hochformate */
+    aspect-ratio: 3 / 4.8; /* Höheres Hochformat */
     object-fit: cover;
     background: #eee;
-    border-radius: 6px;
+    border-radius: 0; /* Keine Ecken abrunden */
   }
   @media (max-width: 768px) {
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* ---------- TRIO PORTRAIT (Punkt 9: Geringerer Abstand, breiten- und höhenfüllend wie Closing) ---------- */
+  /* ---------- TRIO PORTRAIT (Punkt 10: Erhöhte Höhe, keine Abrundung, formatfüllend) ---------- */
   .trio-wrapper {
-    max-width: 100%; /* Erstreckt sich über das gesamte Format */
+    max-width: 100%;
     margin: 6rem 0 0 0;
     padding: 0;
   }
   .trio-portrait {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem; /* Sehr geringer Abstand zueinander */
+    gap: 0.4rem;
     width: 100%;
   }
   .trio-portrait img {
     width: 100%;
-    aspect-ratio: 4 / 5; /* Großes, formatfüllendes Format */
+    aspect-ratio: 3 / 4.2; /* Mehr Höhe, damit nichts abgeschnitten wird */
     object-fit: cover;
     background: #ddd;
     display: block;
@@ -501,7 +506,7 @@
   </div>
 </header>
 
-<!-- ===================== 2. INTRODUCTION (Mit exakt höhenbündigem Split-Bild) ===================== -->
+<!-- ===================== 2. INTRODUCTION ===================== -->
 <section class="section" style="padding: 0; max-width: 1100px;">
   <div class="intro">
     <div class="intro-text">
@@ -557,7 +562,7 @@
   </div>
 </div>
 
-<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 (Mit reduziertem Abstand zum ersten Block) ===================== -->
+<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
 <div class="section-phones-normal">
   <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Weitere Video-Arbeiten</p>
   <div class="phone-row">
@@ -679,14 +684,14 @@
     <div style="padding: 6rem 3.5rem;">
       <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
       <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
-      <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC</p>
+      <!-- Jahresangabe (2026) hinzugefügt (Punkt 6) -->
+      <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC (2026)</p>
       <ul class="facts">
         <li><b>4x</b> höhere Klickrate (CTR)</li>
         <li><b>2,4x</b> mehr Aufmerksamkeit</li>
         <li><b>+28 %</b> Engagement</li>
         <li><b>+29 %</b> Konversionen</li>
       </ul>
-      <!-- Umbruch korrigiert: "die" rutscht sauber in die unterste Zeile -->
       <p style="color:var(--muted); font-size:18px; margin-top:1.5rem;">Durch authentische Einbindungen entsteht eine direkte emotionale Verbindung zur Zielgruppe, welche messbar zu höheren Abschlussraten führt und <br>die Conversion-Zahlen maximiert.</p>
     </div>
     <div class="split-img-wrap">
@@ -723,7 +728,6 @@
       </ul>
     </div>
     <div class="service-card bg-lavender">
-      <!-- Einheitliche Überschriften-Größe angepasst -->
       <h3>Extras</h3>
       <ul>
         <li>Raw Aufnahme</li>
@@ -778,7 +782,7 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE STRIP (Formatfüllende Hochformat-Fotos) ===================== -->
+<!-- ===================== 11. GALERIE STRIP (Formatfüllende Hochformate ohne abgerundete Ecken) ===================== -->
 <section class="gallery-section">
   <div class="gallery-grid" style="margin-bottom: 1.5rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
@@ -794,7 +798,7 @@
   </div>
 </section>
 
-<!-- ===================== 12. TRIO PORTRAIT (Geringer Abstand, format- und breitenfüllend) ===================== -->
+<!-- ===================== 12. TRIO PORTRAIT (Erhöhte Höhe, formatfüllend, keine Ecken abgerundet) ===================== -->
 <div class="trio-wrapper">
   <div class="trio-portrait">
     <img src="bilder/portrait1.jpg" alt="UGC Portrait 1">
