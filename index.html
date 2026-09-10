@@ -102,8 +102,9 @@
       letter-spacing: 0.25em;
       font-size: 1.8rem;
     }
+    /* 4. Proportionale Skalierung für Desktop & Mobil via clamp() */
     .hero-top h1 {
-      font-size: 85px; 
+      font-size: clamp(38px, 6vw, 85px); 
       line-height: 1.08;
       letter-spacing: 0.03em;
       font-weight: 600; 
@@ -444,31 +445,31 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* 2. Hero: Höhe verringern und links abschneiden statt rechts */
+      /* 1. Hero: Höhe angepasst, Name & Icons wieder nach oben versetzt */
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
-        background-position: 25% top !important; /* Verschiebt den Fokus, sodass links abgeschnitten wird */
+        background-position: 25% top !important;
         margin-bottom: 1rem !important;
       }
       .hero-top {
-        top: auto !important;
-        bottom: 2rem !important;
+        top: 3.5rem !important;
+        bottom: auto !important;
         left: 1.5rem !important;
-        right: 5rem !important;
+        right: 1.5rem !important;
       }
       .hero-top .eyebrow {
         font-size: 1.1rem !important;
         margin-bottom: 0.3rem !important;
       }
       .hero-top h1 {
-        font-size: 38px !important;
         line-height: 1.1 !important;
       }
       .hero-contact-left,
       .hero-contact-right {
         position: absolute !important;
-        bottom: auto !important;
+        top: auto !important;
+        bottom: 2rem !important;
         right: 1.5rem !important;
         left: auto !important;
         font-size: 0 !important;
@@ -498,17 +499,21 @@
         white-space: pre-line !important;
       }
 
-      /* 1. Abstand zwischen gelben iPhones und lila iPhones verringern */
       .section-phones-tight { padding-bottom: 0 !important; margin-bottom: -2rem !important; }
 
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { padding: 2rem 1.5rem 1rem 1.5rem !important; }
 
-      /* 3. "Why UGC" Sektion: Bild unter den Textblock setzen statt daneben */
+      /* "Why UGC" Sektion: Bild unter den Textblock setzen */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
       .split > div { padding: 2rem 1.5rem !important; }
 
-      /* Alle iPhones untereinander und füllen den Bildschirm gut aus */
+      /* 2. Schönerer mobiler Flattersatz ab "Durch authentische..." */
+      .bg-lavender .split > div > p:last-of-type {
+        max-width: 32ch;
+      }
+
+      /* Alle iPhones untereinander */
       .phone-row {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
@@ -530,20 +535,19 @@
         text-align: center;
       }
 
-      /* Dienstleistung Seite untereinander aufteilen */
+      /* Dienstleistung Seite */
       .services-wrapper { padding: 0 1.5rem !important; }
       .services-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
       .services-lower { grid-template-columns: 1fr !important; gap: 1rem !important; margin-top: 1rem !important; }
       .service-card-inset { padding: 2rem 1.4rem !important; }
       
-      /* 4. Textblock "Benötigen Sie mehr Videos?..." linksbündig machen */
       .cta-row { 
         flex-direction: column !important; 
         align-items: flex-start !important; 
         text-align: left !important; 
       }
 
-      /* 8. Workflow: Mehr Abstand zum linken Rand für den gesamten Textblock */
+      /* Workflow */
       .workflow-section { padding: 4rem 1.5rem 4rem 2.5rem !important; }
       .workflow-timeline { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
       .workflow-timeline::before { display: none !important; }
@@ -553,12 +557,14 @@
       .workflow-step:nth-child(1) h3::before { content: "1. "; }
       .workflow-step:nth-child(2) h3::before { content: "2. "; }
       .workflow-step:nth-child(3) h3::before { content: "3. "; }
-      /* 5. "Lieferung" neben die 4. stellen, nicht darunter */
+      
+      /* 3. "Lieferung:" gelöscht und Abstand zur Auflistung angepasst */
       .workflow-step:nth-child(4) h3 { display: inline !important; }
-      .workflow-step:nth-child(4) h3::before { content: "4. Lieferung: "; }
+      .workflow-step:nth-child(4) h3::before { content: "4. Lieferung"; }
       .workflow-step:nth-child(4) h3 br { display: none !important; }
+      .workflow-step:nth-child(4) ul { margin-top: 0.8rem !important; }
 
-      /* 6. Abstand zwischen 3 Portrait-Bildern auf 0 und Höhe etwas vergrößern */
+      /* Abstand zwischen 3 Portrait-Bildern auf 0 und Höhe vergrößern */
       .trio-portrait { grid-template-columns: 1fr !important; gap: 0 !important; }
       .trio-portrait img {
         height: 75vh !important;
@@ -566,7 +572,7 @@
         object-position: center 20% !important;
       }
 
-      /* Closing-Bild im ursprünglichen Querformat belassen */
+      /* Closing-Bild */
       .closing-img {
         height: 45vh !important;
         min-height: 280px !important;
@@ -578,7 +584,6 @@
         font-size: 32px !important;
       }
       
-      /* 7. Instagram und Mail zum Schluss linksbündig setzen */
       .closing-bar {
         padding: 1.5rem 1.5rem !important;
         flex-direction: column !important;
@@ -786,7 +791,8 @@ nahbar ist und im Gedächtnis bleibt.</p>
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
       <h2 style="font-size:32px; margin-bottom:1rem;">Warum UGC?</h2>
-      <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert –<br>echter Content schafft Vertrauen.</p>
+      <!-- 2. Komma statt Gedankenstrich nach ignoriert -->
+      <p style="font-size:20px; color:var(--muted); margin-bottom:1.5rem;">Klassische Werbung wird oft ignoriert,<br>echter Content schafft Vertrauen.</p>
       <p style="font-weight:600; font-size:20px; margin-bottom:0.5rem;">Fakten über UGC (2026)</p>
       <ul class="facts">
         <li><b>4x</b> höhere Klickrate (CTR)</li>
