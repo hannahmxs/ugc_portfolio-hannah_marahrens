@@ -24,6 +24,7 @@
 
     :root {
       --lime: #E1FFA5;
+      --lime-subtle: #f5fce3;
       --lavender: #E1DCFA;
       --ink: #000000;
       --paper: #FFFFFF;
@@ -102,7 +103,7 @@
       font-size: 1.8rem;
     }
     .hero-top h1 {
-      font-size: 85px; /* Auf exakt 85 Punktgröße angepasst */
+      font-size: 85px; 
       line-height: 1.08;
       letter-spacing: 0.03em;
       font-weight: 600; 
@@ -147,20 +148,22 @@
       position: relative;
     }
     
-    .media-img-format {
+    /* Die 3 spezifischen Bilder (Intro, Case Study, Why-UGC) gezielt nach rechts verschoben */
+    .shifted-right-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: 70% center; /* Hier wird der Ausschnitt nach rechts verschoben */
       display: block;
     }
 
     @media (max-width: 800px) {
       .intro { grid-template-columns: 1fr; }
       .fullscreen-slide { height: auto; min-height: auto; padding: 4rem 0; }
+      .shifted-right-img { object-position: center; }
     }
 
-    /* ---------- PHONE MOCKUP ---------- */
+    /* ---------- PHONE MOCKUP (Videos unberührt) ---------- */
     .section-phones-tight, .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
@@ -179,7 +182,7 @@
       position: relative;
       width: 100%;
       max-width: 310px;
-      aspect-ratio: 9 / 16;
+      aspect-ratio: 9 / 16; /* Originales Videoverhältnis beibehalten */
       margin: 0 auto;
       background: #000;
       border: 10px solid var(--lime);
@@ -241,7 +244,7 @@
       justify-content: center;
       font-size: 16px;
       color: var(--muted);
-      background: transparent; /* Transparent, damit PNG-Logos ohne Kasten bleiben */
+      background: transparent;
     }
 
     .stats-grid {
@@ -347,17 +350,17 @@
       .workflow-timeline::before { display: none; }
     }
 
-    /* ---------- GALERIE STRIP (UGC PRODUKTFOTOS IM EXAKT KORREKTEN 9/16 FORMAT) ---------- */
+    /* ---------- GALERIE STRIP (Exakt die 8 UGC-Beispiel-Fotos im Format 2:3) ---------- */
     .gallery-section { max-width: 1100px; margin: 6rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .gallery-grid img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #eee; display: block; }
+    .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
     @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    /* ---------- TRIO PORTRAIT & CLOSING (Abstände auf 0 gesetzt) ---------- */
+    /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 6rem auto 0 auto; padding: 0; }
     .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; }
-    .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; background: #ddd; display: block; }
-    @media (max-width: 768px) { .trio-portrait { grid-template-columns: 1fr; gap: 0; } .trio-portrait img { height: auto; aspect-ratio: 9 / 16; } }
+    .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; object-position: 65% center; background: #ddd; display: block; }
+    @media (max-width: 768px) { .trio-portrait { grid-template-columns: 1fr; gap: 0; } .trio-portrait img { height: auto; aspect-ratio: 2 / 3; object-position: center; } }
 
     /* ---------- ABSCHLUSS & FOOTER ---------- */
     .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
@@ -448,26 +451,31 @@
     }
     .modal.active { display: flex; }
     .modal-content {
-      background: var(--paper);
-      padding: 3rem;
-      max-width: 600px;
+      background: var(--lime-subtle);
+      padding: 3.5rem;
+      max-width: 750px;
       width: 100%;
-      max-height: 80vh;
+      max-height: 85vh;
       overflow-y: auto;
       position: relative;
-      border-radius: 4px;
+      border-radius: 0;
+      border: 1px solid rgba(0,0,0,0.1);
     }
     .modal-close {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
-      font-size: 24px;
+      font-size: 28px;
       text-decoration: none;
       color: var(--ink);
       font-weight: bold;
       cursor: pointer;
       background: none;
       border: none;
+    }
+
+    .element-hidden {
+      display: none !important;
     }
 
     /* SCROLL TO TOP */
@@ -505,14 +513,14 @@
     <h1>Hannah<br>Marahrens</h1>
   </div>
   <div class="hero-contact-left">
-    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
+    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
   <div class="hero-contact-right">
-    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
+    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
   </div>
 </header>
 
-<!-- ===================== 2. INTRODUCTION (Flattersatz angepasst) ===================== -->
+<!-- ===================== 2. INTRODUCTION (Intro-Bild nach rechts verschoben) ===================== -->
 <section class="fullscreen-slide">
   <div class="intro">
     <div class="intro-text">
@@ -523,7 +531,7 @@
       <p>Lifestyle · Beauty · Food · Travel</p>
     </div>
     <div class="intro-img-wrap">
-      <img src="bilder/intro.jpg" alt="Hannah Marahrens" class="media-img-format">
+      <img src="bilder/intro.jpg" alt="Hannah Marahrens" class="shifted-right-img">
     </div>
   </div>
 </section>
@@ -531,7 +539,7 @@
 <!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
 <div class="fullscreen-slide">
   <div class="section-phones-tight">
-    <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Ausgewählte UGC-Arbeiten im modernen Format</p>
+    <p style="color: var(--muted); margin-bottom: 2rem; font-size: 20px;">Ausgewählte UGC-Arbeiten</p>
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame">
@@ -623,7 +631,7 @@
   </div>
 </section>
 
-<!-- ===================== 6. CASE STUDY (Stats) ===================== -->
+<!-- ===================== 6. CASE STUDY (Stats) (Case-Study-Bild nach rechts verschoben) ===================== -->
 <section class="bg-lavender fullscreen-slide">
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
@@ -639,7 +647,7 @@
       <p style="color:var(--muted); font-size:18px; margin-top:1.5rem;">Zahlen und Statistiken zu erfolgreichen Content-Kampagnen.</p>
     </div>
     <div class="split-img-wrap">
-      <img src="bilder/case-study.jpg" alt="Case Study" class="media-img-format">
+      <img src="bilder/case-study.jpg" alt="Case Study" class="shifted-right-img">
     </div>
   </div>
 </section>
@@ -680,7 +688,7 @@
   </div>
 </section>
 
-<!-- ===================== 8. WHY UGC? ===================== -->
+<!-- ===================== 8. WHY UGC? (Why-UGC-Bild nach rechts verschoben) ===================== -->
 <section class="bg-lavender fullscreen-slide">
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
@@ -701,7 +709,7 @@
       </p>
     </div>
     <div class="split-img-wrap">
-      <img src="bilder/why-ugc.jpg" alt="Why UGC" class="media-img-format">
+      <img src="bilder/why-ugc.jpg" alt="Why UGC" class="shifted-right-img">
     </div>
   </div>
 </section>
@@ -790,7 +798,7 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE STRIP ===================== -->
+<!-- ===================== 11. GALERIE STRIP (Nur die 8 UGC-Beispiel-Fotos exakt im Format 2:3) ===================== -->
 <section class="gallery-section">
   <div class="gallery-grid" style="margin-bottom: 1.5rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
@@ -835,7 +843,7 @@
   </div>
 </div>
 
-<!-- ===================== RECHTLICHE MODALS (Ohne Seiten-Sprung) ===================== -->
+<!-- ===================== RECHTLICHE MODALS ===================== -->
 <div id="impressum-modal" class="modal">
   <div class="modal-content">
     <button onclick="closeModal('impressum-modal')" class="modal-close">&times;</button>
@@ -843,6 +851,7 @@
     <p><strong>Angaben gemäß § 5 TMG:</strong></p>
     <p>Hannah Marahrens<br>[Straße und Hausnummer]<br>[PLZ und Ort]</p>
     <p><strong>Kontakt:</strong><br>Telefon: [Deine Telefonnummer]<br>E-Mail: hannah_marahrens@gmx.de</p>
+    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>Hannah Marahrens<br>[Anschrift wie oben]</p>
   </div>
 </div>
 
@@ -851,9 +860,11 @@
     <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
     <h2>Datenschutzerklärung</h2>
     <p><strong>1. Datenschutz auf einen Blick</strong></p>
-    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen...</p>
+    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
     <p><strong>2. Hosting</strong></p>
-    <p>Diese Website wird extern über GitHub Pages gehostet.</p>
+    <p>Diese Website wird extern gehostet (z.B. über GitHub Pages). Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
+    <p><strong>3. Datenerfassung auf dieser Website</strong></p>
+    <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
   </div>
 </div>
 
@@ -875,7 +886,6 @@
     window.scrollTo(0, scrollPosition);
   }
 
-  // Schließen bei Klick außerhalb des Modal-Inhalts
   window.addEventListener('click', function(e) {
     if (e.target.classList.contains('modal')) {
       e.target.classList.remove('active');
@@ -884,7 +894,6 @@
     }
   });
 
-  // Scroll-to-Top Button Steuerung (erst ab Folie 2)
   window.addEventListener('scroll', function() {
     const scrollBtn = document.getElementById('scrollTopBtn');
     if (window.scrollY > 400) {
