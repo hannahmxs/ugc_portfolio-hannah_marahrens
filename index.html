@@ -41,11 +41,11 @@
     font-weight: 600;
   }
 
-  /* ---------- HERO (Punkt 1: Höhe um wenige Millimeter angepasst) ---------- */
+  /* ---------- HERO (Punkt 1: Höhe um ca. 3mm erhöht gegen weiße Ränder) ---------- */
   .hero {
     position: relative;
-    height: calc(100vh - 15px); /* Um wenige Millimeter verkürzt */
-    min-height: 745px;
+    height: calc(100vh + 8px); 
+    min-height: 770px;
     background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.5) 100%), url("bilder/hero.jpg");
     background-size: cover;
     background-position: center top;
@@ -82,16 +82,16 @@
   .hero-contact-left a,
   .hero-contact-right a { color: var(--paper); }
 
-  /* ---------- INTRO & SPLIT (Punkt 2: Text nach links, Bild nach rechts) ---------- */
+  /* ---------- INTRO & SPLIT (Punkt 4: Bild weiter nach rechts versetzt) ---------- */
   .intro {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr; /* Text etwas breiter nach links gezogen */
+    grid-template-columns: 1.05fr 0.95fr;
     align-items: stretch;
   }
   .intro-text {
-    padding: 6rem 2.5rem 6rem 1rem; /* Nach links verschoben */
+    padding: 6rem 2.5rem 6rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,7 +110,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 75% center; /* Bild minimal nach rechts verschoben */
+    object-position: 82% center; /* Noch ein Stück weiter nach rechts verschoben */
     display: block;
   }
 
@@ -119,7 +119,7 @@
     .intro-img-wrap { min-height: 350px; }
   }
 
-  /* ---------- PHONE MOCKUP (Punkt 4: Echtes Hochformat) ---------- */
+  /* ---------- PHONE MOCKUP (Punkt 2 & 3: Mit Kamera/Mikro & echtes Reel-Format 9:16) ---------- */
   .section-phones-tight {
     max-width: 1100px;
     margin: 0 auto;
@@ -137,26 +137,39 @@
     margin-top: 2rem;
     justify-items: center;
   }
-  .phone-card { text-align: left; width: 100%; max-width: 270px; }
+  .phone-card { text-align: left; width: 100%; max-width: 260px; }
   .phone-frame {
     position: relative;
     width: 100%;
-    max-width: 270px;
-    aspect-ratio: 3 / 5; /* Deutliches, schlankes Hochformat */
+    max-width: 260px;
+    aspect-ratio: 9 / 16; /* Exaktes Instagram Reel / TikTok Format */
     margin: 0 auto;
     background: #000;
-    border: 6px solid var(--lime);
-    border-radius: 24px;
+    border: 10px solid var(--lime);
+    border-radius: 32px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.18);
     overflow: hidden;
   }
   .phone-frame.lavender-border {
     border-color: var(--lavender);
   }
+  /* Kamera-Insel / Notch Detail */
+  .phone-notch {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 18px;
+    background: #000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 10;
+  }
   .phone-screen {
     width: 100%;
     height: 100%;
-    border-radius: 18px;
+    border-radius: 22px;
     overflow: hidden;
     background: #111;
     position: relative;
@@ -178,7 +191,7 @@
     padding-left: 0.9rem;
   }
 
-  /* ---------- FARBIGE SECTIONS & SPLIT (Punkt 2 angewandt) ---------- */
+  /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
   .bg-lime { background: var(--lime); }
   .bg-lavender { background: var(--lavender); }
 
@@ -346,7 +359,7 @@
     .workflow-timeline::before { display: none; }
   }
 
-  /* ---------- GALERIE STRIP ---------- */
+  /* ---------- GALERIE STRIP (Format angepasst) ---------- */
   .gallery-section {
     max-width: 1100px;
     margin: 0 auto;
@@ -359,7 +372,7 @@
   }
   .gallery-grid img {
     width: 100%;
-    aspect-ratio: 3 / 5;
+    aspect-ratio: 9 / 16;
     object-fit: cover;
     background: #eee;
     border-radius: 0;
@@ -368,22 +381,22 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* ---------- TRIO PORTRAIT (Punkt 3: In einer Zeile, Höhe exakt wie Hero) ---------- */
+  /* ---------- TRIO PORTRAIT (Punkt 5: Exakter Abstand & Zeile, Höhe wie Hero) ---------- */
   .trio-wrapper {
     max-width: 100%;
-    margin: 6rem 0 0 0;
+    margin: 0.4rem 0 0 0; /* Abstand nach oben exakt auf Bild-Gap (0.4rem) angepasst */
     padding: 0;
   }
   .trio-portrait {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Spalten nebeneinander in einer Zeile */
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.4rem;
     width: 100%;
   }
   .trio-portrait img {
     width: 100%;
-    height: calc(100vh - 15px); /* Exakt identische Höhe wie das Hero-Bild */
-    min-height: 745px;
+    height: calc(100vh + 8px);
+    min-height: 770px;
     object-fit: cover;
     background: #ddd;
     display: block;
@@ -391,10 +404,10 @@
   }
   @media (max-width: 768px) {
     .trio-portrait { grid-template-columns: 1fr; gap: 1rem; }
-    .trio-portrait img { height: auto; aspect-ratio: 3 / 5; }
+    .trio-portrait img { height: auto; aspect-ratio: 9 / 16; }
   }
 
-  /* ---------- ABSCHLUSS (Punkt 1 & 3: Höhe, schmaler Streifen, schwarze Schrift) ---------- */
+  /* ---------- ABSCHLUSS (Punkt 6: Sehr schmale Leiste & schwarzer Text) ---------- */
   .closing-card {
     width: 100%;
     background: var(--lime);
@@ -403,8 +416,8 @@
   .closing-img {
     position: relative;
     width: 100%;
-    height: calc(100vh - 15px); /* Exakte Höhe angepasst */
-    min-height: 745px;
+    height: calc(100vh + 8px);
+    min-height: 770px;
     background-image: url("bilder/closing.jpg");
     background-size: cover;
     background-position: center;
@@ -431,14 +444,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 5rem; /* Höhe des weißen Streifens stark minimiert */
+    padding: 0.5rem 5rem; /* Noch schmalerer Streifen */
     flex-wrap: wrap;
     gap: 1.5rem;
   }
   .closing-bar a {
-    color: var(--ink); /* Footnote in schwarzer Schrift */
+    color: var(--ink); /* Fußnote in schwarzer Schrift */
     text-decoration: none;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 500;
     display: inline-flex;
     align-items: center;
@@ -491,6 +504,7 @@
   <div class="phone-row">
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video1-poster.jpg"><source src="videos/backmischung.mp4" type="video/mp4"></video>
         </div>
@@ -500,6 +514,7 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
         </div>
@@ -509,6 +524,7 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video3-poster.jpg"><source src="videos/unboxing.mp4" type="video/mp4"></video>
         </div>
@@ -525,6 +541,7 @@
   <div class="phone-row">
     <div class="phone-card">
       <div class="phone-frame lavender-border">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video4-poster.jpg"><source src="videos/fashion-strand.mp4" type="video/mp4"></video>
         </div>
@@ -534,6 +551,7 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame lavender-border">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video5-poster.jpg"><source src="videos/blumenstrauss.mp4" type="video/mp4"></video>
         </div>
@@ -543,6 +561,7 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame lavender-border">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
         </div>
@@ -598,6 +617,7 @@
   <div class="phone-row">
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video7-poster.jpg"><source src="videos/voiceover.mp4" type="video/mp4"></video>
         </div>
@@ -606,6 +626,7 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video8-poster.jpg"><source src="videos/storytelling.mp4" type="video/mp4"></video>
         </div>
@@ -614,6 +635,7 @@
     </div>
     <div class="phone-card">
       <div class="phone-frame">
+        <div class="phone-notch"></div>
         <div class="phone-screen">
           <video controls poster="bilder/video9-poster.jpg"><source src="videos/problem-loesung.mp4" type="video/mp4"></video>
         </div>
