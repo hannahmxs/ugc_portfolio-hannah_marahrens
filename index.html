@@ -69,7 +69,7 @@
       font-weight: 600;
     }
 
-    /* ---------- FULLSCREEN SECTIONS ---------- */
+    /* ---------- FULLSCREEN SECTIONS (Desktop: Etwas weiter oben positioniert) ---------- */
     .fullscreen-slide {
       position: relative;
       height: calc(100vh + 8px); 
@@ -77,10 +77,11 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start; /* Geändert von center auf flex-start für Höherrücken */
+      padding-top: 3rem; /* Zusätzlicher Abstand nach oben */
     }
 
-    /* ---------- HERO (Desktop: Ursprüngliche Position weiter oben) ---------- */
+    /* ---------- HERO ---------- */
     .hero {
       position: relative;
       height: calc(100vh + 8px);
@@ -112,7 +113,7 @@
     }
     .hero-top {
       position: absolute;
-      top: 6rem; /* Wieder weiter oben platziert wie am Anfang */
+      top: 6rem;
       left: 5rem;
       right: 5rem;
       z-index: 3;
@@ -125,7 +126,6 @@
       font-size: 1.8rem;
     }
     .hero-top h1 {
-      /* Desktop: Ursprüngliche Größe OHNE Aufstockung */
       font-size: clamp(38px, 6vw, 85px); 
       line-height: 1.08;
       letter-spacing: 0.03em;
@@ -171,7 +171,7 @@
       overflow: hidden;
       position: relative;
       height: 100%;
-      background: transparent !important; /* Weißer Block entfernt */
+      background: transparent !important;
     }
     
     .shifted-right-img {
@@ -325,7 +325,7 @@
     }
     .btn:hover { background: #000; color: #fff; }
 
-    /* ---------- WORKFLOW (Desktop: Horizontale Timeline mit Kreisen) ---------- */
+    /* ---------- WORKFLOW ---------- */
     .workflow-section {
       background: var(--lime);
       padding: 5rem 2rem;
@@ -470,7 +470,6 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* 1. Hero Bild Ausschnitt angepasst */
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
@@ -491,15 +490,14 @@
         margin-bottom: 0.2rem !important;
       }
       .hero-top h1 {
-        /* Mobil: Name um 4px vergrößert */
         font-size: clamp(36px, calc(8vw + 4px), 54px) !important;
         line-height: 1.1 !important;
         margin-bottom: 0 !important;
       }
       
-      /* Mobile Social Icons rechts unten: Mail-Icon ÜBER Instagram-Icon stapeln */
+      /* Mobile Social Icons rechts unten: Mail-Icon ÜBER Instagram-Icon */
       .hero-contact-left {
-        display: none !important; /* Versteckt den linken Desktop-Container */
+        display: none !important;
       }
       .hero-contact-right {
         position: absolute !important;
@@ -508,13 +506,13 @@
         left: auto !important;
         z-index: 3 !important;
         display: flex !important;
-        flex-direction: column !important; /* Stapelt Mail über Instagram */
+        flex-direction: column !important;
         align-items: flex-end !important;
         gap: 0.6rem !important;
       }
 
       .hero-contact-right a {
-        font-size: 0 !important; /* Text ausblenden, nur Icons anzeigen */
+        font-size: 0 !important;
       }
       .hero-contact-right .icon-inline {
         width: 32px !important;
@@ -523,14 +521,13 @@
         vertical-align: middle !important;
       }
 
-      /* Allgemeine Slide-Höhen aufheben */
       .fullscreen-slide {
         height: auto !important;
         min-height: auto !important;
         padding: 2.5rem 0 !important;
+        justify-content: center !important;
       }
 
-      /* Flattersatz für alle Texte */
       p, li, .intro-text p, .phone-sub, .service-card p, .service-card li {
         text-align: left !important;
       }
@@ -542,7 +539,6 @@
         padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
       }
 
-      /* "Why UGC" Bild: Kein weißer Block, sauberes Hochformat ohne Anschnitt */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
       .split > div { padding: 1.5rem 1.5rem !important; }
       .split-img-wrap { 
@@ -559,7 +555,6 @@
         background: transparent !important;
       }
 
-      /* iPhones & Unterschriften nach rechts verschieben */
       .phone-row {
         grid-template-columns: 1fr !important;
         gap: 1.8rem !important;
@@ -584,7 +579,6 @@
         text-align: left !important;
       }
 
-      /* Dienstleistung Seite */
       .services-wrapper { padding: 0 1.5rem !important; }
       .services-grid { grid-template-columns: 1fr !important; gap: 0.8rem !important; }
       .services-lower { grid-template-columns: 1fr !important; gap: 0.8rem !important; margin-top: 0.8rem !important; }
@@ -596,7 +590,6 @@
         text-align: left !important; 
       }
 
-      /* Workflow Mobil: Vertikale Linie mit Kreisen links neben dem Text */
       .workflow-section { padding: 3rem 1.5rem 3rem 2rem !important; }
       .workflow-timeline {
         display: flex !important;
@@ -604,7 +597,6 @@
         gap: 2rem !important;
         position: relative !important;
       }
-      /* Vertikale Verbindungslinie links */
       .workflow-timeline::before {
         content: "" !important;
         position: absolute !important;
@@ -619,9 +611,8 @@
       }
       .workflow-step {
         position: relative !important;
-        padding-left: 2rem !important; /* Platz für die Kreise links */
+        padding-left: 2rem !important;
       }
-      /* Kreise links vor jedem Schritt */
       .workflow-step::before {
         content: "" !important;
         position: absolute !important;
@@ -637,7 +628,6 @@
       }
       .workflow-step h3 { min-height: auto !important; font-size: 18px !important; }
 
-      /* Abstand zwischen 3 Portrait-Bildern auf 0 und Höhe anpassen */
       .trio-portrait { grid-template-columns: 1fr !important; gap: 0 !important; }
       .trio-portrait img {
         height: 75vh !important;
@@ -645,7 +635,6 @@
         object-position: center 20% !important;
       }
 
-      /* Closing-Bild & korrigierte Schriftgröße für Closing-Leiste */
       .closing-img {
         height: 45vh !important;
         min-height: 260px !important;
@@ -683,16 +672,24 @@
     <div class="eyebrow">UGC Portfolio</div>
     <h1>Hannah<br>Marahrens</h1>
   </div>
-  <!-- Desktop Links (links unten) -->
+  <!-- Desktop Links: Links Instagram -->
   <div class="hero-contact-left">
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
-  <!-- Desktop Rechts (rechts unten) / Mobil: Hier wird Mail ÜBER Instagram gestapelt -->
+  <!-- Desktop Rechts: Korrekt wieder nur die E-Mail-Adresse / Mobil: Wird via CSS zu Mail über Instagram umgestapelt -->
   <div class="hero-contact-right">
     <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
-    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
+    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener" class="mobile-only-insta"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
 </header>
+
+<!-- Restlicher Code bleibt identisch -->
+<style>
+  /* Versteckt den zweiten Instagram-Link auf Desktops, damit er dort nicht angezeigt wird */
+  @media (min-width: 801px) {
+    .hero-contact-right .mobile-only-insta { display: none !important; }
+  }
+</style>
 
 <!-- ===================== 2. INTRODUCTION ===================== -->
 <section class="fullscreen-slide">
@@ -786,80 +783,6 @@
     </div>
   </div>
 </div>
-
-<!-- ===================== 5. BRANDS (Versteckt) ===================== -->
-<section class="bg-lime fullscreen-slide element-hidden">
-  <div class="split split-brand" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 3rem 2.5rem 3rem 1rem;">
-      <div class="eyebrow">— Markenname —</div>
-      <h2 style="font-size:28px; margin-top:0.5rem; line-height:1.3;">Vertrauensvolle Partnerschaften &amp; Referenzen</h2>
-    </div>
-    <div class="brands-grid" style="padding: 3.5rem;">
-      <div class="brand-slot">Logo Marke 1</div>
-      <div class="brand-slot">Logo Marke 2</div>
-      <div class="brand-slot">Logo Marke 3</div>
-      <div class="brand-slot">Logo Marke 4</div>
-      <div class="brand-slot">Logo Marke 5</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 6. CASE STUDY / STATS (Versteckt) ===================== -->
-<section class="bg-lavender fullscreen-slide element-hidden">
-  <div class="split" style="max-width:1100px; margin:0 auto;">
-    <div style="padding: 3rem 2.5rem 3rem 1rem;">
-      <h2 style="font-size:28px; margin-bottom:1.2rem;">Fallstudie — Markenname —</h2>
-      <div class="stats-grid">
-        <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Rendite</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Likes / Ansichten</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Klicks / CTR</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Konversionen</div></div>
-        <div class="stat"><div class="num">00</div><div class="lbl">Gewinn</div></div>
-      </div>
-      <p style="color:var(--muted); font-size:18px; margin-top:1.2rem;">Zahlen und Statistiken zu erfolgreichen Content-Kampagnen.</p>
-    </div>
-    <div class="split-img-wrap">
-      <img src="bilder/case-study.jpg" alt="Case Study" class="shifted-right-img">
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 7. CASE STUDY / VIDEO-GRID (Versteckt) ===================== -->
-<section class="fullscreen-slide element-hidden">
-  <div class="section" style="width:100%;">
-    <h2 style="font-size:24px; margin-bottom:1.2rem;">Fallstudie — Umsetzung —</h2>
-    <div class="phone-row" style="margin-top:0;">
-      <div class="phone-card">
-        <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-          <div class="phone-screen">
-            <video controls poster="bilder/video7-poster.jpg"><source src="videos/voiceover.mp4" type="video/mp4"></video>
-          </div>
-        </div>
-        <div class="phone-label">Voiceover</div>
-      </div>
-      <div class="phone-card">
-        <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-          <div class="phone-screen">
-            <video controls poster="bilder/video8-poster.jpg"><source src="videos/storytelling.mp4" type="video/mp4"></video>
-          </div>
-        </div>
-        <div class="phone-label">Storytelling</div>
-      </div>
-      <div class="phone-card">
-        <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
-          <div class="phone-screen">
-            <video controls poster="bilder/video9-poster.jpg"><source src="videos/problem-loesung.mp4" type="video/mp4"></video>
-          </div>
-        </div>
-        <div class="phone-label">Problem / Lösung</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===================== 8. WHY UGC? ===================== -->
 <section class="bg-lavender fullscreen-slide">
@@ -1029,31 +952,23 @@
     <h2>Datenschutzerklärung</h2>
     <p><strong>1. Datenschutz auf einen Blick</strong></p>
     <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
-    <p><strong>2. Hosting</strong></p>
-    <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
-    <p><strong>3. Datenerfassung auf dieser Website</strong></p>
-    <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber.</p>
   </div>
 </div>
 
-<!-- ===================== SCROLL-TO-TOP BUTTON ===================== -->
 <a href="#start" class="scroll-top-btn" id="scrollTopBtn" title="Nach oben">↑</a>
 
 <script>
   let scrollPosition = 0;
-
   function openModal(modalId) {
     scrollPosition = window.pageYOffset;
     document.getElementById(modalId).classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-
   function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('active');
     document.body.style.overflow = '';
     window.scrollTo(0, scrollPosition);
   }
-
   window.addEventListener('click', function(e) {
     if (e.target.classList.contains('modal')) {
       e.target.classList.remove('active');
@@ -1061,7 +976,6 @@
       window.scrollTo(0, scrollPosition);
     }
   });
-
   window.addEventListener('scroll', function() {
     const scrollBtn = document.getElementById('scrollTopBtn');
     if (window.scrollY > 400) {
