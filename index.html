@@ -159,6 +159,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      /* Änderung: Textblock etwas höher versetzt */
+      transform: translateY(-2.5rem);
     }
     .intro-text h2 { font-size: 32px; margin-bottom: 1.2rem; line-height: 1.2; }
     .intro-text p { margin: 0 0 1rem; color: var(--muted); font-size: 20px; }
@@ -309,8 +311,9 @@
     /* ---------- WORKFLOW ---------- */
     .workflow-section {
       background: var(--lime);
-      padding: 3rem 2rem 5rem 2rem; /* Abstand oben reduziert */
-      margin-top: 1rem; /* Abstand nach oben verringert */
+      padding: 3rem 2rem 5rem 2rem;
+      /* Änderung: Abstand zur Dienstleistungsseite nach oben vergrößert (4rem), damit er dem unteren Abstand entspricht */
+      margin-top: 4rem; 
       overflow: hidden;
     }
     .workflow-container { max-width: 1100px; margin: 0 auto; }
@@ -349,7 +352,8 @@
     /* ---------- GALERIE STRIP ---------- */
     .gallery-section { max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
+    /* Änderung: Gängiges Hochformat (Aspect-Ratio 3 / 4 statt 2 / 3) */
+    .gallery-grid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #eee; display: block; }
 
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 4rem auto 0 auto; padding: 0; }
@@ -517,6 +521,7 @@
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { 
         padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
+        transform: none !important; /* Auf Mobile zurücksetzen, falls nötig */
       }
 
       .split { grid-template-columns: 1fr !important; height: auto !important; }
@@ -549,9 +554,10 @@
         text-align: left !important;
         padding-left: 0.8rem !important; 
       }
+      /* Änderung: iPhones in der mobilen Ansicht minimal verkleinert (von 82vw auf 74vw) */
       .phone-frame {
-        max-width: 82vw !important;
-        width: 82vw !important;
+        max-width: 74vw !important;
+        width: 74vw !important;
         margin: 0 auto !important;
       }
       .phone-label, .phone-sub {
@@ -924,29 +930,27 @@
   <div class="modal-content">
     <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
     <h2>Datenschutz</h2>
-    <p>Datenschutzerklärung...</p>
+    <p><strong>1. Datenschutz auf einen Blick</strong></p>
+    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen...</p>
   </div>
 </div>
 
-<a href="#start" class="scroll-top-btn" id="scrollTopBtn">↑</a>
-
+<!-- ===================== JAVASCRIPT ===================== -->
 <script>
-  function openModal(id) {
-    document.getElementById(id).classList.add('active');
+  function openModal(modalId) {
+    document.getElementById(modalId).classList.add('active');
   }
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('active');
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('active');
   }
-  
-  // Scroll to Top Button Logik
-  const scrollBtn = document.getElementById('scrollTopBtn');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      scrollBtn.style.display = 'flex';
-    } else {
-      scrollBtn.style.display = 'none';
+
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.classList.remove('active');
     }
-  });
+  }
 </script>
+
 </body>
 </html>
