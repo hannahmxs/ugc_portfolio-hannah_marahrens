@@ -204,8 +204,8 @@
     .phone-camera { width: 9px; height: 9px; background: #2a2a2a; border-radius: 50%; border: 1px solid #666; }
     .phone-screen { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #111; position: relative; }
     .phone-screen video { width: 100%; height: 100%; object-fit: cover; }
-    .phone-label { margin-top: 1rem; font-weight: 600; font-size: 20px; padding-left: 0.9rem; }
-    .phone-sub { color: var(--muted); font-size: 17px; padding-left: 0.9rem; }
+    .phone-label { margin-top: 1rem; font-weight: 600; font-size: 20px; padding-left: 0.9rem; text-align: left; }
+    .phone-sub { color: var(--muted); font-size: 17px; padding-left: 0.9rem; text-align: left; }
 
     /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
     .bg-lime { background: var(--lime); }
@@ -335,7 +335,7 @@
       border-radius: 50%;
       margin-bottom: 1.5rem;
     }
-    .workflow-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 1.0rem; line-height: 1.35; }
+    .workflow-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 1.0rem; line-height: 1.35; min-height: 54px; }
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 18px; color: #222; }
     .workflow-step li { margin-bottom: 0.5rem; }
 
@@ -444,11 +444,11 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* 1. & 2. Hero: Name & Icons unten links auf dem Bild platziert, Icons auf einer Linie mit dem Namen */
+      /* Hero Mobilansicht */
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
-        background-position: 25% top !important;
+        background-position: center top !important;
         margin-bottom: 1rem !important;
       }
       .hero-top {
@@ -486,7 +486,7 @@
         padding: 3rem 0 !important;
       }
 
-      /* 3. Mobiler Flattersatz für Intro-Text genau nach Vorgabe */
+      /* Mobiler Flattersatz für Intro-Text genau nach Vorgabe */
       .intro-text p:nth-of-type(1) {
         white-space: pre-line !important;
       }
@@ -496,17 +496,18 @@
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { padding: 2rem 1.5rem 1rem 1.5rem !important; }
 
-      /* 5. "Why UGC" Sektion: Bild auf ganze Seite skalieren genau wie Intro-Bild */
+      /* "Why UGC" Sektion: Bild auf gesamte Seite skalieren, Weite wie Intro-Bild */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
       .split > div { padding: 2rem 1.5rem !important; }
       .split-img-wrap { min-height: 380px !important; }
 
-      /* 4. Mobiler Flattersatz für Why UGC Textblock */
+      /* Angepasster Zeilenabstand nach 29% Konversionen */
       .bg-lavender .split > div > p:last-of-type {
         white-space: pre-line !important;
+        margin-top: 1.5rem !important;
       }
 
-      /* Alle iPhones untereinander */
+      /* Alle iPhones untereinander + Unterschriften linksbündig */
       .phone-row {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
@@ -517,15 +518,17 @@
         width: 100% !important;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start !important;
       }
       .phone-frame {
         max-width: 82vw !important;
         width: 82vw !important;
+        margin: 0 auto !important;
       }
+      .phone-card { text-align: left !important; }
       .phone-label, .phone-sub {
         padding-left: 0 !important;
-        text-align: center;
+        text-align: left !important;
       }
 
       /* Dienstleistung Seite */
@@ -534,7 +537,6 @@
       .services-lower { grid-template-columns: 1fr !important; gap: 1rem !important; margin-top: 1rem !important; }
       .service-card-inset { padding: 2rem 1.4rem !important; }
       
-      /* 6. Mobiler Flattersatz für den CTA-Text bei Dienstleistungen */
       .cta-row { 
         flex-direction: column !important; 
         align-items: flex-start !important; 
@@ -544,18 +546,20 @@
         white-space: pre-line !important;
       }
 
-      /* Workflow */
+      /* Workflow & Unterüberschriften in eine Zeile */
       .workflow-section { padding: 4rem 1.5rem 4rem 2.5rem !important; }
       .workflow-timeline { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
       .workflow-timeline::before { display: none !important; }
       .workflow-step::before { display: none !important; }
       .workflow-step { position: relative; padding-left: 0 !important; }
       
+      .workflow-step h3 { min-height: auto !important; }
+      .workflow-step h3 br { display: none !important; }
       .workflow-step:nth-child(1) h3::before { content: "1. "; }
       .workflow-step:nth-child(2) h3::before { content: "2. "; }
       .workflow-step:nth-child(3) h3::before { content: "3. "; }
       
-      /* 7. Doppeltes "Lieferung" behoben */
+      /* Doppeltes "Lieferung" gelöscht */
       .workflow-step:nth-child(4) h3 { display: inline !important; }
       .workflow-step:nth-child(4) h3::before { content: "4. Lieferung"; }
       .workflow-step:nth-child(4) h3 br { display: none !important; }
@@ -613,7 +617,6 @@
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
-      <!-- 3. Exakter Flattersatz für Intro -->
       <p>Moin, ich bin Hannah – Creator &amp; Kommunikationsdesignerin
 mit einer besonderen Sensibilität für
 Bildsprache, Stimmung und die
@@ -798,7 +801,6 @@ Gedächtnis bleibt.</p>
         <li><b>+ 28 %</b> Engagement</li>
         <li><b>+ 29 %</b> Konversionen</li>
       </ul>
-      <!-- 4. Exakter Flattersatz für Why UGC Textblock -->
       <p style="color:var(--muted); font-size:17px; margin-top:1rem;">
         Durch authentische Einbindungen entsteht
         eine direkte emotionale Verbindung zur
@@ -852,7 +854,6 @@ Gedächtnis bleibt.</p>
       </div>
     </div>
     <div class="cta-row">
-      <!-- 6. Exakter Flattersatz für die Frage nach mehr Videos -->
       <p style="margin:0; color:var(--muted);">Benötigen Sie mehr Videos?
 Kontaktieren Sie mich für
 individuelle Preise.</p>
