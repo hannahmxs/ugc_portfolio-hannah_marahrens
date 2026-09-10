@@ -131,7 +131,6 @@
       font-weight: 600; 
       text-transform: uppercase;
     }
-    /* 7. Desktop-Hero Positionierung (ursprüngliche Höhe wiederhergestellt) */
     .hero-contact-left,
     .hero-contact-right {
       position: absolute;
@@ -155,7 +154,7 @@
       height: 100%;
     }
     .intro-text {
-      padding: 2rem 2.5rem 4rem 1rem; /* 8. Desktop-Textblock etwas höher gesetzt */
+      padding: 2rem 2.5rem 4rem 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -468,11 +467,14 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* 1. & 2. Hero Bild Format behalten, absolut nichts rechts abschneiden + Icons links übereinander */
+      /* 1. & 2. Hero Bild Ausschnitt korrigiert (rechts komplett sichtbar, links angeschnitten) */
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
         margin-bottom: 1rem !important;
+      }
+      .hero-img {
+        object-position: right top !important;
       }
       .hero-top {
         position: absolute !important;
@@ -490,35 +492,33 @@
         margin-bottom: 0 !important;
       }
       
-      /* 2. Instagram & Mail Icon links und übereinander in der Ecke */
+      /* 1. Nur Icons (ohne Text) rechts unten im Hero platzieren */
       .hero-contact-left,
       .hero-contact-right {
         position: absolute !important;
         bottom: auto !important;
-        right: auto !important;
-        font-size: 0 !important;
+        left: auto !important;
         z-index: 3 !important;
       }
       .hero-contact-left {
-        left: 1.5rem !important;
+        right: 1.5rem !important;
         bottom: 1.5rem !important;
       }
       .hero-contact-right {
-        left: 1.5rem !important;
-        bottom: 3.5rem !important;
+        right: 1.5rem !important;
+        bottom: 4.2rem !important;
       }
 
-      /* 6. Schriftgröße von Mail & Instagram an restlichen Text anpassen (mobil) */
+      /* Text unsichtbar machen, damit nur die Icons übrig bleiben */
       .hero-contact-left a,
       .hero-contact-right a {
-        font-size: 18px !important;
-        color: var(--paper) !important;
+        font-size: 0 !important;
       }
       .hero-contact-left .icon-inline,
       .hero-contact-right .icon-inline {
-        width: 1.2em !important;
-        height: auto !important;
-        margin-right: 0.5em !important;
+        width: 32px !important;
+        height: 32px !important;
+        margin-right: 0 !important;
       }
 
       /* Allgemeine Slide-Höhen aufheben */
@@ -540,7 +540,7 @@
         padding: 2rem 1.5rem 1rem 1.5rem !important; 
       }
 
-      /* 4. "Why UGC" Bild soll dieselbe Höhe und Weite haben wie intro.jpg */
+      /* 3. "Why UGC" Bild exakt an das Format von intro.jpg anpassen */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
       .split > div { padding: 2rem 1.5rem !important; }
       .split-img-wrap { 
@@ -554,7 +554,7 @@
         object-fit: cover !important;
       }
 
-      /* 3. Nach dem Punkt "29% Konversionen" den Abstand zum folgendem Textblock verringern */
+      /* Nach dem Punkt "29% Konversionen" den Abstand verringern */
       .bg-lavender .split > div > p:last-of-type {
         white-space: pre-line !important;
         margin-top: 0.5rem !important;
@@ -600,7 +600,7 @@
         white-space: pre-line !important;
       }
 
-      /* 5. Workflow Dopplungen gelöscht & Unterüberschriften in einer Zeile */
+      /* Workflow Anpassungen */
       .workflow-section { padding: 4rem 1.5rem 4rem 2.5rem !important; }
       .workflow-timeline { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
       .workflow-timeline::before { display: none !important; }
@@ -618,7 +618,7 @@
         object-position: center 20% !important;
       }
 
-      /* Closing-Bild */
+      /* Closing-Bild & 4. Korrigierte Schriftgröße für Closing-Leiste */
       .closing-img {
         height: 45vh !important;
         min-height: 280px !important;
@@ -636,6 +636,10 @@
         align-items: flex-start !important;
         gap: 1rem !important;
         text-align: left !important;
+      }
+      /* 4. Schriftgröße auf Closing Page an normalen Text angepasst */
+      .closing-bar a {
+        font-size: 18px !important;
       }
       .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
     }
