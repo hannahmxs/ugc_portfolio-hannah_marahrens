@@ -56,6 +56,11 @@
       object-fit: contain;
     }
 
+    /* Spezial-Filter für die Footer-Icons, damit sie auf dem Gelb schwarz werden */
+    .footer-icon {
+      filter: brightness(0);
+    }
+
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: 0.15em;
@@ -141,18 +146,19 @@
       overflow: hidden;
       position: relative;
     }
+    
+    /* FIX: Erzwingt, dass die Bilder nach rechts geschoben werden */
     .media-img-format {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* Explizit nach rechts verschoben durch 100% position */
-      object-position: 100% center; 
-      display: block;
+      transform: translateX(12%); /* Schiebt das Bild Stück für Stück nach rechts */
     }
 
     @media (max-width: 800px) {
       .intro { grid-template-columns: 1fr; }
       .fullscreen-slide { height: auto; min-height: auto; padding: 4rem 0; }
+      .media-img-format { transform: none; }
     }
 
     /* ---------- PHONE MOCKUP ---------- */
@@ -378,10 +384,10 @@
       font-weight: 600;
       font-size: 48px;
       line-height: 1.15;
-      padding: 0 5rem 9rem 5rem; /* Ein kleines Stück weiter runtergesetzt */
+      padding: 0 5rem 9rem 5rem;
     }
     
-    /* Verschlankter gelber Streifen */
+    /* Schlanker gelber Streifen */
     .closing-bar {
       background: var(--lime);
       display: flex;
@@ -430,7 +436,7 @@
       margin: 0;
     }
 
-    /* Modals (bleiben beim Schließen an Position durch JS-Fix) */
+    /* Modals */
     .modal {
       display: none;
       position: fixed;
@@ -810,10 +816,10 @@
     <div class="closing-text-box">Lust auf eine<br>Zusammenarbeit?</div>
   </div>
   
-  <!-- Schlanker gelber Streifen mit Kontaktdaten -->
+  <!-- Schlanker gelber Streifen mit Kontaktdaten & Icons -->
   <div class="closing-bar">
-    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram-white.svg" alt="Instagram">hannah_marahrens</a>
-    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail-white.svg" alt="Mail">hannah_marahrens@gmx.de</a>
+    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline footer-icon" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
+    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline footer-icon" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
   </div>
 
   <!-- Neuer separater lila Bereich für Impressum, Datenschutz & Footnote -->
