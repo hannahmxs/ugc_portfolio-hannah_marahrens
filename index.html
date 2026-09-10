@@ -100,6 +100,10 @@
     background-position: center;
     min-height: 420px;
   }
+  @media (max-width: 800px) {
+    .intro { grid-template-columns: 1fr; }
+    .intro-img { min-height: 300px; }
+  }
 
   /* ---------- PHONE MOCKUP ---------- */
   .phone-row {
@@ -157,10 +161,61 @@
     font-size: 0.9rem;
   }
 
-  /* ---------- FARBIGE SECTIONS & BOXEN (Ohne abgerundete Ecken) ---------- */
+  /* ---------- FARBIGE SECTIONS & BOXEN ---------- */
   .bg-lime { background: var(--lime); }
   .bg-lavender { background: var(--lavender); }
 
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .split-brand { grid-template-columns: 0.6fr 1.4fr; }
+  .split > div { padding: 4rem 3rem; }
+  .split-img {
+    background-size: cover;
+    background-position: center;
+    min-height: 380px;
+  }
+  @media (max-width: 800px) {
+    .split { grid-template-columns: 1fr; }
+  }
+
+  /* Brands placeholder */
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    justify-items: center;
+  }
+  .brand-slot {
+    width: 100%;
+    height: 70px;
+    border: 1px dashed rgba(0,0,0,0.3);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    background: var(--paper);
+  }
+
+  /* Case study stats */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .stat .num { font-size: 1.8rem; font-weight: 700; }
+  .stat .lbl { font-size: 0.85rem; color: var(--muted); }
+
+  /* Why UGC list */
+  .facts { padding-left: 1.1rem; margin: 0.5rem 0 1.5rem; }
+  .facts li { margin-bottom: 0.4rem; }
+
+  /* Services (eckig) */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -168,7 +223,7 @@
   }
   .service-card {
     padding: 2rem 1.75rem;
-    border-radius: 0; /* Exakt eckig nach Wunsch */
+    border-radius: 0;
   }
   .service-card h3 { font-size: 1.15rem; margin-bottom: 0.6rem; font-weight: 700; }
   .service-card p { margin: 0; font-size: 0.95rem; color: #222; }
@@ -238,7 +293,6 @@
   }
   .workflow-step::before {
     content: "";
-    position: display;
     display: block;
     width: 13px;
     height: 13px;
@@ -262,13 +316,48 @@
   .workflow-step li {
     margin-bottom: 0.5rem;
   }
-
   @media (max-width: 900px) {
     .workflow-timeline { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
     .workflow-timeline::before { display: none; }
   }
 
-  /* ---------- ABSCHLUSS (Letzte Seite mit großem Bild) ---------- */
+  /* Gallery strip */
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  .gallery-strip img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    background: #eee;
+  }
+  @media (max-width: 600px) {
+    .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Trio portrait */
+  .trio-portrait {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .trio-portrait img {
+    width: 100%;
+    aspect-ratio: 3/4.3;
+    object-fit: cover;
+    background: #ddd;
+    display: block;
+  }
+  @media (min-width: 1000px) {
+    .trio-portrait img { aspect-ratio: 3/5; }
+  }
+  @media (max-width: 600px) {
+    .trio-portrait { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- ABSCHLUSS ---------- */
   .closing-card {
     width: 100%;
     background: var(--lime);
@@ -394,7 +483,135 @@
   </div>
 </section>
 
-<!-- ===================== 4. DIENSTLEISTUNGEN ===================== -->
+<!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
+<section class="section">
+  <p style="color: var(--muted); margin-bottom: 2rem;">Weitere ausgewählte Video-Arbeiten</p>
+  <div class="phone-row">
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video4-poster.jpg">
+            <source src="videos/fashion-strand.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Ästhetisches Video</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video5-poster.jpg">
+            <source src="videos/blumenstrauss.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Storytelling</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video6-poster.jpg">
+            <source src="videos/beauty.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="phone-label">Problem / Lösung</div>
+      <div class="phone-sub">Markenname</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. BRANDS ===================== -->
+<section class="bg-lime">
+  <div class="section split split-brand" style="padding:4rem 1.5rem;">
+    <div>
+      <div class="eyebrow">— Markenname —</div>
+      <h2 style="font-size:1.7rem; margin-top:0.5rem;">Eine kurze Referenz von einer der MARKEN</h2>
+    </div>
+    <div class="brands-grid">
+      <div class="brand-slot">Logo Marke 1</div>
+      <div class="brand-slot">Logo Marke 2</div>
+      <div class="brand-slot">Logo Marke 3</div>
+      <div class="brand-slot">Logo Marke 4</div>
+      <div class="brand-slot">Logo Marke 5</div>
+      <div class="brand-slot">Logo Marke 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. CASE STUDY (Stats) ===================== -->
+<section class="bg-lavender">
+  <div class="split" style="max-width:1100px; margin:0 auto;">
+    <div>
+      <h2 style="font-size:1.6rem;">Fallstudie — Markenname —</h2>
+      <div class="stats-grid">
+        <div class="stat"><div class="num">00</div><div class="lbl">Ansichtszeit</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Rendite</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Likes / Ansichten</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Klicks / CTR</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Konversionen</div></div>
+        <div class="stat"><div class="num">00</div><div class="lbl">Gewinn</div></div>
+      </div>
+      <p style="color:var(--muted); font-size:0.9rem;">Zeige Zahlen und Statistiken zu dem von dir erstellten Content und erläutere den Schmerzpunkt.</p>
+    </div>
+    <div class="split-img" style="background-image:url('bilder/case-study.jpg');"></div>
+  </div>
+</section>
+
+<!-- ===================== 7. CASE STUDY (Video-Grid) ===================== -->
+<section class="section">
+  <h2 style="font-size:1.4rem; margin-bottom:1.5rem;">Fallstudie — Markenname —</h2>
+  <div class="phone-row">
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video7-poster.jpg"><source src="videos/voiceover.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+      <div class="phone-label">Voiceover</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video8-poster.jpg"><source src="videos/storytelling.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+      <div class="phone-label">Storytelling</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <video controls poster="bilder/video9-poster.jpg"><source src="videos/problem-loesung.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+      <div class="phone-label">Problem / Lösung</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. WHY UGC? ===================== -->
+<section class="bg-lavender">
+  <div class="split" style="max-width:1100px; margin:0 auto;">
+    <div>
+      <h2 style="font-size:1.8rem;">Warum UGC?</h2>
+      <p>Klassische Werbung wird oft ignoriert – echter Content schafft Vertrauen.</p>
+      <p style="font-weight:600; margin-bottom:0.3rem;">Fakten über UGC (2026)</p>
+      <ul class="facts">
+        <li><b>4x</b> höhere Klickrate (CTR)</li>
+        <li><b>2,4x</b> mehr Aufmerksamkeit</li>
+        <li><b>+28 %</b> Engagement</li>
+        <li><b>+29 %</b> Konversionen</li>
+      </ul>
+      <p style="font-weight:600; margin-bottom:0.3rem;">Was du verpasst</p>
+      <p>Ohne UGC verschenkst du wertvolle Reichweite und wirkst in Zeiten steriler KI-Werbung austauschbar.</p>
+    </div>
+    <div class="split-img" style="background-image:url('bilder/why-ugc.jpg');"></div>
+  </div>
+</section>
+
+<!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
 <section class="section">
   <h2 style="font-size: 2.2rem; margin-bottom: 2.5rem;">Dienstleistungen</h2>
   <div class="services-grid">
@@ -437,7 +654,7 @@
   </div>
 </section>
 
-<!-- ===================== 5. WORKFLOW (Neu eingefügt) ===================== -->
+<!-- ===================== 10. WORKFLOW ===================== -->
 <section class="workflow-section">
   <div class="workflow-container">
     <h2>Mein Workflow</h2>
@@ -476,7 +693,26 @@
   </div>
 </section>
 
-<!-- ===================== 6. ABSCHLUSS ===================== -->
+<!-- ===================== 11. GALERIE STRIP ===================== -->
+<section class="section" style="padding-bottom:1.5rem;">
+  <div class="gallery-strip">
+    <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
+    <img src="bilder/beispiel2.jpg" alt="UGC Beispiel 2">
+    <img src="bilder/beispiel3.jpg" alt="UGC Beispiel 3">
+    <img src="bilder/beispiel4.jpg" alt="UGC Beispiel 4">
+  </div>
+</section>
+
+<!-- ===================== 12. TRIO PORTRAIT ===================== -->
+<section style="max-width:1200px; margin:0 auto; padding:0 1.5rem 3rem;">
+  <div class="trio-portrait">
+    <img src="bilder/portrait1.jpg" alt="UGC Beispiel Portrait 1">
+    <img src="bilder/portrait2.jpg" alt="UGC Beispiel Portrait 2">
+    <img src="bilder/portrait3.jpg" alt="UGC Beispiel Portrait 3">
+  </div>
+</section>
+
+<!-- ===================== 13. ABSCHLUSS ===================== -->
 <div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">Lust auf eine<br>Zusammenarbeit?</div>
