@@ -148,7 +148,6 @@
       position: relative;
     }
     
-    /* Die 3 spezifischen Bilder (Intro, Case Study, Why-UGC) gezielt nach rechts verschoben */
     .shifted-right-img {
       width: 100%;
       height: 100%;
@@ -157,13 +156,7 @@
       display: block;
     }
 
-    @media (max-width: 800px) {
-      .intro { grid-template-columns: 1fr; }
-      .fullscreen-slide { height: auto; min-height: auto; padding: 4rem 0; }
-      .shifted-right-img { object-position: center; }
-    }
-
-    /* ---------- PHONE MOCKUP (Videos unberührt) ---------- */
+    /* ---------- PHONE MOCKUP ---------- */
     .section-phones-tight, .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
@@ -345,22 +338,16 @@
     .workflow-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 1.0rem; line-height: 1.35; }
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 18px; color: #222; }
     .workflow-step li { margin-bottom: 0.5rem; }
-    @media (max-width: 900px) {
-      .workflow-timeline { grid-template-columns: 1fr 1fr; gap: 3rem; }
-      .workflow-timeline::before { display: none; }
-    }
 
-    /* ---------- GALERIE STRIP (Format 2:3) ---------- */
+    /* ---------- GALERIE STRIP ---------- */
     .gallery-section { max-width: 1100px; margin: 6rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
-    @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
 
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 6rem auto 0 auto; padding: 0; }
     .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; }
     .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; object-position: 65% center; background: #ddd; display: block; }
-    @media (max-width: 768px) { .trio-portrait { grid-template-columns: 1fr; gap: 0; } .trio-portrait img { height: auto; aspect-ratio: 2 / 3; object-position: center; } }
 
     /* ---------- ABSCHLUSS & FOOTER ---------- */
     .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
@@ -381,14 +368,14 @@
       inset: 0;
       background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 100%);
     }
-   .closing-text-box {
+    .closing-text-box {
       position: relative;
       z-index: 1;
       color: var(--paper);
       font-weight: 600;
       font-size: 48px;
       line-height: 1.15;
-      padding: 0 5rem 5rem 8rem; /* Hier den letzten Wert von 5rem auf 8rem angepasst */
+      padding: 0 5rem 5rem 8rem;
     }
     
     .closing-bar {
@@ -416,142 +403,174 @@
       padding: 1.8rem 2rem;
       gap: 1rem;
     }
-    .legal-links {
-      display: flex;
-      gap: 2rem;
-    }
+    .legal-links { display: flex; gap: 2rem; }
     .legal-btn {
-      font-size: 15px;
-      color: var(--ink);
-      text-decoration: underline;
-      font-weight: 400;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
+      font-size: 15px; color: var(--ink); text-decoration: underline; font-weight: 400;
+      background: none; border: none; cursor: pointer; padding: 0;
     }
     .legal-btn:hover { color: var(--muted); }
-    .closing-copyright {
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 300;
-      margin: 0;
-    }
+    .closing-copyright { color: var(--ink); font-size: 15px; font-weight: 300; margin: 0; }
 
     /* Modals */
     .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+      z-index: 2000; align-items: center; justify-content: center; padding: 2rem;
     }
     .modal.active { display: flex; }
     .modal-content {
-      background: var(--lime-subtle);
-      padding: 3.5rem;
-      max-width: 750px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      position: relative;
-      border-radius: 0;
-      border: 1px solid rgba(0,0,0,0.1);
+      background: var(--lime-subtle); padding: 3.5rem; max-width: 750px; width: 100%;
+      max-height: 85vh; overflow-y: auto; position: relative; border-radius: 0; border: 1px solid rgba(0,0,0,0.1);
     }
     .modal-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      font-size: 28px;
-      text-decoration: none;
-      color: var(--ink);
-      font-weight: bold;
-      cursor: pointer;
-      background: none;
-      border: none;
+      position: absolute; top: 1.5rem; right: 1.5rem; font-size: 28px;
+      text-decoration: none; color: var(--ink); font-weight: bold; cursor: pointer; background: none; border: none;
     }
 
-    .element-hidden {
-      display: none !important;
-    }
+    .element-hidden { display: none !important; }
 
     /* SCROLL TO TOP */
     .scroll-top-btn {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 48px;
-      height: 48px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 50%;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink);
-      font-size: 22px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      z-index: 999;
+      position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px;
+      background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);
+      border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 50%; display: none;
+      align-items: center; justify-content: center; color: var(--ink); font-size: 22px;
+      text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.04); z-index: 999;
       transition: background 0.3s;
     }
-    .scroll-top-btn:hover {
-      background: rgba(255, 255, 255, 0.5);
-    }
-    /* ---------- MOBILE OPTIMIERUNG (Smartphone) ---------- */
+    .scroll-top-btn:hover { background: rgba(255, 255, 255, 0.5); }
+
+
+    /* =========================================================
+       EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
+       ========================================================= */
     @media (max-width: 800px) {
-      /* Alle erzwungenen Vollbild-Höhen auf dem Handy aufheben */
-      .fullscreen-slide {
-        height: auto !important;
-        min-height: auto !important;
-        padding: 4rem 1.5rem !important;
-      }
-      
-      /* Hero-Bereich mobil anpassen */
+      /* 1 & 2. Hero: Titel unten, Icons rechts als Stack ohne Text */
       .hero {
-        height: 70vh !important;
-        min-height: 500px !important;
+        height: 100vh !important;
+        min-height: 550px !important;
+        margin-bottom: 1rem !important; /* 3. Abstand zur Folgeseite verringert */
       }
       .hero-top {
-        top: 3rem !important;
+        top: auto !important;
+        bottom: 2rem !important;
         left: 1.5rem !important;
-        right: 1.5rem !important;
+        right: 5rem !important;
+      }
+      .hero-top .eyebrow {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.3rem !important;
       }
       .hero-top h1 {
-        font-size: 45px !important; /* Überschrift mobil kleiner machen */
+        font-size: 38px !important;
+        line-height: 1.1 !important;
       }
       .hero-contact-left,
       .hero-contact-right {
-        bottom: 1.5rem !important;
-        font-size: 16px !important;
+        position: absolute !important;
+        bottom: auto !important;
+        right: 1.5rem !important;
+        left: auto !important;
+        font-size: 0 !important; /* Text ausblenden */
       }
-      .hero-contact-left { left: 1.5rem !important; }
-      .hero-contact-right { right: 1.5rem !important; }
+      .hero-contact-right { bottom: 2rem !important; }
+      .hero-contact-left { bottom: 5.5rem !important; }
+      .hero-contact-left .icon-inline,
+      .hero-contact-right .icon-inline {
+        width: 32px !important;
+        height: 32px !important;
+        margin: 0 !important;
+      }
+      .hero-contact-left a,
+      .hero-contact-right a {
+        color: var(--paper) !important;
+      }
 
-      /* Splits (wie Intro) untereinander statt nebeneinander */
-      .intro, .split {
-        grid-template-columns: 1fr !important;
+      /* Allgemeine Slide-Höhen aufheben */
+      .fullscreen-slide {
         height: auto !important;
+        min-height: auto !important;
+        padding: 3rem 0 !important;
       }
-      .intro-text, .split > div {
-        padding: 2rem 0 !important;
+
+      /* 4. Mobiler Flattersatz für Intro-Text */
+      .intro-text p:nth-of-type(1) {
+        white-space: pre-line !important;
       }
+
+      /* 5. Abstand zwischen Intro-Bild und ersten iPhones verringern */
+      .intro { grid-template-columns: 1fr !important; height: auto !important; }
+      .intro-text { padding: 2rem 1.5rem 1rem 1.5rem !important; }
+      .section-phones-tight { padding-top: 0 !important; margin-top: -1rem !important; }
+
+      /* 6. Alle iPhones untereinander und füllen den Bildschirm gut aus */
+      .phone-row {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        margin-top: 1rem !important;
+      }
+      .phone-card {
+        max-width: 100% !important;
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .phone-frame {
+        max-width: 82vw !important;
+        width: 82vw !important;
+      }
+      .phone-label, .phone-sub {
+        padding-left: 0 !important;
+        text-align: center;
+      }
+
+      /* 7. Dienstleistung Seite untereinander aufteilen */
+      .services-wrapper { padding: 0 1.5rem !important; }
+      .services-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+      .services-lower { grid-template-columns: 1fr !important; gap: 1rem !important; margin-top: 1rem !important; }
+      .service-card-inset { padding: 2rem 1.4rem !important; }
+      .cta-row { flex-direction: column !important; align-items: stretch !important; text-align: center; }
+
+      /* 8. Workflow: Timeline-Linie ausblenden und Blöcke mit Nummern versehen */
+      .workflow-section { padding: 4rem 1.5rem !important; }
+      .workflow-timeline { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .workflow-timeline::before { display: none !important; }
+      .workflow-step::before { display: none !important; }
+      .workflow-step { position: relative; padding-left: 0 !important; }
       
-      /* Abschluss-Textbox mobil ausrichten */
+      /* Nummern vor die Workflow-Schritte setzen */
+      .workflow-step:nth-child(1) h3::before { content: "1. "; }
+      .workflow-step:nth-child(2) h3::before { content: "2. "; }
+      .workflow-step:nth-child(3) h3::before { content: "3. "; }
+      .workflow-step:nth-child(4) h3::before { content: "4. "; }
+
+      /* 9. Die 3 Portrait-Bilder unten etwas ansprechen (nicht zu hoch) */
+      .trio-portrait { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+      .trio-portrait img {
+        height: 65vh !important;
+        min-height: 400px !important;
+        object-position: center 20% !important; /* Obenfokus, unten angeschnitten */
+      }
+
+      /* 10. Closing-Bild im ursprünglichen Querformat belassen */
+      .closing-img {
+        height: 45vh !important;
+        min-height: 280px !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
       .closing-text-box {
-        padding: 0 2rem 3rem 2rem !important;
+        padding: 0 1.5rem 2rem 1.5rem !important;
         font-size: 32px !important;
       }
       .closing-bar {
-        padding: 1.5rem 2rem !important;
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+        padding: 1.5rem 1.5rem !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        text-align: center !important;
       }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
   </style>
 </head>
 <body>
@@ -575,8 +594,15 @@
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
-      <p>Moin, ich bin Hannah – Creator &amp;<br>Kommunikationsdesignerin mit einer besonderen<br>Sensibilität für Bildsprache, Stimmung und die<br>kleinen Details, die eine Marke fühlbar machen.</p>
-      <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotion übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
+      <p>Moin, ich bin Hannah – 
+Creator &amp; Kommunikationsdesignerin 
+mit einer besonderen Sensibilität für 
+Bildsprache, Stimmung und die kleinen 
+Details, die eine Marke fühlbar machen.
+Mit einem geschulten Auge für Komposition 
+und einem feinen Gespür für Emotion 
+übersetze ich Marken in Content, der 
+nahbar ist und im Gedächtnis bleibt.</p>
       <p class="niches">Zu Hause in den Nischen</p>
       <p>Lifestyle · Beauty · Food · Travel</p>
     </div>
@@ -664,7 +690,7 @@
   </div>
 </div>
 
-<!-- ===================== 5. BRANDS (HIER VERSTECKT) ===================== -->
+<!-- ===================== 5. BRANDS (Versteckt) ===================== -->
 <section class="bg-lime fullscreen-slide element-hidden">
   <div class="split split-brand" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
@@ -681,7 +707,7 @@
   </div>
 </section>
 
-<!-- ===================== 6. CASE STUDY / STATS (HIER VERSTECKT) ===================== -->
+<!-- ===================== 6. CASE STUDY / STATS (Versteckt) ===================== -->
 <section class="bg-lavender fullscreen-slide element-hidden">
   <div class="split" style="max-width:1100px; margin:0 auto;">
     <div style="padding: 4rem 2.5rem 4rem 1rem;">
@@ -702,7 +728,7 @@
   </div>
 </section>
 
-<!-- ===================== 7. CASE STUDY / VIDEO-GRID (HIER VERSTECKT) ===================== -->
+<!-- ===================== 7. CASE STUDY / VIDEO-GRID (Versteckt) ===================== -->
 <section class="fullscreen-slide element-hidden">
   <div class="section" style="width:100%;">
     <h2 style="font-size:24px; margin-bottom:1.5rem;">Fallstudie — Umsetzung —</h2>
@@ -898,10 +924,10 @@
   <div class="modal-content">
     <button onclick="closeModal('impressum-modal')" class="modal-close">&times;</button>
     <h2>Impressum</h2>
-    <p><strong>Angaben gemäß § 5 TMG</strong></p>
-    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457, Hamburg</p>
-    <p><strong>Kontakt:</strong><br><br>E-Mail: hannah_marahrens@gmx.de</p>
-    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>Hannah Marahrens<br>Kalvslohtwiete 29a, 22457 Hamburg</p>
+    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+    <p>Hannah Marahrens<br>[Straße und Hausnummer]<br>[PLZ und Ort]</p>
+    <p><strong>Kontakt:</strong><br>Telefon: [Deine Telefonnummer]<br>E-Mail: hannah_marahrens@gmx.de</p>
+    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>Hannah Marahrens<br>[Anschrift wie oben]</p>
   </div>
 </div>
 
@@ -912,7 +938,7 @@
     <p><strong>1. Datenschutz auf einen Blick</strong></p>
     <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
     <p><strong>2. Hosting</strong></p>
-    <p>Diese Website wird extern gehostet über GitHub Pages. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
+    <p>Diese Website wird extern gehostet (z.B. über GitHub Pages). Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
     <p><strong>3. Datenerfassung auf dieser Website</strong></p>
     <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
   </div>
