@@ -80,7 +80,7 @@
       justify-content: center;
     }
 
-    /* ---------- HERO ---------- */
+    /* ---------- HERO (Desktop: Ursprüngliche Position weiter oben) ---------- */
     .hero {
       position: relative;
       height: calc(100vh + 8px);
@@ -112,7 +112,7 @@
     }
     .hero-top {
       position: absolute;
-      top: 12rem;
+      top: 6rem; /* Wieder weiter oben platziert wie am Anfang */
       left: 5rem;
       right: 5rem;
       z-index: 3;
@@ -125,6 +125,7 @@
       font-size: 1.8rem;
     }
     .hero-top h1 {
+      /* Desktop: Ursprüngliche Größe OHNE Aufstockung */
       font-size: clamp(38px, 6vw, 85px); 
       line-height: 1.08;
       letter-spacing: 0.03em;
@@ -170,6 +171,7 @@
       overflow: hidden;
       position: relative;
       height: 100%;
+      background: transparent !important; /* Weißer Block entfernt */
     }
     
     .shifted-right-img {
@@ -323,7 +325,7 @@
     }
     .btn:hover { background: #000; color: #fff; }
 
-    /* ---------- STANDARD SECTIONS ---------- */
+    /* ---------- WORKFLOW (Desktop: Horizontale Timeline mit Kreisen) ---------- */
     .workflow-section {
       background: var(--lime);
       padding: 5rem 2rem;
@@ -468,7 +470,7 @@
        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
        ========================================================= */
     @media (max-width: 800px) {
-      /* 1. Hero Bild Ausschnitt angepasst (Gesicht im Fokus, rechts minimal beschnitten) */
+      /* 1. Hero Bild Ausschnitt angepasst */
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
@@ -480,40 +482,41 @@
       .hero-top {
         position: absolute !important;
         top: auto !important;
-        bottom: 1.5rem !important; /* Auf dieselbe untere horizontale Linie wie das Instagram-Icon platziert */
+        bottom: 1.5rem !important; 
         left: 1.5rem !important;
-        right: 5.5rem !important;  /* Platz lassen für das Instagram-Icon rechts unten */
+        right: 5.5rem !important;  
       }
       .hero-top .eyebrow {
         font-size: 1.1rem !important;
         margin-bottom: 0.2rem !important;
       }
       .hero-top h1 {
-        font-size: clamp(32px, 8vw, 50px) !important;
+        /* Mobil: Name um 4px vergrößert */
+        font-size: clamp(36px, calc(8vw + 4px), 54px) !important;
         line-height: 1.1 !important;
         margin-bottom: 0 !important;
       }
       
-      /* Nur Icons (ohne Text) rechts unten im Hero platzieren auf exakter horizontaler Linie */
-      .hero-contact-left,
+      /* Mobile Social Icons rechts unten: Mail-Icon ÜBER Instagram-Icon stapeln */
+      .hero-contact-left {
+        display: none !important; /* Versteckt den linken Desktop-Container */
+      }
       .hero-contact-right {
         position: absolute !important;
-        bottom: 1.5rem !important; /* Exakte horizontale Ausrichtung mit .hero-top */
+        bottom: 1.5rem !important; 
+        right: 1.5rem !important;
         left: auto !important;
         z-index: 3 !important;
-      }
-      .hero-contact-left {
-        right: 1.5rem !important;
-      }
-      .hero-contact-right {
-        display: none !important; /* Mail-Icon auf Mobile ausblenden oder wie gewünscht, nur Instagram-Icon unten rechts */
+        display: flex !important;
+        flex-direction: column !important; /* Stapelt Mail über Instagram */
+        align-items: flex-end !important;
+        gap: 0.6rem !important;
       }
 
-      /* Text unsichtbar machen, damit nur das Icon übrig bleibt */
-      .hero-contact-left a {
-        font-size: 0 !important;
+      .hero-contact-right a {
+        font-size: 0 !important; /* Text ausblenden, nur Icons anzeigen */
       }
-      .hero-contact-left .icon-inline {
+      .hero-contact-right .icon-inline {
         width: 32px !important;
         height: 32px !important;
         margin-right: 0 !important;
@@ -527,7 +530,7 @@
         padding: 2.5rem 0 !important;
       }
 
-      /* SOFORT BLOCKSATZ RÜCKGÄNGIG: Schöner, natürlicher Flattersatz */
+      /* Flattersatz für alle Texte */
       p, li, .intro-text p, .phone-sub, .service-card p, .service-card li {
         text-align: left !important;
       }
@@ -539,20 +542,21 @@
         padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
       }
 
-      /* "Why UGC" Bild: Exaktes Hochformat ohne Anschnitt (object-fit: contain oder vollständige Anzeige) */
+      /* "Why UGC" Bild: Kein weißer Block, sauberes Hochformat ohne Anschnitt */
       .split { grid-template-columns: 1fr !important; height: auto !important; }
       .split > div { padding: 1.5rem 1.5rem !important; }
       .split-img-wrap { 
         width: 100% !important; 
         aspect-ratio: 4 / 5 !important; 
         min-height: 380px !important; 
-        background: #f4f4f4;
+        background: transparent !important;
       }
       .split-img-wrap img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: contain !important; /* Kein Anschneiden des Bildes */
+        object-fit: contain !important; 
         object-position: center !important;
+        background: transparent !important;
       }
 
       /* iPhones & Unterschriften nach rechts verschieben */
@@ -568,7 +572,7 @@
         flex-direction: column;
         align-items: flex-start !important;
         text-align: left !important;
-        padding-left: 0.8rem !important; /* Leichter Versatz nach rechts */
+        padding-left: 0.8rem !important; 
       }
       .phone-frame {
         max-width: 82vw !important;
@@ -592,13 +596,45 @@
         text-align: left !important; 
       }
 
-      /* Workflow Anpassungen */
+      /* Workflow Mobil: Vertikale Linie mit Kreisen links neben dem Text */
       .workflow-section { padding: 3rem 1.5rem 3rem 2rem !important; }
-      .workflow-timeline { grid-template-columns: 1fr !important; gap: 2rem !important; }
-      .workflow-timeline::before { display: none !important; }
-      .workflow-step::before { display: none !important; }
-      .workflow-step { position: relative; padding-left: 0 !important; }
-      
+      .workflow-timeline {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+        position: relative !important;
+      }
+      /* Vertikale Verbindungslinie links */
+      .workflow-timeline::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 7px !important;
+        bottom: 7px !important;
+        left: 7px !important;
+        right: auto !important;
+        width: 3px !important;
+        height: auto !important;
+        background: var(--ink) !important;
+        display: block !important;
+      }
+      .workflow-step {
+        position: relative !important;
+        padding-left: 2rem !important; /* Platz für die Kreise links */
+      }
+      /* Kreise links vor jedem Schritt */
+      .workflow-step::before {
+        content: "" !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 2px !important;
+        display: block !important;
+        width: 15px !important;
+        height: 15px !important;
+        background: var(--lime) !important;
+        border: 3px solid var(--ink) !important;
+        border-radius: 50% !important;
+        margin-bottom: 0 !important;
+      }
       .workflow-step h3 { min-height: auto !important; font-size: 18px !important; }
 
       /* Abstand zwischen 3 Portrait-Bildern auf 0 und Höhe anpassen */
@@ -647,11 +683,14 @@
     <div class="eyebrow">UGC Portfolio</div>
     <h1>Hannah<br>Marahrens</h1>
   </div>
+  <!-- Desktop Links (links unten) -->
   <div class="hero-contact-left">
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
+  <!-- Desktop Rechts (rechts unten) / Mobil: Hier wird Mail ÜBER Instagram gestapelt -->
   <div class="hero-contact-right">
     <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
+    <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
 </header>
 
@@ -920,7 +959,7 @@
         <h3>Lieferung &amp; Leistung</h3>
         <ul>
           <li>Restzahlung nach Freigabe</li>
-          <li>Bereitstellung via Cloud</li>
+          <li>Bereitstellung via WeTransfer, SwissTransfer oder Google Drive</li>
         </ul>
       </div>
     </div>
@@ -986,7 +1025,6 @@
 
 <div id="datenschutz-modal" class="modal">
   <div class="modal-content">
-    <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
     <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
     <h2>Datenschutzerklärung</h2>
     <p><strong>1. Datenschutz auf einen Blick</strong></p>
