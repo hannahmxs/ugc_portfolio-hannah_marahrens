@@ -6,20 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hannah Marahrens – UGC Portfolio</title>
   <style>
-/* ---------- SCHRIFTART Torch Nobel (lokal) ---------- */
+/* ---------- SCHRIFTART Nobel (lokal) ---------- */
 @font-face {
   font-family: 'Nobel';
   src: url('fonts/nobel-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-}
-
-body {
-  font-family: 'Nobel', sans-serif;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Torch Nobel';
+  font-family: 'Nobel';
   src: url('fonts/torch-nobel-medium.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
@@ -41,8 +38,8 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Torch Nobel', Arial, sans-serif;
-  font-weight: 300;
+  font-family: 'Nobel', Arial, sans-serif;
+  font-weight: 400;
   color: var(--ink);
   background: var(--paper);
   line-height: 1.5;
@@ -57,7 +54,7 @@ body {
 
 h1, h2, h3 { 
   margin: 0; 
-  font-family: 'Torch Nobel', Arial, sans-serif;
+  font-family: 'Nobel', Arial, sans-serif;
   font-weight: 600; 
   letter-spacing: 0.04em; 
 }
@@ -68,7 +65,6 @@ a { color: var(--ink); text-decoration: none; }
   width: 1.2em;
   height: auto;
   aspect-ratio: 1 / 1;
-  display: inline-log;
   display: inline-block;
   vertical-align: -0.2em;
   margin-right: 0.5em;
@@ -176,7 +172,6 @@ a { color: var(--ink); text-decoration: none; }
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* Änderung: Textblock etwas höher versetzt */
       transform: translateY(-2.5rem);
     }
     .intro-text h2 { font-size: 32px; margin-bottom: 1.2rem; line-height: 1.2; }
@@ -217,7 +212,6 @@ a { color: var(--ink); text-decoration: none; }
       justify-items: center;
     }
     .phone-card { text-align: left; width: 100%; max-width: 310px; }
-    /* Änderung: Pop-in-Animation für die drei iPhones, alle gleichzeitig */
     .phone-card {
       opacity: 0;
       transform: scale(0.85);
@@ -339,7 +333,6 @@ a { color: var(--ink); text-decoration: none; }
     .workflow-section {
       background: var(--lime);
       padding: 3rem 2rem 5rem 2rem;
-      /* Änderung: Abstand zur Dienstleistungsseite nach oben vergrößert (4rem), damit er dem unteren Abstand entspricht */
       margin-top: 4rem; 
       overflow: hidden;
     }
@@ -362,7 +355,6 @@ a { color: var(--ink); text-decoration: none; }
       z-index: 1;
     }
     .workflow-step { position: relative; z-index: 2; }
-    /* Änderung: Workflow-Punkte tauchen nacheinander wischend auf */
     .workflow-step {
       opacity: 0;
       transform: translateX(-25px);
@@ -393,7 +385,6 @@ a { color: var(--ink); text-decoration: none; }
     /* ---------- GALERIE STRIP ---------- */
     .gallery-section { max-width: 1100px; margin: 6.5rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    /* Änderung: Gängiges Hochformat (Aspect-Ratio 2 / 3) */
     .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
 
     /* ---------- TRIO PORTRAIT ---------- */
@@ -477,28 +468,23 @@ a { color: var(--ink); text-decoration: none; }
       position: absolute; top: 1.2rem; right: 1.2rem; font-size: 26px;
       text-decoration: none; color: var(--ink); font-weight: bold; cursor: pointer; background: none; border: none;
     }
-/* SCROLL TO TOP */
+    /* SCROLL TO TOP */
     .scroll-top-btn {
       position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px;
       background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(4px);
       border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 50%; display: flex;
       align-items: center; justify-content: center; color: var(--ink); font-size: 22px;
       text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 999;
-      /* Deutlich farbkräftiger/sichtbarer gemacht */
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease, background 0.3s;
     }
     .scroll-top-btn.visible {
-      opacity: 0.85; /* Höherer Wert = weniger transparent */
+      opacity: 0.85;
       pointer-events: auto;
     }
     .scroll-top-btn:hover { opacity: 1; background: rgba(255, 255, 255, 0.8); }
 
-
-    /* =========================================================
-        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
-        ========================================================= */
     @media (max-width: 800px) {
       .hero {
         height: 75vh !important;
@@ -568,7 +554,7 @@ a { color: var(--ink); text-decoration: none; }
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { 
         padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
-        transform: none !important; /* Auf Mobile zurücksetzen, falls nötig */
+        transform: none !important;
       }
 
       .split { grid-template-columns: 1fr !important; height: auto !important; }
@@ -601,7 +587,6 @@ a { color: var(--ink); text-decoration: none; }
         text-align: left !important;
         padding-left: 0.8rem !important; 
       }
-      /* Änderung: iPhones in der mobilen Ansicht minimal verkleinert (von 82vw auf 74vw) */
       .phone-frame {
         max-width: 74vw !important;
         width: 74vw !important;
@@ -667,7 +652,6 @@ a { color: var(--ink); text-decoration: none; }
         min-height: 450px !important;
         object-position: center 20% !important;
       }
-      /* Änderung: Portrait 2 soll oben nicht angeschnitten werden, nur unten */
       .trio-portrait img:nth-child(2) {
         object-position: center top !important;
       }
@@ -945,93 +929,61 @@ a { color: var(--ink); text-decoration: none; }
   </div>
 </div>
 
-<!-- ===================== 13. ABSCHLUSS & FOOTER ===================== -->
-<div class="closing-card">
+<!-- ===================== 13. CLOSING & FOOTER ===================== -->
+<footer class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">
-      Lust auf eine<br>Zusammenarbeit?
+      Lass uns gemeinsam<br>etwas Einzigartiges<br>erschaffen.
     </div>
   </div>
   <div class="closing-bar">
+    <a href="mailto:hannah_marahrens@gmx.de">
+      <img class="icon-inline footer-icon" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de
+    </a>
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener">
       <img class="icon-inline footer-icon" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens
     </a>
-    <!-- Verschleierte E-Mail-Adresse im Footer -->
-    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;">
-      <img class="icon-inline footer-icon" src="bilder/icon-mail.png" alt="Mail">&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;
-    </a>
   </div>
-  
-<div class="footer-bottom-bar">
-  <div class="legal-links">
-    <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
-    <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
+  <div class="footer-bottom-bar">
+    <div class="legal-links">
+      <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
+      <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
+    </div>
+    <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
   </div>
-  <p class="closing-copyright">&copy; 2026 Hannah Marahrens </p>
-</div>
+</footer>
 
-<!-- ===================== MODALS (IMPRESSUM & DATENSCHUTZ) ===================== -->
-<div id="impressumModal" class="modal">
+<!-- SCROLL TO TOP BUTTON -->
+<a href="#start" class="scroll-top-btn" id="scrollTopBtn">&#8593;</a>
+
+<!-- IMPRESSUM MODAL -->
+<div class="modal" id="impressumModal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('impressumModal')">&times;</button>
     <h2>Impressum</h2>
-    <p style="margin-top: 1rem;"><strong>Angaben gemäß § 5 DDG</strong></p>
-    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg</p>
-    
-    <p style="margin-top: 1rem;"><strong>Kontakt</strong></p>
-    <p>E-Mail: &#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;</p>
-    
-    <p style="margin-top: 1rem;"><strong>Umsatzsteuer</strong></p>
-    <p>Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen (Kleinunternehmerregelung).</p>
-    
-    <p style="margin-top: 1rem;"><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong></p>
-    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg</p>
-    
-    <p style="margin-top: 1rem;"><strong>Haftung für Inhalte</strong></p>
-    <p>Als Diensteanbieterin bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Gemäß §§ 8 bis 10 DDG bin ich als Diensteanbieterin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
-    
-    <p style="margin-top: 1rem;"><strong>Haftung für Links</strong></p>
-    <p>Dieses Angebot enthält Links zu externen Webseiten Dritter (z. B. Instagram), auf deren Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte trägt stets der jeweilige Anbieter die Verantwortung.</p>
-    
-    <p style="margin-top: 1rem;"><strong>Urheberrecht</strong></p>
-    <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten (Texte, Fotos, Videos) unterliegen dem deutschen Urheberrecht. Eine Vervielfältigung, Bearbeitung oder Verbreitung außerhalb der Grenzen des Urheberrechts bedarf meiner schriftlichen Zustimmung.</p>
+    <p style="margin-top: 1rem;">Angaben gemäß § 5 TMG:<br>
+    Hannah Marahrens<br>
+    UGC Creator & Kommunikationsdesign<br>
+    Musterstraße 1<br>
+    20095 Hamburg</p>
+    <p><strong>Kontakt:</strong><br>
+    E-Mail: hannah_marahrens@gmx.de<br>
+    Instagram: @hannah_marahrens</p>
   </div>
 </div>
 
-<div id="datenschutzModal" class="modal">
+<!-- DATENSCHUTZ MODAL -->
+<div class="modal" id="datenschutzModal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('datenschutzModal')">&times;</button>
     <h2>Datenschutzerklärung</h2>
-    
-    <p style="margin-top: 1rem;"><strong>1. Datenschutz auf einen Blick</strong></p>
-    <p><strong>Allgemeine Hinweise</strong><br></p>
-    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-
-    <p style="margin-top: 1rem;"><strong>2. Verantwortliche Stelle</strong></p>
-    <p>Die verantwortliche Datenverarbeitung auf dieser Website ist:</p>
-    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg<br>E-Mail: &#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;</p>
-
-    <p style="margin-top: 1rem;"><strong>3. Hosting über GitHub Pages</strong></p>
-    <p>Diese Website wird extern gehostet über den Dienst <strong>GitHub Pages</strong> (Anbieter: GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Wenn Sie unsere Website besuchen, erfasst GitHub verschiedene Logfiles inklusive Ihrer IP-Adresse. Die Verwendung von GitHub Pages erfolgt im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f DSGVO). 
-    Datenübertragungen in die USA basieren auf den Standardvertragsklauseln der EU-Kommission bzw. dem Data Privacy Framework (DPF). Weitere Informationen entnehmen Sie der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a>.</p>
-
-    <p style="margin-top: 1rem;"><strong>4. Allgemeine Datenerfassung auf der Website</strong></p>
-    <p><strong>E-Mail-Kontakt:</strong> Wenn Sie per E-Mail Kontakt mit mir aufnehmen, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei mir gespeichert und verarbeitet (Art. 6 Abs. 1 lit. b DSGVO bei vertraglichen Anfragen bzw. Art. 6 Abs. 1 lit. f DSGVO bei allgemeinen Anfragen). Diese Daten geben ich nicht ohne Ihre Einwilligung weiter.</p>
-    
-    <p style="margin-top: 1rem;"><strong>5. Plugins und Social Media</strong></p>
-    <p><strong>Instagram-Verlinkung:</strong> Auf dieser Website sind keine aktiven Social-Media-Plugins (wie Like-Buttons) eingebunden, die Daten an soziale Netzwerke übertragen. Es handelt sich lediglich um einen einfachen externen Link zu meinem Instagram-Profil. Wenn Sie den Link anklicken, verlassen Sie meine Website und es greifen die Datenschutzbestimmungen von Instagram (Meta Platforms Ireland Limited).</p>
-
-    <p style="margin-top: 1rem;"><strong>6. Ihre Rechte als betroffene Person</strong></p>
-    <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder Löschung dieser Daten. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese jederzeit für die Zukunft widerrufen. Wenden Sie sich dazu jederzeit an die oben im Impressum angegebene E-Mail-Adresse.</p>
+    <p style="margin-top: 1rem;"><strong>1. Datenschutz auf einen Blick</strong><br>
+    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen...</p>
   </div>
 </div>
 
-<!-- Scroll to Top Button -->
-<a href="#start" class="scroll-top-btn" id="scrollTopBtn">&uarr;</a>
-
-<!-- ===================== JAVASCRIPT ===================== -->
 <script>
-  // Modals öffnen/schließen
+  // Modal Funktionen
   function openModal(id) {
     document.getElementById(id).classList.add('active');
   }
@@ -1044,35 +996,28 @@ a { color: var(--ink); text-decoration: none; }
     }
   }
 
-  // Scroll Animations & Scroll-to-Top Button Steuerung
-  const phoneRows = document.querySelectorAll('.phone-row');
-  const workflowTimelines = document.querySelectorAll('.workflow-timeline');
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
-
+  // Scroll to Top Button Logik
+  const scrollBtn = document.getElementById('scrollTopBtn');
   window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY;
-
-    // Scroll-to-Top Button ab Intro einblenden
-    if (scrollPos > 400) {
-      scrollTopBtn.classList.add('visible');
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('visible');
     } else {
-      scrollTopBtn.classList.remove('visible');
+      scrollBtn.classList.remove('visible');
     }
+  });
 
-    // Elemente triggern wenn im Viewport
-    phoneRows.forEach(row => {
-      const rect = row.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.85) {
-        row.classList.add('in-view');
+  // Intersection Observer für Animationen
+  const observerOptions = { threshold: 0.15 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
       }
     });
+  }, observerOptions);
 
-    workflowTimelines.forEach(timeline => {
-      const rect = timeline.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.85) {
-        timeline.classList.add('in-view');
-      }
-    });
+  document.querySelectorAll('.phone-row, .workflow-timeline').forEach(el => {
+    observer.observe(el);
   });
 </script>
 
