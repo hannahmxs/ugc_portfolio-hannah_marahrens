@@ -6,69 +6,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hannah Marahrens – UGC Portfolio</title>
   <style>
-    /* ---------- SCHRIFTART Geosans (.otf lokal) ---------- */
-   @font-face {
-  font-family: 'Geosans';
-  src: url('fonts/geosans-light.woff2') format('woff2');
+/* ---------- SCHRIFTART Torch Nobel (lokal) ---------- */
+@font-face {
+  font-family: 'Torch Nobel';
+  src: url('fonts/torch-nobel-light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-    }
-    @font-face {
-      font-family: 'Geosans';
-      src: url('fonts/geosans-light.woff2') format('woff2');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
+}
 
-    :root {
-      --lime: #E1FFA5;
-      --lime-subtle: #f5fce3;
-      --lavender: #E1DCFA;
-      --ink: #000000;
-      --paper: #FFFFFF;
-      --muted: #5c5c5c;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Geosans', Arial, sans-serif;
-      font-weight: 300;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.5;
-      letter-spacing: 0.03em;
-    }
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-    }
-    h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: 0.04em; }
-    a { color: var(--ink); text-decoration: none; }
-    
-    .icon-inline {
-      width: 1.2em;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      display: inline-block;
-      vertical-align: -0.2em;
-      margin-right: 0.5em;
-      object-fit: contain;
-    }
+@font-face {
+  font-family: 'Torch Nobel';
+  src: url('fonts/torch-nobel-medium.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
-    .footer-icon {
-      filter: brightness(0);
-    }
+:root {
+  --lime: #E1FFA5;
+  --lime-subtle: #f5fce3;
+  --lavender: #E1DCFA;
+  --ink: #000000;
+  --paper: #FFFFFF;
+  --muted: #5c5c5c;
+}
 
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 1.35rem;
-      font-weight: 600;
-    }
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Torch Nobel', Arial, sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+h1, h2, h3 { 
+  margin: 0; 
+  font-family: 'Torch Nobel', Arial, sans-serif;
+  font-weight: 600; 
+  letter-spacing: 0.04em; 
+}
+
+a { color: var(--ink); text-decoration: none; }
+
+.icon-inline {
+  width: 1.2em;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  display: inline-log;
+  display: inline-block;
+  vertical-align: -0.2em;
+  margin-right: 0.5em;
+  object-fit: contain;
+}
+
+.footer-icon {
+  filter: brightness(0);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
 
     /* ---------- FULLSCREEN SECTIONS ---------- */
     .fullscreen-slide {
