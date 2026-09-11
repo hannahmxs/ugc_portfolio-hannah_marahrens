@@ -19,7 +19,7 @@
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     
-    /* Allgemeine Schrift: Dünner (300), 1 Punkt größer (18px), erhöhter Zeichenabstand */
+    /* Allgemeine Schrift: 1 Punkt größer (18px), engeres Letter-Spacing */
     body {
       margin: 0;
       font-family: "Nobel", sans-serif;
@@ -28,7 +28,7 @@
       color: var(--ink);
       background: var(--paper);
       line-height: 1.5;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.03em;
     }
 
     .section {
@@ -37,11 +37,11 @@
       padding: 4rem 1.5rem;
     }
     
-    /* Überschriften: Dünn und mit erhöhtem Zeichenabstand */
+    /* Überschriften: Dünn und mit ursprünglichem Letter-Spacing */
     h1, h2, h3 { 
       margin: 0; 
       font-weight: 300; 
-      letter-spacing: 0.09em; 
+      letter-spacing: 0.04em; 
     }
     
     a { color: var(--ink); text-decoration: none; }
@@ -67,15 +67,18 @@
       font-weight: 600;
     }
 
-    /* Ausnahme: Dein Name im Hero – jetzt noch dünner gemacht */
+    /* Ausnahme: Dein Name im Hero – extrem dünn und fein gezeichnet */
     .hero-top h1 {
       font-family: "Nobel", sans-serif;
       font-weight: 100 !important; 
       font-size: clamp(38px, 6vw, 85px); 
       line-height: 1.08;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
+      -webkit-text-stroke: 0.2px var(--paper); /* Nimmt der Schrift optisch massiv an Dicke */
     }
+
+    
     /* ---------- FULLSCREEN SECTIONS ---------- */
     .fullscreen-slide {
       position: relative;
