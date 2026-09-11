@@ -1,5 +1,33 @@
-<style>
-    /* ---------- SCHRIFTART NOBEL (lokal .woff2) ---------- */
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hannah Marahrens – UGC Portfolio</title>
+  <style>
+    /* ---------- SCHRIFTART NOBEL (Lokale WOFF2 Schnitte) ---------- */
+    @font-face {
+      font-family: 'NobelExtraLight';
+      src: url('fonts/nobeltrial-extralight.woff2') format('woff2');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'NobelLight';
+      src: url('fonts/nobeltrial-light.woff2') format('woff2');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'NobelBook';
+      src: url('fonts/nobel-book.woff2') format('woff2');
+      font-weight: 350;
+      font-style: normal;
+      font-display: swap;
+    }
     @font-face {
       font-family: 'Nobel';
       src: url('fonts/nobel-regular.woff2') format('woff2');
@@ -18,32 +46,22 @@
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    
-    /* Allgemeine Schrift: 1 Punkt größer (18px), engeres Letter-Spacing */
     body {
       margin: 0;
-      font-family: "Nobel", sans-serif;
-      font-weight: 300; 
-      font-size: 18px; 
+      font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      font-size: 18px; /* 1 Punkt größer */
       color: var(--ink);
       background: var(--paper);
       line-height: 1.5;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em; /* Wieder engeres Letter-Spacing */
     }
-
     .section {
       max-width: 1100px;
       margin: 0 auto;
       padding: 4rem 1.5rem;
     }
-    
-    /* Überschriften: Dünn und mit ursprünglichem Letter-Spacing */
-    h1, h2, h3 { 
-      margin: 0; 
-      font-weight: 300; 
-      letter-spacing: 0.04em; 
-    }
-    
+    h1, h2, h3 { margin: 0; font-weight: 400; letter-spacing: 0.04em; }
     a { color: var(--ink); text-decoration: none; }
     
     .icon-inline {
@@ -64,21 +82,9 @@
       text-transform: uppercase;
       letter-spacing: 0.2em;
       font-size: 1.35rem;
-      font-weight: 600;
+      font-weight: 400;
     }
 
-    /* Ausnahme: Dein Name im Hero – extrem dünn und fein gezeichnet */
-    .hero-top h1 {
-      font-family: "Nobel", sans-serif;
-      font-weight: 50 !important; 
-      font-size: clamp(38px, 6vw, 85px); 
-      line-height: 1.08;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      -webkit-text-stroke: 0.2px var(--paper); /* Nimmt der Schrift optisch massiv an Dicke */
-    }
-
-    
     /* ---------- FULLSCREEN SECTIONS ---------- */
     .fullscreen-slide {
       position: relative;
@@ -135,11 +141,13 @@
       letter-spacing: 0.25em;
       font-size: 1.8rem;
     }
+    /* DEIN NAME IM HERO: Nutzt nun den echten ExtraLight-Schnitt für den perfekten dünnen Look */
     .hero-top h1 {
+      font-family: "NobelExtraLight", "Nobel", sans-serif;
+      font-weight: 200 !important; 
       font-size: clamp(38px, 6vw, 85px); 
       line-height: 1.08;
       letter-spacing: 0.03em;
-      font-weight: 600; 
       text-transform: uppercase;
     }
     .hero-contact-left,
@@ -169,13 +177,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* Änderung: Textblock etwas höher versetzt */
       transform: translateY(-2.5rem);
     }
     .intro-text h2 { font-size: 32px; margin-bottom: 1.2rem; line-height: 1.2; }
     .intro-text p { margin: 0 0 1rem; color: var(--muted); font-size: 20px; }
     .intro-text .Nices-p { margin-top: 0.5rem; margin-bottom: 0.3rem; }
-    .intro-text .niches { color: var(--ink); font-weight: 600; font-size: 20px; margin: 0; }
+    .intro-text .niches { color: var(--ink); font-weight: 400; font-size: 20px; margin: 0; }
     
     .intro-img-wrap, .split-img-wrap {
       padding: 0 !important;
@@ -210,7 +217,6 @@
       justify-items: center;
     }
     .phone-card { text-align: left; width: 100%; max-width: 310px; }
-    /* Änderung: Pop-in-Animation für die drei iPhones, alle gleichzeitig */
     .phone-card {
       opacity: 0;
       transform: scale(0.85);
@@ -253,7 +259,7 @@
     .phone-camera { width: 9px; height: 9px; background: #2a2a2a; border-radius: 50%; border: 1px solid #666; }
     .phone-screen { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #111; position: relative; }
     .phone-screen video { width: 100%; height: 100%; object-fit: cover; }
-    .phone-label { margin-top: 0.8rem; font-weight: 600; font-size: 20px; padding-left: 0.9rem; text-align: left; }
+    .phone-label { margin-top: 0.8rem; font-weight: 400; font-size: 20px; padding-left: 0.9rem; text-align: left; }
     .phone-sub { color: var(--muted); font-size: 17px; padding-left: 0.9rem; text-align: left; }
 
     /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
@@ -275,7 +281,7 @@
       gap: 1.5rem;
       margin: 1.2rem 0;
     }
-    .stat .num { font-size: 32px; font-weight: 700; }
+    .stat .num { font-size: 32px; font-weight: 400; }
     .stat .lbl { font-size: 15px; color: var(--muted); }
 
     .facts { padding-left: 1.2rem; margin: 0.6rem 0 1.2rem; font-size: 20px; }
@@ -294,7 +300,7 @@
       gap: 1.2rem;
     }
     .service-card { padding: 1.8rem 1.4rem; }
-    .service-card h3 { font-size: 20px; margin-bottom: 0.5rem; font-weight: 700; }
+    .service-card h3 { font-size: 20px; margin-bottom: 0.5rem; font-weight: 400; }
     .service-card p { margin: 0; font-size: 17px; color: #222; }
     
     .services-lower {
@@ -322,7 +328,7 @@
       border: 2px solid var(--ink);
       padding: 0.8rem 2rem;
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 400;
       text-decoration: none;
       display: inline-block;
     }
@@ -332,12 +338,11 @@
     .workflow-section {
       background: var(--lime);
       padding: 3rem 2rem 5rem 2rem;
-      /* Änderung: Abstand zur Dienstleistungsseite nach oben vergrößert (4rem), damit er dem unteren Abstand entspricht */
       margin-top: 4rem; 
       overflow: hidden;
     }
     .workflow-container { max-width: 1100px; margin: 0 auto; }
-    .workflow-container h2 { font-size: 32px; margin-bottom: 2.5rem; font-weight: 600; }
+    .workflow-container h2 { font-size: 32px; margin-bottom: 2.5rem; font-weight: 400; }
     .workflow-timeline {
       position: relative;
       display: grid;
@@ -355,7 +360,6 @@
       z-index: 1;
     }
     .workflow-step { position: relative; z-index: 2; }
-    /* Änderung: Workflow-Punkte tauchen nacheinander wischend auf */
     .workflow-step {
       opacity: 0;
       transform: translateX(-25px);
@@ -379,14 +383,13 @@
       border-radius: 50%;
       margin-bottom: 1.2rem;
     }
-    .workflow-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.35; min-height: 54px; }
+    .workflow-step h3 { font-size: 20px; font-weight: 400; margin-bottom: 0.8rem; line-height: 1.35; min-height: 54px; }
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 18px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
     /* ---------- GALERIE STRIP ---------- */
     .gallery-section { max-width: 1100px; margin: 6.5rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    /* Änderung: Gängiges Hochformat (Aspect-Ratio 2 / 3) */
     .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
 
     /* ---------- TRIO PORTRAIT ---------- */
@@ -417,7 +420,7 @@
       position: relative;
       z-index: 1;
       color: var(--paper);
-      font-weight: 600;
+      font-weight: 400;
       font-size: 48px;
       line-height: 1.15;
       padding: 0 5rem 4rem 8rem;
@@ -470,23 +473,23 @@
       position: absolute; top: 1.2rem; right: 1.2rem; font-size: 26px;
       text-decoration: none; color: var(--ink); font-weight: bold; cursor: pointer; background: none; border: none;
     }
-/* SCROLL TO TOP */
+
+    /* SCROLL TO TOP */
     .scroll-top-btn {
       position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px;
-      background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(4px);
-      border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 50%; display: flex;
+      background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);
+      border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 50%; display: flex;
       align-items: center; justify-content: center; color: var(--ink); font-size: 22px;
-      text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 999;
-      /* Deutlich farbkräftiger/sichtbarer gemacht */
+      text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.04); z-index: 999;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease, background 0.3s;
     }
     .scroll-top-btn.visible {
-      opacity: 0.85; /* Höherer Wert = weniger transparent */
+      opacity: 0.3;
       pointer-events: auto;
     }
-    .scroll-top-btn:hover { opacity: 1; background: rgba(255, 255, 255, 0.8); }
+    .scroll-top-btn:hover { opacity: 0.65; background: rgba(255, 255, 255, 0.5); }
 
 
     /* =========================================================
@@ -561,7 +564,7 @@
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { 
         padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
-        transform: none !important; /* Auf Mobile zurücksetzen, falls nötig */
+        transform: none !important;
       }
 
       .split { grid-template-columns: 1fr !important; height: auto !important; }
@@ -594,7 +597,6 @@
         text-align: left !important;
         padding-left: 0.8rem !important; 
       }
-      /* Änderung: iPhones in der mobilen Ansicht minimal verkleinert (von 82vw auf 74vw) */
       .phone-frame {
         max-width: 74vw !important;
         width: 74vw !important;
@@ -660,7 +662,6 @@
         min-height: 450px !important;
         object-position: center 20% !important;
       }
-      /* Änderung: Portrait 2 soll oben nicht angeschnitten werden, nur unten */
       .trio-portrait img:nth-child(2) {
         object-position: center top !important;
       }
@@ -706,7 +707,7 @@
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
   <div class="hero-contact-right">
-    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de</a>
+    <a href="mailto:hannah_marahrens@gmx.de"><img class="icon-inline" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens</a>
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener" class="mobile-only-insta"><img class="icon-inline" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens</a>
   </div>
 </header>
@@ -814,7 +815,7 @@
     <div style="padding: 3rem 2.5rem 3rem 1rem;">
       <h2 style="font-size:32px; margin-bottom:0.8rem;">Warum UGC?</h2>
       <p style="font-size:20px; color:var(--muted); margin-bottom:1.2rem;">Klassische Werbung wird oft ignoriert, <br> echter Content schafft Vertrauen.</p>
-      <p style="font-weight:600; font-size:20px; margin-bottom:0.4rem;">Fakten über UGC (2026)</p>
+      <p style="font-weight:400; font-size:20px; margin-bottom:0.4rem;">Fakten über UGC (2026)</p>
       <ul class="facts">
         <li><b>4x</b> höhere Klickrate (CTR)</li>
         <li><b>2,4x</b> mehr Aufmerksamkeit</li>
@@ -942,25 +943,25 @@
 <div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">
-      Lust auf eine<br>Zusammenarbeit?
+      Lassen Sie uns<br>gemeinsam<br>Werte schaffen.
     </div>
   </div>
   <div class="closing-bar">
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener">
       <img class="icon-inline footer-icon" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens
     </a>
-    <!-- Verschleierte E-Mail-Adresse im Footer -->
     <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;">
       <img class="icon-inline footer-icon" src="bilder/icon-mail.png" alt="Mail">&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;
     </a>
   </div>
-  
+</div>
+
 <div class="footer-bottom-bar">
   <div class="legal-links">
     <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
     <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
   </div>
-  <p class="closing-copyright">&copy; 2026 Hannah Marahrens </p>
+  <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
 </div>
 
 <!-- ===================== MODALS (IMPRESSUM & DATENSCHUTZ) ===================== -->
@@ -997,7 +998,7 @@
     <h2>Datenschutzerklärung</h2>
     
     <p style="margin-top: 1rem;"><strong>1. Datenschutz auf einen Blick</strong></p>
-    <p><strong>Allgemeine Hinweise</strong><br></p>
+    <p><strong>Allgemeine Hinweise</strong><br>
     Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
 
     <p style="margin-top: 1rem;"><strong>2. Verantwortliche Stelle</strong></p>
