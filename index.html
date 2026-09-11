@@ -929,61 +929,99 @@ a { color: var(--ink); text-decoration: none; }
   </div>
 </div>
 
-<!-- ===================== 13. CLOSING & FOOTER ===================== -->
-<footer class="closing-card">
+<img src="bilder/portrait2.jpg" alt="UGC Portrait 2">
+    <img src="bilder/portrait3.jpg" alt="UGC Portrait 3">
+  </div>
+</div>
+
+<!-- ===================== 13. ABSCHLUSS & FOOTER ===================== -->
+<div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">
-      Lass uns gemeinsam<br>etwas Einzigartiges<br>erschaffen.
+      Lassen Sie uns<br>gemeinsam<br>Werte schaffen.
     </div>
   </div>
   <div class="closing-bar">
-    <a href="mailto:hannah_marahrens@gmx.de">
-      <img class="icon-inline footer-icon" src="bilder/icon-mail.png" alt="Mail">hannah_marahrens@gmx.de
-    </a>
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener">
       <img class="icon-inline footer-icon" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens
     </a>
+    <!-- Verschleierte E-Mail-Adresse im Footer -->
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;">
+      <img class="icon-inline footer-icon" src="bilder/icon-mail.png" alt="Mail">&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;
+    </a>
   </div>
-  <div class="footer-bottom-bar">
-    <div class="legal-links">
-      <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
-      <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
-    </div>
-    <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
+</div>
+
+<div class="footer-bottom-bar">
+  <div class="legal-links">
+    <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
+    <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
   </div>
-</footer>
+  <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
+</div>
 
-<!-- SCROLL TO TOP BUTTON -->
-<a href="#start" class="scroll-top-btn" id="scrollTopBtn">&#8593;</a>
-
-<!-- IMPRESSUM MODAL -->
-<div class="modal" id="impressumModal">
+<!-- ===================== MODALS (IMPRESSUM & DATENSCHUTZ) ===================== -->
+<div id="impressumModal" class="modal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('impressumModal')">&times;</button>
     <h2>Impressum</h2>
-    <p style="margin-top: 1rem;">Angaben gemäß § 5 TMG:<br>
-    Hannah Marahrens<br>
-    UGC Creator & Kommunikationsdesign<br>
-    Musterstraße 1<br>
-    20095 Hamburg</p>
-    <p><strong>Kontakt:</strong><br>
-    E-Mail: hannah_marahrens@gmx.de<br>
-    Instagram: @hannah_marahrens</p>
+    <p style="margin-top: 1rem;"><strong>Angaben gemäß § 5 DDG</strong></p>
+    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg</p>
+    
+    <p style="margin-top: 1rem;"><strong>Kontakt</strong></p>
+    <p>E-Mail: &#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;</p>
+    
+    <p style="margin-top: 1rem;"><strong>Umsatzsteuer</strong></p>
+    <p>Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen (Kleinunternehmerregelung).</p>
+    
+    <p style="margin-top: 1rem;"><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong></p>
+    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg</p>
+    
+    <p style="margin-top: 1rem;"><strong>Haftung für Inhalte</strong></p>
+    <p>Als Diensteanbieterin bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Gemäß §§ 8 bis 10 DDG bin ich als Diensteanbieterin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+    
+    <p style="margin-top: 1rem;"><strong>Haftung für Links</strong></p>
+    <p>Dieses Angebot enthält Links zu externen Webseiten Dritter (z. B. Instagram), auf deren Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte trägt stets der jeweilige Anbieter die Verantwortung.</p>
+    
+    <p style="margin-top: 1rem;"><strong>Urheberrecht</strong></p>
+    <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten (Texte, Fotos, Videos) unterliegen dem deutschen Urheberrecht. Eine Vervielfältigung, Bearbeitung oder Verbreitung außerhalb der Grenzen des Urheberrechts bedarf meiner schriftlichen Zustimmung.</p>
   </div>
 </div>
 
-<!-- DATENSCHUTZ MODAL -->
-<div class="modal" id="datenschutzModal">
+<div id="datenschutzModal" class="modal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('datenschutzModal')">&times;</button>
     <h2>Datenschutzerklärung</h2>
-    <p style="margin-top: 1rem;"><strong>1. Datenschutz auf einen Blick</strong><br>
-    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen...</p>
+    
+    <p style="margin-top: 1rem;"><strong>1. Datenschutz auf einen Blick</strong></p>
+    <p><strong>Allgemeine Hinweise</strong><br></p>
+    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+
+    <p style="margin-top: 1rem;"><strong>2. Verantwortliche Stelle</strong></p>
+    <p>Die verantwortliche Datenverarbeitung auf dieser Website ist:</p>
+    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg<br>E-Mail: &#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#12;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;</p>
+
+    <p style="margin-top: 1rem;"><strong>3. Hosting über GitHub Pages</strong></p>
+    <p>Diese Website wird extern gehostet über den Dienst <strong>GitHub Pages</strong> (Anbieter: GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Wenn Sie unsere Website besuchen, erfasst GitHub verschiedene Logfiles inklusive Ihrer IP-Adresse. Die Verwendung von GitHub Pages erfolgt im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f DSGVO). 
+    Datenübertragungen in die USA basieren auf den Standardvertragsklauseln der EU-Kommission bzw. dem Data Privacy Framework (DPF). Weitere Informationen entnehmen Sie der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a>.</p>
+
+    <p style="margin-top: 1rem;"><strong>4. Allgemeine Datenerfassung auf der Website</strong></p>
+    <p><strong>E-Mail-Kontakt:</strong> Wenn Sie per E-Mail Kontakt mit mir aufnehmen, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei mir gespeichert und verarbeitet (Art. 6 Abs. 1 lit. b DSGVO bei vertraglichen Anfragen bzw. Art. 6 Abs. 1 lit. f DSGVO bei allgemeinen Anfragen). Diese Daten geben ich nicht ohne Ihre Einwilligung weiter.</p>
+    
+    <p style="margin-top: 1rem;"><strong>5. Plugins und Social Media</strong></p>
+    <p><strong>Instagram-Verlinkung:</strong> Auf dieser Website sind keine aktiven Social-Media-Plugins (wie Like-Buttons) eingebunden, die Daten an soziale Netzwerke übertragen. Es handelt sich lediglich um einen einfachen externen Link zu meinem Instagram-Profil. Wenn Sie den Link anklicken, verlassen Sie meine Website und es greifen die Datenschutzbestimmungen von Instagram (Meta Platforms Ireland Limited).</p>
+
+    <p style="margin-top: 1rem;"><strong>6. Ihre Rechte als betroffene Person</strong></p>
+    <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder Löschung dieser Daten. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese jederzeit für die Zukunft widerrufen. Wenden Sie sich dazu jederzeit an die oben im Impressum angegebene E-Mail-Adresse.</p>
   </div>
 </div>
 
+<!-- Scroll to Top Button -->
+<a href="#start" class="scroll-top-btn" id="scrollTopBtn">&uarr;</a>
+
+<!-- ===================== JAVASCRIPT ===================== -->
 <script>
-  // Modal Funktionen
+  // Modals öffnen/schließen
   function openModal(id) {
     document.getElementById(id).classList.add('active');
   }
@@ -996,28 +1034,35 @@ a { color: var(--ink); text-decoration: none; }
     }
   }
 
-  // Scroll to Top Button Logik
-  const scrollBtn = document.getElementById('scrollTopBtn');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      scrollBtn.classList.add('visible');
-    } else {
-      scrollBtn.classList.remove('visible');
-    }
-  });
+  // Scroll Animations & Scroll-to-Top Button Steuerung
+  const phoneRows = document.querySelectorAll('.phone-row');
+  const workflowTimelines = document.querySelectorAll('.workflow-timeline');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-  // Intersection Observer für Animationen
-  const observerOptions = { threshold: 0.15 };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY;
+
+    // Scroll-to-Top Button ab Intro einblenden
+    if (scrollPos > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+
+    // Elemente triggern wenn im Viewport
+    phoneRows.forEach(row => {
+      const rect = row.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        row.classList.add('in-view');
       }
     });
-  }, observerOptions);
 
-  document.querySelectorAll('.phone-row, .workflow-timeline').forEach(el => {
-    observer.observe(el);
+    workflowTimelines.forEach(timeline => {
+      const rect = timeline.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        timeline.classList.add('in-view');
+      }
+    });
   });
 </script>
 
