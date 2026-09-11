@@ -6,17 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hannah Marahrens – UGC Portfolio</title>
   <style>
-/* ---------- SCHRIFTART Nobel (lokal) ---------- */
+/* ---------- SCHRIFTART Torch Nobel (lokal) ---------- */
 @font-face {
   font-family: 'Nobel';
   src: url('fonts/nobel-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+}
+
+body {
+  font-family: 'Nobel', sans-serif;
 }
 
 @font-face {
-  font-family: 'Nobel';
+  font-family: 'Torch Nobel';
   src: url('fonts/torch-nobel-medium.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
@@ -38,8 +41,8 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Nobel', Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Torch Nobel', Arial, sans-serif;
+  font-weight: 300;
   color: var(--ink);
   background: var(--paper);
   line-height: 1.5;
@@ -54,7 +57,7 @@ body {
 
 h1, h2, h3 { 
   margin: 0; 
-  font-family: 'Nobel', Arial, sans-serif;
+  font-family: 'Torch Nobel', Arial, sans-serif;
   font-weight: 600; 
   letter-spacing: 0.04em; 
 }
@@ -65,6 +68,7 @@ a { color: var(--ink); text-decoration: none; }
   width: 1.2em;
   height: auto;
   aspect-ratio: 1 / 1;
+  display: inline-log;
   display: inline-block;
   vertical-align: -0.2em;
   margin-right: 0.5em;
@@ -172,6 +176,7 @@ a { color: var(--ink); text-decoration: none; }
       display: flex;
       flex-direction: column;
       justify-content: center;
+      /* Änderung: Textblock etwas höher versetzt */
       transform: translateY(-2.5rem);
     }
     .intro-text h2 { font-size: 32px; margin-bottom: 1.2rem; line-height: 1.2; }
@@ -212,6 +217,7 @@ a { color: var(--ink); text-decoration: none; }
       justify-items: center;
     }
     .phone-card { text-align: left; width: 100%; max-width: 310px; }
+    /* Änderung: Pop-in-Animation für die drei iPhones, alle gleichzeitig */
     .phone-card {
       opacity: 0;
       transform: scale(0.85);
@@ -333,6 +339,7 @@ a { color: var(--ink); text-decoration: none; }
     .workflow-section {
       background: var(--lime);
       padding: 3rem 2rem 5rem 2rem;
+      /* Änderung: Abstand zur Dienstleistungsseite nach oben vergrößert (4rem), damit er dem unteren Abstand entspricht */
       margin-top: 4rem; 
       overflow: hidden;
     }
@@ -355,6 +362,7 @@ a { color: var(--ink); text-decoration: none; }
       z-index: 1;
     }
     .workflow-step { position: relative; z-index: 2; }
+    /* Änderung: Workflow-Punkte tauchen nacheinander wischend auf */
     .workflow-step {
       opacity: 0;
       transform: translateX(-25px);
@@ -385,6 +393,7 @@ a { color: var(--ink); text-decoration: none; }
     /* ---------- GALERIE STRIP ---------- */
     .gallery-section { max-width: 1100px; margin: 6.5rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    /* Änderung: Gängiges Hochformat (Aspect-Ratio 2 / 3) */
     .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
 
     /* ---------- TRIO PORTRAIT ---------- */
@@ -468,23 +477,28 @@ a { color: var(--ink); text-decoration: none; }
       position: absolute; top: 1.2rem; right: 1.2rem; font-size: 26px;
       text-decoration: none; color: var(--ink); font-weight: bold; cursor: pointer; background: none; border: none;
     }
-    /* SCROLL TO TOP */
+/* SCROLL TO TOP */
     .scroll-top-btn {
       position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px;
       background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(4px);
       border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 50%; display: flex;
       align-items: center; justify-content: center; color: var(--ink); font-size: 22px;
       text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 999;
+      /* Deutlich farbkräftiger/sichtbarer gemacht */
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease, background 0.3s;
     }
     .scroll-top-btn.visible {
-      opacity: 0.85;
+      opacity: 0.85; /* Höherer Wert = weniger transparent */
       pointer-events: auto;
     }
     .scroll-top-btn:hover { opacity: 1; background: rgba(255, 255, 255, 0.8); }
 
+
+    /* =========================================================
+        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
+        ========================================================= */
     @media (max-width: 800px) {
       .hero {
         height: 75vh !important;
@@ -554,7 +568,7 @@ a { color: var(--ink); text-decoration: none; }
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { 
         padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
-        transform: none !important;
+        transform: none !important; /* Auf Mobile zurücksetzen, falls nötig */
       }
 
       .split { grid-template-columns: 1fr !important; height: auto !important; }
@@ -587,6 +601,7 @@ a { color: var(--ink); text-decoration: none; }
         text-align: left !important;
         padding-left: 0.8rem !important; 
       }
+      /* Änderung: iPhones in der mobilen Ansicht minimal verkleinert (von 82vw auf 74vw) */
       .phone-frame {
         max-width: 74vw !important;
         width: 74vw !important;
@@ -652,6 +667,7 @@ a { color: var(--ink); text-decoration: none; }
         min-height: 450px !important;
         object-position: center 20% !important;
       }
+      /* Änderung: Portrait 2 soll oben nicht angeschnitten werden, nur unten */
       .trio-portrait img:nth-child(2) {
         object-position: center top !important;
       }
@@ -929,16 +945,11 @@ a { color: var(--ink); text-decoration: none; }
   </div>
 </div>
 
-<img src="bilder/portrait2.jpg" alt="UGC Portrait 2">
-    <img src="bilder/portrait3.jpg" alt="UGC Portrait 3">
-  </div>
-</div>
-
 <!-- ===================== 13. ABSCHLUSS & FOOTER ===================== -->
 <div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">
-      Lassen Sie uns<br>gemeinsam<br>Werte schaffen.
+      Lust auf eine<br>Zusammenarbeit?
     </div>
   </div>
   <div class="closing-bar">
@@ -950,14 +961,13 @@ a { color: var(--ink); text-decoration: none; }
       <img class="icon-inline footer-icon" src="bilder/icon-mail.png" alt="Mail">&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;
     </a>
   </div>
-</div>
-
+  
 <div class="footer-bottom-bar">
   <div class="legal-links">
     <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
     <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
   </div>
-  <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
+  <p class="closing-copyright">&copy; 2026 Hannah Marahrens </p>
 </div>
 
 <!-- ===================== MODALS (IMPRESSUM & DATENSCHUTZ) ===================== -->
@@ -999,7 +1009,7 @@ a { color: var(--ink); text-decoration: none; }
 
     <p style="margin-top: 1rem;"><strong>2. Verantwortliche Stelle</strong></p>
     <p>Die verantwortliche Datenverarbeitung auf dieser Website ist:</p>
-    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg<br>E-Mail: &#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#12;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;</p>
+    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg<br>E-Mail: &#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;</p>
 
     <p style="margin-top: 1rem;"><strong>3. Hosting über GitHub Pages</strong></p>
     <p>Diese Website wird extern gehostet über den Dienst <strong>GitHub Pages</strong> (Anbieter: GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Wenn Sie unsere Website besuchen, erfasst GitHub verschiedene Logfiles inklusive Ihrer IP-Adresse. Die Verwendung von GitHub Pages erfolgt im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f DSGVO). 
