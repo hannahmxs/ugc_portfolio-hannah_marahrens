@@ -181,7 +181,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 70% center;
+      object-position: 80% center;
       display: block;
     }
 
@@ -200,6 +200,16 @@
       justify-items: center;
     }
     .phone-card { text-align: left; width: 100%; max-width: 310px; }
+    /* Änderung: Pop-in-Animation für die drei iPhones, alle gleichzeitig */
+    .phone-card {
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .phone-row.in-view .phone-card {
+      opacity: 1;
+      transform: scale(1);
+    }
     .phone-frame {
       position: relative;
       width: 100%;
@@ -335,6 +345,20 @@
       z-index: 1;
     }
     .workflow-step { position: relative; z-index: 2; }
+    /* Änderung: Workflow-Punkte tauchen nacheinander wischend auf */
+    .workflow-step {
+      opacity: 0;
+      transform: translateX(-25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .workflow-timeline.in-view .workflow-step {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .workflow-timeline.in-view .workflow-step:nth-child(1) { transition-delay: 0s; }
+    .workflow-timeline.in-view .workflow-step:nth-child(2) { transition-delay: 0.25s; }
+    .workflow-timeline.in-view .workflow-step:nth-child(3) { transition-delay: 0.5s; }
+    .workflow-timeline.in-view .workflow-step:nth-child(4) { transition-delay: 0.75s; }
     .workflow-step::before {
       content: "";
       display: block;
@@ -441,12 +465,19 @@
     .scroll-top-btn {
       position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px;
       background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);
-      border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 50%; display: none;
+      border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 50%; display: flex;
       align-items: center; justify-content: center; color: var(--ink); font-size: 22px;
       text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.04); z-index: 999;
-      transition: background 0.3s;
+      /* Änderung: sehr transparent, erscheint erst ab der Intro-Seite via JS-Klasse "visible" */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, background 0.3s;
     }
-    .scroll-top-btn:hover { background: rgba(255, 255, 255, 0.5); }
+    .scroll-top-btn.visible {
+      opacity: 0.3;
+      pointer-events: auto;
+    }
+    .scroll-top-btn:hover { opacity: 0.65; background: rgba(255, 255, 255, 0.5); }
 
 
     /* =========================================================
@@ -619,6 +650,10 @@
         height: 75vh !important;
         min-height: 450px !important;
         object-position: center 20% !important;
+      }
+      /* Änderung: Portrait 2 soll oben nicht angeschnitten werden, nur unten */
+      .trio-portrait img:nth-child(2) {
+        object-position: center top !important;
       }
 
       .closing-img {
@@ -919,21 +954,54 @@
   <div class="modal-content">
     <button onclick="closeModal('impressum-modal')" class="modal-close">&times;</button>
     <h2>Impressum</h2>
-    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-    <p>Hannah Marahrens<br>[Straße und Hausnummer]<br>[PLZ und Ort]</p>
-    <p><strong>Kontakt:</strong><br>Telefon: [Deine Telefonnummer]<br>E-Mail: hannah_marahrens@gmx.de</p>
-    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>Hannah Marahrens</p>
+    <p><strong>Angaben gemäß § 5 DDG:</strong></p>
+    <p>Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457 Hamburg</p>
+    <p><strong>Kontakt:</strong><br>E-Mail: hannah_marahrens@gmx.de</p>
+    <p><strong>Umsatzsteuer:</strong><br>[Falls vorhanden: Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG. Falls keine Umsatzsteuer ausgewiesen wird: „Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).“]</p>
+    <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>Hannah Marahrens<br>Kalvslohtwiete 29a, 22457 Hamburg</p>
+    <p><strong>Haftung für Inhalte</strong><br>Als Diensteanbieterin bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Gemäß §§ 8 bis 10 DDG bin ich als Diensteanbieterin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+    <p><strong>Haftung für Links</strong><br>Dieses Angebot enthält Links zu externen Webseiten Dritter (z. B. Instagram), auf deren Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte trägt stets der jeweilige Anbieter die Verantwortung.</p>
+    <p><strong>Urheberrecht</strong><br>Die durch mich erstellten Inhalte und Werke auf diesen Seiten (Texte, Fotos, Videos) unterliegen dem deutschen Urheberrecht. Eine Vervielfältigung, Bearbeitung oder Verbreitung außerhalb der Grenzen des Urheberrechts bedarf meiner schriftlichen Zustimmung.</p>
   </div>
 </div>
 
 <div id="datenschutz-modal" class="modal">
   <div class="modal-content">
     <button onclick="closeModal('datenschutz-modal')" class="modal-close">&times;</button>
-    <h2>Datenschutz</h2>
-    <p><strong>1. Datenschutz auf einen Blick</strong></p>
-    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen...</p>
+    <h2>Datenschutzerklärung</h2>
+
+    <p><strong>1. Verantwortliche Stelle</strong></p>
+    <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+    Hannah Marahrens<br>Kalvslohtwiete 29a<br>22457, Hamburg<br>E-Mail: hannah_marahrens@gmx.de</p>
+
+    <p><strong>2. Hosting</strong></p>
+    <p>Diese Website wird bei [Name und Anschrift des Hosting-Anbieters] gehostet. Der Hosting-Anbieter erhebt in sogenannten Server-Log-Dateien automatisch Daten, die Ihr Browser übermittelt, u. a. IP-Adresse, Datum und Uhrzeit der Anfrage, Browsertyp und -version sowie Referrer-URL. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer technisch fehlerfreien und sicheren Bereitstellung der Website).</p>
+
+    <p><strong>3. Kontaktaufnahme per E-Mail</strong></p>
+    <p>Wenn Sie mich per E-Mail kontaktieren, werden Ihre Angaben (E-Mail-Adresse, ggf. Name und Nachrichteninhalt) zur Bearbeitung Ihrer Anfrage gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b bzw. f DSGVO. Die Daten werden gelöscht, sobald sie zur Bearbeitung nicht mehr erforderlich sind.</p>
+
+    <p><strong>4. Verlinkung zu Instagram</strong></p>
+    <p>Diese Website verlinkt auf mein Instagram-Profil. Beim Anklicken verlassen Sie diese Website; es gelten dann die Datenschutzbestimmungen des jeweiligen Anbieters (Meta Platforms Ireland Limited). Es werden auf dieser Website selbst keine Instagram-Inhalte eingebettet und keine Daten an Instagram übermittelt.</p>
+
+    <p><strong>5. Cookies</strong></p>
+    <p>[Anzugeben: Setzt die Website Cookies, Analyse- oder Tracking-Tools ein? Falls ja, sind hier Art, Zweck, Speicherdauer und Rechtsgrundlage zu nennen; bei nicht technisch notwendigen Cookies ist zusätzlich ein Einwilligungs-Banner nach § 25 TDDDG erforderlich.]</p>
+
+    <p><strong>6. Eingebundene Videos</strong></p>
+    <p>[Anzugeben: Werden die Videos direkt vom eigenen Server ausgeliefert oder über einen Drittanbieter (z. B. YouTube, Vimeo) eingebunden? Bei Einbindung eines Drittanbieters ist dessen Datenverarbeitung gesondert zu beschreiben.]</p>
+
+    <p><strong>7. Ihre Rechte</strong></p>
+    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie ein Recht auf Datenübertragbarkeit und Widerspruch gegen die Verarbeitung (Art. 15–21 DSGVO). Wenden Sie sich hierzu an die oben genannte Kontaktadresse.</p>
+
+    <p><strong>8. Beschwerderecht bei einer Aufsichtsbehörde</strong></p>
+    <p>Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren, etwa bei der für Ihren Wohnort zuständigen Behörde.</p>
+
+    <p><strong>9. SSL-/TLS-Verschlüsselung</strong></p>
+    <p>[Anzugeben, sobald bestätigt: Diese Seite nutzt eine SSL-/TLS-Verschlüsselung. Sie erkennen eine verschlüsselte Verbindung an "https://" und dem Schloss-Symbol in der Browserzeile.]</p>
   </div>
 </div>
+
+<!-- ===================== SCROLL TO TOP BUTTON ===================== -->
+<a href="#start" class="scroll-top-btn" id="scrollTopBtn" aria-label="Nach oben scrollen">↑</a>
 
 <!-- ===================== JAVASCRIPT ===================== -->
 <script>
@@ -950,6 +1018,41 @@
       event.target.classList.remove('active');
     }
   }
+
+  // ---------- SCROLL-TO-TOP: erst sichtbar ab der Intro-Seite ----------
+  const heroEl = document.getElementById('start');
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  function toggleScrollBtn() {
+    if (!heroEl || !scrollBtn) return;
+    const heroBottom = heroEl.getBoundingClientRect().bottom;
+    if (heroBottom <= 0) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', toggleScrollBtn, { passive: true });
+  toggleScrollBtn();
+
+  // ---------- POP-IN-ANIMATIONEN (Phone-Rows & Workflow) ----------
+  function setupInView(selector) {
+    const elements = document.querySelectorAll(selector);
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach(el => el.classList.add('in-view'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    elements.forEach(el => observer.observe(el));
+  }
+  setupInView('.phone-row');
+  setupInView('.workflow-timeline');
 </script>
 
 </body>
