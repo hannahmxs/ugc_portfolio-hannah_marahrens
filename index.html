@@ -1,31 +1,60 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta name="robots" content="noindex, nofollow">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hannah Marahrens – UGC Portfolio</title>
-  <style>
-/* ---------- SCHRIFTART Torch Nobel (lokal) ---------- */
-@font-face {
-  font-family: 'Nobel';
-  src: url('fonts/nobel-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
+<style>
+    /* ---------- SCHRIFTART NOBEL (lokal .woff2) ---------- */
+    @font-face {
+      font-family: 'Nobel';
+      src: url('fonts/nobel-regulär.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
 
-body {
-  font-family: 'Nobel', sans-serif;
-}
+    :root {
+      --lime: #E1FFA5;
+      --lime-subtle: #f5fce3;
+      --lavender: #E1DCFA;
+      --ink: #000000;
+      --paper: #FFFFFF;
+      --muted: #5c5c5c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    /* Allgemeine Schrift: Dünner (300 statt normal), 1 Punkt größer, mehr Buchstabenabstand */
+    body {
+      margin: 0;
+      font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300; 
+      font-size: 17px; /* ca. 1 Punkt größer als vorher (Standard war 16px implizit) */
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+      letter-spacing: 0.08em; /* Letter-spacing erhöht */
+    }
 
-@font-face {
-  font-family: 'Nobel';
-  src: url('fonts/nobel-medium.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    
+    /* Überschriften und wichtige Texte behalten Gewicht, bekommen aber auch mehr Abstand */
+    h1, h2, h3 { 
+      margin: 0; 
+      font-weight: 400; /* Nimmt auch den Überschriften etwas die Wucht */
+      letter-spacing: 0.08em; 
+    }
+    
+    a { color: var(--ink); text-decoration: none; }
+    
+    /* Ausnahme: Dein Name im Hero soll von dieser Regel unberührt bleiben (fett & kräftig) */
+    .hero-top h1 {
+      font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 700 !important; 
+      font-size: clamp(38px, 6vw, 85px); 
+      line-height: 1.08;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
 :root {
   --lime: #E1FFA5;
   --lime-subtle: #f5fce3;
