@@ -2,7 +2,7 @@
     /* ---------- SCHRIFTART NOBEL (lokal .woff2) ---------- */
     @font-face {
       font-family: 'Nobel';
-      src: url('fonts/nobel-regulär.woff2') format('woff2');
+      src: url('fonts/nobel-regular.woff2') format('woff2');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
@@ -22,7 +22,7 @@
     /* Allgemeine Schrift: Dünner (300 statt normal), 1 Punkt größer, mehr Buchstabenabstand */
     body {
       margin: 0;
-      font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
+      font-family: "Nobel";
       font-weight: 300; 
       font-size: 17px; /* ca. 1 Punkt größer als vorher (Standard war 16px implizit) */
       color: var(--ink);
@@ -48,8 +48,8 @@
     
     /* Ausnahme: Dein Name im Hero soll von dieser Regel unberührt bleiben (fett & kräftig) */
     .hero-top h1 {
-      font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
-      font-weight: 500 !important; 
+      font-family: "Nobel";
+      font-weight: 400 !important; 
       font-size: clamp(38px, 6vw, 85px); 
       line-height: 1.08;
       letter-spacing: 0.04em;
@@ -70,7 +70,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Nobel', Arial, sans-serif;
+  font-family: 'Nobel';
   font-weight: 300;
   color: var(--ink);
   background: var(--paper);
@@ -86,7 +86,7 @@ body {
 
 h1, h2, h3 { 
   margin: 0; 
-  font-family: 'Nobel', Arial, sans-serif;
+  font-family: 'Nobel';
   font-weight: 600; 
   letter-spacing: 0.04em; 
 }
