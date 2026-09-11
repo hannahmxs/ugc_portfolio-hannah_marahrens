@@ -35,6 +35,13 @@
       font-style: normal;
       font-display: swap;
     }
+    @font-face {
+      font-family: 'NobelBold';
+      src: url('fonts/nobel-bold.woff3') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
 
     :root {
       --lime: #E1FFA5;
@@ -283,7 +290,11 @@
       gap: 1.5rem;
       margin: 1.2rem 0;
     }
-    .stat .num { font-size: 36px; font-weight: 400; }
+     .stat .num { 
+      font-family: 'NobelBold', sans-serif;
+      font-size: 36px; 
+      font-weight: 700; 
+    }
     .stat .lbl { font-size: 17px; color: var(--muted); }
 
     .facts { padding-left: 1.2rem; margin: 0.6rem 0 1.2rem; font-size: 22px; }
@@ -698,6 +709,41 @@
       }
       .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
     }
+    @media (max-width: 768px) {
+      /* 1. E-Mail und Instagram im Hero und Closing auf NobelRegular */
+      .hero-contact-left,
+      .hero-contact-right {
+        font-family: "Nobel", sans-serif !important;
+        font-weight: 400 !important;
+      }
+      .closing-bar a {
+        font-family: "Nobel", sans-serif !important;
+        font-weight: 400 !important;
+      }
+
+      /* 2. Flattersatz für Intro-Text ("Moin, ich bin Hannah...") */
+      .intro-text p {
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+      
+      /* 3. Abstand der Überschrift "Warum UGC?" zum oberen Rand der Box */
+      .bg-lime.section, .split > div {
+        padding-top: 2.5rem;
+      }
+      .split > div h2 {
+        margin-top: 1rem;
+      }
+
+      /* 4. Flattersatz für CTA ("Benötigen Sie mehr Videos...") */
+      .cta-row p, .cta-row {
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
   </style>
 </head>
 <body>
