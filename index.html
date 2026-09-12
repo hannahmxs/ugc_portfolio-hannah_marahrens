@@ -483,6 +483,11 @@
   font-weight: 300; 
   margin: 0; 
 }
+    .closing-copyright {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  overflow-wrap: break-word;
+}
 
     /* Modals */
     .modal {
@@ -491,6 +496,9 @@
     }
     .modal.active { display: flex; }
     .modal-content {
+      .modal-content {
+  font-family: 'NobelLight', sans-serif;
+  font-weight: 300;
       background: var(--lime-subtle); padding: 3rem; max-width: 750px; width: 100%;
       max-height: 85vh; overflow-y: auto; position: relative; border-radius: 0; border: 1px solid rgba(0,0,0,0.1);
     }
@@ -752,6 +760,9 @@
         word-break: normal;
         overflow-wrap: break-word;
       }
+      <link rel="icon" type="image/png" href="bilder/favicon.png">
+<link rel="apple-touch-icon" href="bilder/favicon.png">
+      
   </style>
 </head>
 <body>
@@ -786,8 +797,7 @@
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
-      <p>Moin,<br> ich bin Hannah, Creator und Kommunikationsdesignerin<br>mit einer besonderen Sensibilität für Bildsprache,<br>Stimmung und die kleinen Details, die eine Marke<br>fühlbar machen.</p>
-      <p style="margin-top: 0.5rem;">Mit einem geschulten Auge für Komposition und einem <br> feinen Gespür für Emotionen übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
+<p>Moin,<br class="desktop-br"> ich bin Hannah, Creator und Kommunikationsdesignerin<br class="desktop-br">mit einer besonderen Sensibilität für Bildsprache,<br class="desktop-br">Stimmung und die kleinen Details, die eine Marke<br class="desktop-br">fühlbar machen.</p>      <p style="margin-top: 0.5rem;">Mit einem geschulten Auge für Komposition und einem <br> feinen Gespür für Emotionen übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
     </div>
     <div class="intro-img-wrap">
       <img src="bilder/intro.jpg" alt="Hannah Marahrens" class="shifted-right-img">
@@ -880,11 +890,11 @@
       <h2 style="font-size:36px; margin-bottom:0.8rem;">Warum UGC?</h2>
       <p style="font-size:22px; color:var(--muted); margin-bottom:1.2rem;">Klassische Werbung wird oft ignoriert, <br> echter Content schafft Vertrauen.</p>
       <p style="font-weight:400; font-size:22px; margin-bottom:0.4rem;">Fakten über UGC (2026)</p>
-      <ul class="facts">
-        <li><b>4x</b> höhere Klickrate (CTR)</li>
-        <li><b>2,4x</b> mehr Aufmerksamkeit</li>
-        <li><b>+ 28 %</b> Engagement</li>
-        <li><b>+ 29 %</b> Konversionen</li>
+     <ul class="facts">
+  <li><span class="fact-bold">4x</span> höhere Klickrate (CTR)</li>
+  <li><span class="fact-bold">2,4x</span> mehr Aufmerksamkeit</li>
+  <li><span class="fact-bold">+ 28 %</span> Engagement</li>
+  <li><span class="fact-bold">+ 29 %</span> Konversionen</li>
       </ul>
       <p style="color:var(--muted); font-size:22px; margin-top:0.8rem;">Durch authentischen Content entsteht eine direkte emotionale Verbindung zur Zielgruppe, die messbar zu höheren Abschlussraten führt und die Konversionen-Zahlen maximiert.</p>
     </div>
